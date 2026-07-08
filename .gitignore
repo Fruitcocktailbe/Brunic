@@ -1,5 +1,5 @@
 # Ruwe klantdata — device-local, nooit committen (GDPR + 10MB+ exports)
-data/
+data/*
 !data/README.md
 
 # Secrets
