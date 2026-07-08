@@ -1,0 +1,19 @@
+# Ruwe klantdata — device-local, nooit committen (GDPR + 10MB+ exports)
+data/
+!data/README.md
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Build & deps
+node_modules/
+.next/
+.vercel/
+.turbo/
+dist/
+
+# OS/editor
+.DS_Store
+Thumbs.db
