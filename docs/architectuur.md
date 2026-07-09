@@ -18,7 +18,8 @@ data/             # ruwe exports — GITIGNORED, device-local
 ```
 
 ## Shopify-aanpak
-- Bouwen in een **gratis Partner development store**; overdracht naar Bruno's betaalde Basic-store bij livegang (Bruno = store owner, wij = collaborator — eigendomsprincipe).
+- ✅ **Dev-store live: `brunic-3.myshopify.com`** (Partner-account van HackersQuattro, plan Development, EUR/BE — aangemaakt 08/07, claude.ai-Shopify-connector eraan gekoppeld). ⚠️ Store-timezone staat op EDT — bij de settings-pass op Europe/Brussels zetten (admin UI, niet via API).
+- Bouwen in deze **gratis Partner development store**; overdracht naar Bruno's betaalde Basic-store bij livegang (Bruno = store owner, wij = collaborator — eigendomsprincipe).
 - Vóór de offerte-details vastklikken: verifiëren dat **Basic** volstaat — Storefront API-limieten, Search & Discovery-filters op metafields, checkout-branding. Geen Plus-features beloven.
 - Shopify Payments + Bancontact (KYC door Bruno — vroeg starten).
 
