@@ -38,5 +38,21 @@ Alle definities filterable via Search & Discovery; namespace-voorstel `brunic`.
 | `erp_familie` | text | product | alle (herkomst-koppeling `LLL FFF`) |
 | `verkoop_per_meter` | boolean | product | wasdoek, stoffen, vasttapijt (UX-keuze nog open) |
 
+## Domeinregels (vastgelegd 09/07/2026, uit de data geverifieerd)
+- **`breedte = min(a, b)`, `lengte = max(a, b)`** — bronnamen zijn niet consistent georiënteerd (Woo: "Herati 141x72", "Tosserkhan 230x140"). Het maatfilter draait op breedte, dus normaliseren is verplicht.
+- **Rolmaten verwerpen.** `... LOPER 2862 GRIJS / ANTIVUIL 100X25M ...` is een rol van 100 cm × **25 m**, geen tapijt van 100×25 cm. Een `M`-suffix (of lengte ≫ breedte) = rol → geen breedte/lengte-metafield, wél `verkoop_per_meter`.
+- **Matten ≠ karpetten.** Voetmatten/badmatten/knoeimatten/lopers (breedte < 80 cm) horen in een eigen webcategorie. Mét die matten zit 55% van de tapijten in één maat-bucket; zónder klopt de bucket-indeling uit het design (19/44/30/7%). Zie decisions/log.md 2026-07-09.
+- **Etalage-producten** krijgen `price 0.00` + `brunic.etalage = true`; de storefront onderdrukt prijs en koopknop. Prijs 0 is dus géén geldige prijs, maar een "nog geen prijs"-sentinel tot de prijzen-export landt.
+  > ⚠️ **Shopify beschermt dit NIET.** Een etalageproduct met prijs €0 is in Shopify zelf niet afgeschermd. De bescherming zit uitsluitend in onze eigen server-action (`apps/web/src/lib/cart/cart.ts` → `bewaakVariant`), die zowel de etalage-vlag als `price > 0` controleert. **Een import die `brunic.etalage` vergeet te zetten op een prijsloos product maakt dat product afrekenbaar.** Zet de vlag altijd expliciet, ook op `false`.
+- **Publiceren op het Headless-kanaal is verplicht** (stap 6). Een product of collection dat niet op de publication **`Brunic Headless`** staat, is *onzichtbaar* voor de Storefront API — `collection(handle:…)` geeft dan gewoon `null`, zónder foutmelding. `productSet` publiceert **niet** automatisch: elke import moet `publishablePublish(id, { publicationId })` meenemen, anders bouwt de site een lege catalogus. (Geverifieerd 10/07: 10 producten waren admin-zijdig correct maar Storefront-zijdig onzichtbaar tot publicatie.)
+- **Metafield-filters bestaan pas na Search & Discovery.** `access: { storefront: PUBLIC_READ }` op de definitie maakt de *waarde* leesbaar, maar niet filterbaar: het filter zelf (`filter.v.m.brunic.breedte_cm`) verschijnt pas als het in de S&D-app is toegevoegd én opgeslagen.
+
+## ⚠️ Open probleem dat de 13.9k-import blokkeert: **product-groepering**
+Het ERP houdt **één artikel per maat** aan; `architectuur.md` §Datamodel eist **één product per design/kleur met maten als varianten**. Die hergroepering is nog niet opgelost:
+- 2.024 tapijt-artikelen met maat → naïef groeperen (maat wegstrippen) geeft **1.848 groepen, waarvan slechts 103 met >1 maat**.
+- Oorzaak: `omschrijving` is **vast-breed afgekapt** (`… / BRUNIC DE` vs `… / BRUNIC DEC`), dus het staartstuk verschilt per maat.
+- De WooCommerce-export kan niet bijspringen: **1.478 van de 1.824 variaties (81%) hebben geen `_parent_sku`** en zijn dus wees.
+Stap 3 (`verrijk`) moet hiervoor een expliciete groeperingssleutel krijgen (ERP-familiecode `LLL FFF` + design/kleurcode), niet de vrije tekst.
+
 ## Open beslissingen (zie ook docs/architectuur.md §Datamodel)
 Per-meter-verkoopmodel (0,1m-increment vs lengte-invoer) · eenheden-defaults per familie (Sandra) · ERP-sync-cadans na livegang · scraping-bronnen (wacht op leverancierslijst) + gebruiksrecht beelden als dealer checken.

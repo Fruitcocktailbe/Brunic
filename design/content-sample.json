@@ -1,0 +1,2546 @@
+{
+ "summary": {
+  "Vloerbekleding": 694,
+  "Tapijten": 425,
+  "Behangpapier": 238,
+  "Stoffen": 165,
+  "Badkamer": 138,
+  "Home & decoratie": 99,
+  "Verlichting": 94,
+  "Slaapcomfort": 58,
+  "Verf": 37,
+  "Badkamer Accessoires": 24,
+  "Raamdecoratie": 10
+ },
+ "sample": {
+  "Raamdecoratie": [
+   {
+    "sku": "554505019",
+    "name": "Rolgordijn Grijs Verduisterend",
+    "type": "variable",
+    "cat_full": "Raamdecoratie > Kant-en-klare rolgordijnen",
+    "cat_top": "Raamdecoratie",
+    "price": "",
+    "sale": "",
+    "desc": "Kleur: Grijs Dit rolgordijn zorgt er voor dat de ruimte verduisterd wordt. Rolgordijnen kunnen gereinigd worden met een vochtige doek. Dit product heeft 5 standaard maten. Wenst u een rolgordijn op maat gemaakt? Kom langs in de winkel, u kan kiezen uit een ruime keuze stoffen en…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2189479143-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/2189482092-1.jpg"
+    ],
+    "variant_attr": "Formaat Rolgordijn Grijs Verduisterend",
+    "variant_values": "Rolgordijn Grijs Verduisterend 60cm x 180cm, Rolgordijn Grijs Verduisterend 80cm x 180cm, Rolgordijn Grijs Verduisterend 100cm x 180cm, Rolgordijn Grijs Verduisterend 120cm x 180cm, Rolgordijn Grijs Verduisterend 140cm x 180cm",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "554505031",
+    "name": "Rolgordijn Blauw Verduisterend",
+    "type": "variable",
+    "cat_full": "Raamdecoratie > Kant-en-klare rolgordijnen",
+    "cat_top": "Raamdecoratie",
+    "price": "",
+    "sale": "",
+    "desc": "Kleur: Blauw Dit rolgordijn zorgt er voor dat de ruimte verduisterd wordt. Rolgordijnen kunnen gereinigd worden met een vochtige doek. Dit product heeft 5 standaard maten. Wenst u een rolgordijn op maat gemaakt? Kom langs in de winkel, u kan kiezen uit een ruime keuze stoffen en…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2190201003-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/2190146711-1.jpg"
+    ],
+    "variant_attr": "Formaat Rolgordijn Blauw Verduisterend",
+    "variant_values": "Rolgordijn Blauw Verduisterend 60cm x 180cm, Rolgordijn Blauw Verduisterend 80cm x 180cm, Rolgordijn Blauw Verduisterend 100cm x 180cm, Rolgordijn Blauw Verduisterend 120cm x 180cm, Rolgordijn Blauw Verduisterend 140cm x 180cm",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "554505024",
+    "name": "Rolgordijn Wit Verduisterend",
+    "type": "variable",
+    "cat_full": "Raamdecoratie > Kant-en-klare rolgordijnen",
+    "cat_top": "Raamdecoratie",
+    "price": "",
+    "sale": "",
+    "desc": "Kleur: Wit Dit rolgordijn zorgt er voor dat de ruimte verduisterd wordt. Rolgordijnen kunnen gereinigd worden met een vochtige doek. Dit product heeft 5 standaard maten. Wenst u een rolgordijn op maat gemaakt? Kom langs in de winkel, u kan kiezen uit een ruime keuze stoffen en…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2185916199-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/2185896426-1.jpg"
+    ],
+    "variant_attr": "Formaat Rolgordijn Wit Verduisterend",
+    "variant_values": "Rolgordijn Wit Verduisterend 60cm x 180cm, Rolgordijn Wit Verduisterend 80cm x 180cm, Rolgordijn Wit Verduisterend 100cm x 180cm, Rolgordijn Wit Verduisterend 120cm x 180cm, Rolgordijn Wit Verduisterend 140cm x 180cm",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "554505061",
+    "name": "Rolgordijn Scandi Linnen Grijs Lichtdoorlatend",
+    "type": "variable",
+    "cat_full": "Raamdecoratie > Kant-en-klare rolgordijnen",
+    "cat_top": "Raamdecoratie",
+    "price": "",
+    "sale": "",
+    "desc": "Kleur: Grijs Dit rolgordijn zorgt er voor dat het licht nog binnen kan. Rolgordijnen kunnen gereinigd worden met een vochtige doek. Dit product heeft 5 standaard maten. Wenst u een rolgordijn op maat gemaakt? Kom langs in de winkel, u kan kiezen uit een ruime keuze stoffen en…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2196734915-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/2196734920-1.jpg"
+    ],
+    "variant_attr": "Formaat Rolgordijn Scandi Linnen Grijs Lichtdoorlatend",
+    "variant_values": "Rolgordijn Scandi Linnen Grijs Lichtdoorlatend 60cm x 180cm, Rolgordijn Scandi Linnen Grijs Lichtdoorlatend 80cm x 180cm, Rolgordijn Scandi Linnen Grijs Lichtdoorlatend 100cm x 180cm, Rolgordijn Scandi Linnen Grijs Lichtdoorlatend 120cm x 180cm, Rolgordijn Scandi Linnen Grijs Lichtdoorlatend 140cm x 180cm",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "554505051",
+    "name": "Rolgordijn Beige Lichtdoorlatend",
+    "type": "variable",
+    "cat_full": "Raamdecoratie > Kant-en-klare rolgordijnen",
+    "cat_top": "Raamdecoratie",
+    "price": "",
+    "sale": "",
+    "desc": "Kleur: Beige Dit rolgordijn zorgt er voor dat het licht nog binnen kan. Rolgordijnen kunnen gereinigd worden met een vochtige doek. Dit product heeft 5 standaard maten. Wenst u een rolgordijn op maat gemaakt? Kom langs in de winkel, u kan kiezen uit een ruime keuze stoffen en…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2185892307-1.jpg"
+    ],
+    "variant_attr": "Formaat Rolgordijn Beige Lichtdoorlatend",
+    "variant_values": "Rolgordijn Beige Lichtdoorlatend 60cm x 80cm, Rolgordijn Beige Lichtdoorlatend 80cm x 180cm, Rolgordijn Beige Lichtdoorlatend 100cm x 180cm, Rolgordijn Beige Lichtdoorlatend 120cm x 180cm, Rolgordijn Beige Lichtdoorlatend 140cm x 180cm",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "554505056",
+    "name": "Rolgordijn Scandi Linnen Lichtdoorlatend",
+    "type": "variable",
+    "cat_full": "Raamdecoratie > Kant-en-klare rolgordijnen",
+    "cat_top": "Raamdecoratie",
+    "price": "",
+    "sale": "",
+    "desc": "Kleur: Beige Dit rolgordijn zorgt er voor dat het licht nog binnen kan. Rolgordijnen kunnen gereinigd worden met een vochtige doek. Dit product heeft 5 standaard maten. Wenst u een rolgordijn op maat gemaakt? Kom langs in de winkel, u kan kiezen uit een ruime keuze stoffen en…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2196711575-1.jpg"
+    ],
+    "variant_attr": "Formaat Rolgordijn Scandi Linnen Lichtdoorlatend",
+    "variant_values": "Rolgordijn Scandi Linnen Lichtdoorlatend 60cm x 180cm, Rolgordijn Scandi Linnen Lichtdoorlatend 80cm x 180cm, Rolgordijn Scandi Linnen Lichtdoorlatend 100cm x 180cm, Rolgordijn Scandi Linnen Lichtdoorlatend 120cm x 180cm, Rolgordijn Scandi Linnen Lichtdoorlatend 140cm x 180cm",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "554505046",
+    "name": "Rolgordijn Ecru Lichtdoorlatend",
+    "type": "variable",
+    "cat_full": "Raamdecoratie > Kant-en-klare rolgordijnen",
+    "cat_top": "Raamdecoratie",
+    "price": "",
+    "sale": "",
+    "desc": "Kleur: Ecru Dit rolgordijn zorgt er voor dat het licht nog binnen kan. Rolgordijnen kunnen gereinigd worden met een vochtige doek. Dit product heeft 5 standaard maten. Wenst u een rolgordijn op maat gemaakt? Kom langs in de winkel, u kan kiezen uit een ruime keuze stoffen en…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2185883076-1.jpg"
+    ],
+    "variant_attr": "Formaat Rolgordijn Ecru Lichtdoorlatend",
+    "variant_values": "Rolgordijn Ecru Lichtdoorlatend 60cm x 180cm, Rolgordijn Ecru Lichtdoorlatend 80cm x 180cm, Rolgordijn Ecru Lichtdoorlatend 100cm x 180cm, Rolgordijn Ecru Lichtdoorlatend 120cm x 180cm, Rolgordijn Ecru Lichtdoorlatend 140cm x 180cm",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "554505066",
+    "name": "Rolgordijn Wit Lichtdoorlatend",
+    "type": "variable",
+    "cat_full": "Raamdecoratie > Kant-en-klare rolgordijnen",
+    "cat_top": "Raamdecoratie",
+    "price": "",
+    "sale": "",
+    "desc": "Kleur: Wit Dit rolgordijn zorgt er voor dat het licht nog binnen kan. Rolgordijnen kunnen gereinigd worden met een vochtige doek. Dit product heeft 5 standaard maten. Wenst u een rolgordijn op maat gemaakt? Kom langs in de winkel, u kan kiezen uit een ruime keuze stoffen en…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2185796209-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/2185805022-1.jpg"
+    ],
+    "variant_attr": "Formaat Rolgordijn Wit Lichtdoorlatend",
+    "variant_values": "Rolgordijn Wit Lichtdoorlatend 60cm x 80cm, Rolgordijn Wit Lichtdoorlatend 80cm x 180cm, Rolgordijn Wit Lichtdoorlatend 100cm x 180cm, Rolgordijn Wit Lichtdoorlatend 120cm x 180cm, Rolgordijn Wit Lichtdoorlatend 140cm x 180cm",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "554505066",
+    "name": "Duo Rolgordijn Wit Lichtdoorlatend",
+    "type": "variable",
+    "cat_full": "Raamdecoratie > Kant-en-klare rolgordijnen",
+    "cat_top": "Raamdecoratie",
+    "price": "",
+    "sale": "",
+    "desc": "Kleur: Wit Dit rolgordijn zorgt er voor dat het licht nog binnen kan. Rolgordijnen kunnen gereinigd worden met een vochtige doek. Dit product heeft 5 standaard maten. Wenst u een rolgordijn op maat gemaakt? Kom langs in de winkel, u kan kiezen uit een ruime keuze stoffen en…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2193875448-1.jpg"
+    ],
+    "variant_attr": "Formaat Duo Rolgordijn Wit Lichtdoorlatend",
+    "variant_values": "Duo Rolgordijn Wit Lichtdoorlatend 60cm x 180cm, Duo Rolgordijn Wit Lichtdoorlatend 80cm x 180cm, Duo Rolgordijn Wit Lichtdoorlatend 100cm x 180cm, Duo Rolgordijn Wit Lichtdoorlatend 120cm x 180cm, Duo Rolgordijn Wit Lichtdoorlatend 140cm x 180cm",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "554505014",
+    "name": "Rolgordijn Antraciet Verduisterend",
+    "type": "variable",
+    "cat_full": "Raamdecoratie > Kant-en-klare rolgordijnen",
+    "cat_top": "Raamdecoratie",
+    "price": "",
+    "sale": "",
+    "desc": "Kleur: Antraciet Dit rolgordijn zorgt er voor dat de ruimte verduisterd wordt. Rolgordijnen kunnen gereinigd worden met een vochtige doek. Dit product heeft 5 standaard maten. Wenst u een rolgordijn op maat gemaakt? Kom langs in de winkel, u kan kiezen uit een ruime keuze…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2190108998-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/2190135015-1.jpg"
+    ],
+    "variant_attr": "Formaat Rolgordijn Antraciet Verduisterend",
+    "variant_values": "Rolgordijn Antraciet Verduisterend 60cm x 80cm, Rolgordijn Antraciet Verduisterend 80cm x 180cm, Rolgordijn Antraciet Verduisterend 100cm x 180cm, Rolgordijn Antraciet Verduisterend 120cm x 180cm, Rolgordijn Antraciet Verduisterend 140cm x 180cm",
+    "unit_suffix": ""
+   }
+  ],
+  "Slaapcomfort": [
+   {
+    "sku": "201206001",
+    "name": "Panda Vulling 1kg",
+    "type": "simple",
+    "cat_full": "Slaapcomfort > Hoofdkussens",
+    "cat_top": "Slaapcomfort",
+    "price": "12,50",
+    "sale": "",
+    "desc": "De ideale synthetische vulling voor beren, poppen, kussens, isolatie,",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1374074788-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "242205002",
+    "name": "Hoofdkussen 50 x 60 cm - Oreiller Orthopédique met ristssluiting",
+    "type": "simple",
+    "cat_full": "Slaapcomfort > Hoofdkussens",
+    "cat_top": "Slaapcomfort",
+    "price": "39,99",
+    "sale": "19,99",
+    "desc": "\\n Kleur: Wit \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1335960726-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1336066207-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "737205002",
+    "name": "Hoofdkussen 60 x 60 cm - Bengali met ristssluiting",
+    "type": "simple",
+    "cat_full": "Slaapcomfort > Hoofdkussens",
+    "cat_top": "Slaapcomfort",
+    "price": "33,00",
+    "sale": "19,90",
+    "desc": "\\n Kleur: Wit \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1336176360-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1336175470-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "206205001",
+    "name": "Hoofdkussen 60 x 60 cm",
+    "type": "simple",
+    "cat_full": "Slaapcomfort > Hoofdkussens",
+    "cat_top": "Slaapcomfort",
+    "price": "15,99",
+    "sale": "8,99",
+    "desc": "\\n Kleur: Wit \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1336224666-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "242205004",
+    "name": "Hoofdkussen 45 x 70 cm - Deep Sleep Traagschuim",
+    "type": "simple",
+    "cat_full": "Slaapcomfort > Hoofdkussens",
+    "cat_top": "Slaapcomfort",
+    "price": "49,95",
+    "sale": "6,99",
+    "desc": "\\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/05/Sleep-Deep-1.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/Sleep-Deep-2.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/Sleep-Deep-3.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "205205001",
+    "name": "Hoofdkussen 60 x 60 cm - Plumka Ultra Rest",
+    "type": "simple",
+    "cat_full": "Slaapcomfort > Hoofdkussens",
+    "cat_top": "Slaapcomfort",
+    "price": "41,50",
+    "sale": "34,95",
+    "desc": "\\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1331331517-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "250213001",
+    "name": "Dekbedovertrek Aurore 240cm x 220cm",
+    "type": "simple",
+    "cat_full": "Slaapcomfort > Beddengoed",
+    "cat_top": "Slaapcomfort",
+    "price": "109,95",
+    "sale": "87,96",
+    "desc": "\\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2160366063-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "250208000",
+    "name": "Dekbedovertrek Aurore 140cm x 200cm",
+    "type": "simple",
+    "cat_full": "Slaapcomfort > Beddengoed",
+    "cat_top": "Slaapcomfort",
+    "price": "69,95",
+    "sale": "55,96",
+    "desc": "\\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2160079868-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "235208031",
+    "name": "Dekbedovertrek Arabesk 140cm x 200cm",
+    "type": "simple",
+    "cat_full": "Slaapcomfort > Beddengoed",
+    "cat_top": "Slaapcomfort",
+    "price": "69,95",
+    "sale": "",
+    "desc": "\\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2160081599-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "250213000",
+    "name": "Dekbedovertrek Arabesk 240cm x 220cm",
+    "type": "simple",
+    "cat_full": "Slaapcomfort > Beddengoed",
+    "cat_top": "Slaapcomfort",
+    "price": "109,95",
+    "sale": "",
+    "desc": "\\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2160081599-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668213027",
+    "name": "Dekbedovertrek Iris Auburn 240cm x 220cm",
+    "type": "simple",
+    "cat_full": "Slaapcomfort > Beddengoed",
+    "cat_top": "Slaapcomfort",
+    "price": "74,99",
+    "sale": "",
+    "desc": "\\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/04/IRIS_240_AUBURN_2.png"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668213028",
+    "name": "Dekbedovertrek Iris Indian 240cm x 220cm",
+    "type": "simple",
+    "cat_full": "Slaapcomfort > Beddengoed",
+    "cat_top": "Slaapcomfort",
+    "price": "74,99",
+    "sale": "",
+    "desc": "\\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/04/IRIS_UNI_INDIANTAN_3437_3438_9515_IVORY-scaled.jpg",
+     "https://brunic.be/wp-content/uploads/2022/04/IRIS_240_INDIANTAN_2.png"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668213022",
+    "name": "Dekbedovertrek Iris Auburn 140cm x 200cm",
+    "type": "simple",
+    "cat_full": "Slaapcomfort > Beddengoed",
+    "cat_top": "Slaapcomfort",
+    "price": "47,50",
+    "sale": "",
+    "desc": "\\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/04/IRIS_140_AUBURN.png"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668213023",
+    "name": "Dekbedovertrek Iris Indian140cm x 200cm",
+    "type": "simple",
+    "cat_full": "Slaapcomfort > Beddengoed",
+    "cat_top": "Slaapcomfort",
+    "price": "47,50",
+    "sale": "",
+    "desc": "\\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/04/IRIS_140_INDIANTAN.png"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   }
+  ],
+  "Tapijten": [
+   {
+    "sku": "00043",
+    "name": "Voetmat met logo / Logotapijt",
+    "type": "simple",
+    "cat_full": "Tapijten > Logotapijten",
+    "cat_top": "Tapijten",
+    "price": "0,00",
+    "sale": "",
+    "desc": "\\n \\n \\n Technische informatie: \\n \\n High definition printkwaliteit \\n Intensief gebruik \\n Binnen gebruik \\n Backing: 100% nitril, keuze tussen een gladde nitril rug en een genopte nitril rug \\n Materie: 100% PET vezel waarvan 100% gerecycleerd \\n Totaal gewicht: 2520 gr/m² \\n…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/IMG_6920-scaled.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/272888310_2426566747500461_2234479513479418163_n.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/2005432806-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "00050",
+    "name": "Knoeimat 100cm Vierkant Bacopa Moonlight Madeliefjes",
+    "type": "simple",
+    "cat_full": "Tapijten > Knoeimatten",
+    "cat_top": "Tapijten",
+    "price": "34,90",
+    "sale": "",
+    "desc": "Kleur: Meerderkleurig Deze knoeimatten hebben als doel het leven van ouders een stukje makkelijker te maken. Gebruik ze onder kinderstoelen zo kan er naar hartenlust gegeten, geknoeid en gespeeld worden zonder zorgen over de vloer. U kan ze ook gebruiken als speelmat voor binnen…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2036617722-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "00057",
+    "name": "Knoeimat 100cm Vierkant Bacopa Moonlight Kasseien",
+    "type": "simple",
+    "cat_full": "Tapijten > Knoeimatten",
+    "cat_top": "Tapijten",
+    "price": "34,90",
+    "sale": "",
+    "desc": "Kleur: Meerderkleurig Deze knoeimatten hebben als doel het leven van ouders een stukje makkelijker te maken. Gebruik ze onder kinderstoelen zo kan er naar hartenlust gegeten, geknoeid en gespeeld worden zonder zorgen over de vloer. U kan ze ook gebruiken als speelmat voor binnen…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2036645862-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "00062",
+    "name": "Knoeimat 100cm Vierkant Trude Puzzel 5331141",
+    "type": "simple",
+    "cat_full": "Tapijten > Knoeimatten",
+    "cat_top": "Tapijten",
+    "price": "34,90",
+    "sale": "",
+    "desc": "Kleur: Meerderkleurig Deze knoeimatten hebben als doel het leven van ouders een stukje makkelijker te maken. Gebruik ze onder kinderstoelen zo kan er naar hartenlust gegeten, geknoeid en gespeeld worden zonder zorgen over de vloer. U kan ze ook gebruiken als speelmat voor binnen…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2036778337-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "00059",
+    "name": "Knoeimat 100cm Vierkant Bacopa Moonlight Street",
+    "type": "simple",
+    "cat_full": "Tapijten > Knoeimatten",
+    "cat_top": "Tapijten",
+    "price": "34,90",
+    "sale": "",
+    "desc": "Kleur: Meerderkleurig Deze knoeimatten hebben als doel het leven van ouders een stukje makkelijker te maken. Gebruik ze onder kinderstoelen zo kan er naar hartenlust gegeten, geknoeid en gespeeld worden zonder zorgen over de vloer. U kan ze ook gebruiken als speelmat voor binnen…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2036613849-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "00052",
+    "name": "Knoeimat 100cm Vierkant Babadag Atlantic Disa 101S",
+    "type": "simple",
+    "cat_full": "Tapijten > Knoeimatten",
+    "cat_top": "Tapijten",
+    "price": "24,99",
+    "sale": "",
+    "desc": "Kleur: Beige Deze knoeimatten hebben als doel het leven van ouders een stukje makkelijker te maken. Gebruik ze onder kinderstoelen zo kan er naar hartenlust gegeten, geknoeid en gespeeld worden zonder zorgen over de vloer. U kan ze ook gebruiken als speelmat voor binnen en…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2036599059-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "00053",
+    "name": "Knoeimat 100cm Vierkant Baker Sonipro Zinc 139S",
+    "type": "simple",
+    "cat_full": "Tapijten > Knoeimatten",
+    "cat_top": "Tapijten",
+    "price": "34,90",
+    "sale": "",
+    "desc": "Kleur: Ecru Deze knoeimatten hebben als doel het leven van ouders een stukje makkelijker te maken. Gebruik ze onder kinderstoelen zo kan er naar hartenlust gegeten, geknoeid en gespeeld worden zonder zorgen over de vloer. U kan ze ook gebruiken als speelmat voor binnen en…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2036570802-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "767715023",
+    "name": "Oregano Lol181 Bunny 120cm x 170cm",
+    "type": "simple",
+    "cat_full": "Tapijten > Kindertapijten",
+    "cat_top": "Tapijten",
+    "price": "59,96",
+    "sale": "",
+    "desc": "Kleur: Blauw Dit kindertapijtje heeft een achterkant met antislip en is extreem zacht. Het is gemakkelijk in onderhoud doordat je het kan wassen op",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1733632331-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1733638634-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1733635193-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "767715022",
+    "name": "Oregano Lol181 Bear 120cm x 170cm",
+    "type": "simple",
+    "cat_full": "Tapijten > Kindertapijten",
+    "cat_top": "Tapijten",
+    "price": "59,96",
+    "sale": "",
+    "desc": "Kleur: Blauw Dit kindertapijtje heeft een achterkant met antislip en is extreem zacht. Het is gemakkelijk in onderhoud doordat je het kan wassen op",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1733632809-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1733643324-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1733643329-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "767715020",
+    "name": "Oregano Lol180 Kitten 120cm x 170cm",
+    "type": "simple",
+    "cat_full": "Tapijten > Kindertapijten",
+    "cat_top": "Tapijten",
+    "price": "59,96",
+    "sale": "",
+    "desc": "Kleur: Roos Dit kindertapijtje heeft een achterkant met antislip en is extreem zacht. Het is gemakkelijk in onderhoud doordat je het kan wassen op",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1733606072-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1733600303-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1733606077-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "767715017",
+    "name": "Ferrari Mik147 Ca. 85cm x 45cm",
+    "type": "simple",
+    "cat_full": "Tapijten > Kindertapijten",
+    "cat_top": "Tapijten",
+    "price": "9,00",
+    "sale": "",
+    "desc": "Kleur: Rood Dit kindertapijtje heeft een achterkant met antislip en is extreem zacht. Het is gemakkelijk in onderhoud doordat je het kan wassen op",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2002255985-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/2002265561-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/2002255990-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "Tapijt Ocerton Lao458 Taupe 160x230",
+    "type": "simple",
+    "cat_full": "Tapijten > Moderne tapijten",
+    "cat_top": "Tapijten",
+    "price": "249,00",
+    "sale": "",
+    "desc": "\\n \\n \\n \\n \\n \\n \\n Kleur: Grijs \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/05/2001930052.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/2001916416.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/2001930094.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "Tapijt Ocerton Lao458 Silver 160x230",
+    "type": "simple",
+    "cat_full": "Tapijten > Moderne tapijten",
+    "cat_top": "Tapijten",
+    "price": "249,00",
+    "sale": "",
+    "desc": "\\n \\n \\n \\n \\n Kleur: Grijs \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/05/2001908028.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/2001901541.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/2001908038.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "406715032",
+    "name": "Kindertapijt Nijntje Tent 65cm x 90cm",
+    "type": "simple",
+    "cat_full": "Tapijten > Kindertapijten",
+    "cat_top": "Tapijten",
+    "price": "64,00",
+    "sale": "19,00",
+    "desc": "\\n Kleur: Meerderkleurig \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1755261151-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   }
+  ],
+  "Behangpapier": [
+   {
+    "sku": "846898011",
+    "name": "Vliesbehang Philipp Plein Z80001 Zwart",
+    "type": "simple",
+    "cat_full": "Behangpapier",
+    "cat_top": "Behangpapier",
+    "price": "189,95",
+    "sale": "",
+    "desc": "\\n PHILIPP PLEIN is erin geslaagd leven te geven aan een high street modemerk dat een echte levensstijl belichaamt, door zijn visie en creativiteit te combineren met zijn ervaring als binnenhuisarchitect. Een nieuw sleutelelement voegt zich nu bij zijn geraffineerde en luxueuze…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2023/05/Z80001.jpg",
+     "https://brunic.be/wp-content/uploads/2023/05/COVER2.jpg",
+     "https://brunic.be/wp-content/uploads/2023/05/z80001-1.jpeg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "846898011-1",
+    "name": "Vliesbehang Philipp Plein Z80004 Brons/Grijs",
+    "type": "simple",
+    "cat_full": "Behangpapier",
+    "cat_top": "Behangpapier",
+    "price": "189,95",
+    "sale": "",
+    "desc": "\\n PHILIPP PLEIN is erin geslaagd leven te geven aan een high street modemerk dat een echte levensstijl belichaamt, door zijn visie en creativiteit te combineren met zijn ervaring als binnenhuisarchitect. Een nieuw sleutelelement voegt zich nu bij zijn geraffineerde en luxueuze…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2023/05/Z80004.jpg",
+     "https://brunic.be/wp-content/uploads/2023/05/COVER2.jpg",
+     "https://brunic.be/wp-content/uploads/2023/05/Z80004-2.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "846898011-1-1",
+    "name": "Vliesbehang Philipp Plein Z80002 Wit",
+    "type": "simple",
+    "cat_full": "Behangpapier",
+    "cat_top": "Behangpapier",
+    "price": "189,95",
+    "sale": "",
+    "desc": "\\n PHILIPP PLEIN is erin geslaagd leven te geven aan een high street modemerk dat een echte levensstijl belichaamt, door zijn visie en creativiteit te combineren met zijn ervaring als binnenhuisarchitect. Een nieuw sleutelelement voegt zich nu bij zijn geraffineerde en luxueuze…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2023/05/Z80002.jpg",
+     "https://brunic.be/wp-content/uploads/2023/05/COVER2.jpg",
+     "https://brunic.be/wp-content/uploads/2023/05/Z80002-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "846898011-1-1-1",
+    "name": "Vliesbehang Philipp Plein Z80023",
+    "type": "simple",
+    "cat_full": "Behangpapier",
+    "cat_top": "Behangpapier",
+    "price": "189,95",
+    "sale": "",
+    "desc": "\\n PHILIPP PLEIN is erin geslaagd leven te geven aan een high street modemerk dat een echte levensstijl belichaamt, door zijn visie en creativiteit te combineren met zijn ervaring als binnenhuisarchitect. Een nieuw sleutelelement voegt zich nu bij zijn geraffineerde en luxueuze…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2023/09/Z80023.jpg",
+     "https://brunic.be/wp-content/uploads/2023/05/COVER2.jpg",
+     "https://brunic.be/wp-content/uploads/2023/09/Z80023.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "313517554",
+    "name": "Behangspatel 28cm",
+    "type": "simple",
+    "cat_full": "Behangpapier",
+    "cat_top": "Behangpapier",
+    "price": "4,55",
+    "sale": "",
+    "desc": "\\n \\n \\nDe behangspatel is speciaal ontwikkeld voor het gladstrijken van alle behangsoorten zonder reliëf. Het zorgt er voor dat er geen blazen zijn in het behang. De soepele aandrukzijde zorgt ervoor dat men het behang op een snelle en efficiënte manier, zonder te beschadigen…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/07/Aandrukspatel.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "313516350",
+    "name": "Behangspatel Perfax",
+    "type": "simple",
+    "cat_full": "Behangpapier",
+    "cat_top": "Behangpapier",
+    "price": "6,50",
+    "sale": "",
+    "desc": "De Perfax behangspatel is speciaal ontwikkeld voor het gladstrijken van alle behangsoorten zonder reliëf. Het zorgt er voor dat er geen blazen zijn in het behang. De soepele aandrukzijde zorgt ervoor dat men het behang op een snelle en efficiënte manier, zonder te beschadigen…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1367558276-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "World of Imagination - DL27544",
+    "type": "simple",
+    "cat_full": "Behangpapier",
+    "cat_top": "Behangpapier",
+    "price": "59,5",
+    "sale": "",
+    "desc": "Breng magie in de kinderkamer met de First Class World of Imagination collectie van Spits Wallcoverings. Speelse designs en zachte kleuren zorgen voor een gezellige en fantasierijke omgeving waarin elk kind zich thuis voelt. \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2026/05/DL27544_NGX5509_Prehistoric-Dino_Natural_Swatch_3000px-scaled.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27544_NGX5509_Prehistoric-Dino_Natural_Lifestyle-2_3000px.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27544_NGX5509_Prehistoric-Dino_Natural_Lifestyle-1_3000px-scaled.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "World of Imagination - DL27596",
+    "type": "simple",
+    "cat_full": "Behangpapier",
+    "cat_top": "Behangpapier",
+    "price": "59,5",
+    "sale": "",
+    "desc": "Breng magie in de kinderkamer met de First Class World of Imagination collectie van Spits Wallcoverings. Speelse designs en zachte kleuren zorgen voor een gezellige en fantasierijke omgeving waarin elk kind zich thuis voelt.\\n\\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2026/05/DL27596_NGX6675_Space-Adventure_Natural_Swatch_3000px-scaled.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27596_NGX6675_Space-Adventure_Natural_Lifestyle-1_3000px-scaled.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27596_NGX6675_Space-Adventure_Natural_Lifestyle-2_3000px-scaled.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "World of Imagination - DL27595",
+    "type": "simple",
+    "cat_full": "Behangpapier",
+    "cat_top": "Behangpapier",
+    "price": "59,5",
+    "sale": "",
+    "desc": "Breng magie in de kinderkamer met de First Class World of Imagination collectie van Spits Wallcoverings. Speelse designs en zachte kleuren zorgen voor een gezellige en fantasierijke omgeving waarin elk kind zich thuis voelt.\\n\\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2026/05/DL27595_NGX6370_Solar-System_Blue_Swatch_3000px-scaled.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27595_NGX6370_Solar-System_Blue_Lifestyle-1_3000px-scaled.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27595_NGX6370_Solar-System_Blue_Lifestyle-2_3000px-scaled.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "World of Imagination - DL27594",
+    "type": "simple",
+    "cat_full": "Behangpapier",
+    "cat_top": "Behangpapier",
+    "price": "59,5",
+    "sale": "",
+    "desc": "Breng magie in de kinderkamer met de First Class World of Imagination collectie van Spits Wallcoverings. Speelse designs en zachte kleuren zorgen voor een gezellige en fantasierijke omgeving waarin elk kind zich thuis voelt.\\n\\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2026/05/DL27594_NGX6353_Road-Traffic_Blue_Swatch_3000px-scaled.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27594_NGX6353_Road-Traffic_Blue_Lifestyle-2_3000px-scaled.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27594_NGX6353_Road-Traffic_Blue_Lifestyle-1_3000px-scaled.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "World of Imagination - DL27593",
+    "type": "simple",
+    "cat_full": "Behangpapier",
+    "cat_top": "Behangpapier",
+    "price": "59,5",
+    "sale": "",
+    "desc": "Breng magie in de kinderkamer met de First Class World of Imagination collectie van Spits Wallcoverings. Speelse designs en zachte kleuren zorgen voor een gezellige en fantasierijke omgeving waarin elk kind zich thuis voelt.\\n\\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2026/05/DL27593_NGX6353_Road-Traffic_Red_Swatch_3000px-scaled.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27593_NGX6353_Road-Traffic_Red_Lifestyle-2_3000px-scaled.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27593_NGX6353_Road-Traffic_Red_Lifestyle-1_3000px-scaled.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "World of Imagination - DL27592",
+    "type": "simple",
+    "cat_full": "Behangpapier",
+    "cat_top": "Behangpapier",
+    "price": "59,5",
+    "sale": "",
+    "desc": "Breng magie in de kinderkamer met de First Class World of Imagination collectie van Spits Wallcoverings. Speelse designs en zachte kleuren zorgen voor een gezellige en fantasierijke omgeving waarin elk kind zich thuis voelt.\\n\\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2026/05/DL27592_NGX5304_Graffiti-Wall_Grey-Multi_Swatch_3000px.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27592_NGX5304_Graffiti-Wall_Grey-Multi_Lifestyle-1_3000px.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27592_NGX5304_Graffiti-Wall_Grey-Multi_Lifestyle-2_3000px.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "World of Imagination - DL27591",
+    "type": "simple",
+    "cat_full": "Behangpapier",
+    "cat_top": "Behangpapier",
+    "price": "59,5",
+    "sale": "",
+    "desc": "Breng magie in de kinderkamer met de First Class World of Imagination collectie van Spits Wallcoverings. Speelse designs en zachte kleuren zorgen voor een gezellige en fantasierijke omgeving waarin elk kind zich thuis voelt.\\n\\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2026/05/DL27591_NGX5395_Football-Fan_Green-Multi_Swatch_3000px.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27591_NGX5395_Football-Fan_Green-Multi_Lifestyle-2_3000px.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27591_NGX5395_Football-Fan_Green-Multi_Lifestyle-1_3000px-scaled.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "World of Imagination - DL27590",
+    "type": "simple",
+    "cat_full": "Behangpapier",
+    "cat_top": "Behangpapier",
+    "price": "59,5",
+    "sale": "",
+    "desc": "Breng magie in de kinderkamer met de First Class World of Imagination collectie van Spits Wallcoverings. Speelse designs en zachte kleuren zorgen voor een gezellige en fantasierijke omgeving waarin elk kind zich thuis voelt.\\n\\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2026/05/DL27590_NGX6839_Footballs_Grey_Swatch-scaled.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27590_NGX6839_Footballs_Grey_Lifestyle-1_3000px-scaled.jpg",
+     "https://brunic.be/wp-content/uploads/2026/05/DL27590_NGX6839_Footballs_Grey_Lifestyle-2_3000px-scaled.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   }
+  ],
+  "Badkamer Accessoires": [
+   {
+    "sku": "668221009",
+    "name": "Washandje 15x21 cm Antraciet - set van 2",
+    "type": "simple",
+    "cat_full": "Badkamer Accessoires > Badhanddoeken & washandjes",
+    "cat_top": "Badkamer Accessoires",
+    "price": "2,90",
+    "sale": "",
+    "desc": "Kleur: Antraciet Om jezelf comfortabel te wassen, zijn zachte washandjes onmisbaar. Wij bieden heerlijke luxe washandjes in uiteenlopende kleuren, die aansluiten bij onze lijnen douche- en badhanddoeken. Zo ontstaat een stijlvol visueel geheel in elke",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1503457802-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668221008",
+    "name": "Washandje 15x21 cm Blauw - set van 2",
+    "type": "simple",
+    "cat_full": "Badkamer Accessoires > Badhanddoeken & washandjes",
+    "cat_top": "Badkamer Accessoires",
+    "price": "2,90",
+    "sale": "",
+    "desc": "Kleur: Blauw Om jezelf comfortabel te wassen, zijn zachte washandjes onmisbaar. Wij bieden heerlijke luxe washandjes in uiteenlopende kleuren, die aansluiten bij onze lijnen douche- en badhanddoeken. Zo ontstaat een stijlvol visueel geheel in elke",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1503452525-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668221005",
+    "name": "Washandje 15x21 cm Mint - set van 2",
+    "type": "simple",
+    "cat_full": "Badkamer Accessoires > Badhanddoeken & washandjes",
+    "cat_top": "Badkamer Accessoires",
+    "price": "2,90",
+    "sale": "",
+    "desc": "Kleur: Groen Om jezelf comfortabel te wassen, zijn zachte washandjes onmisbaar. Wij bieden heerlijke luxe washandjes in uiteenlopende kleuren, die aansluiten bij onze lijnen douche- en badhanddoeken. Zo ontstaat een stijlvol visueel geheel in elke",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1504763921-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668221004",
+    "name": "Washandje 15x21 cm Cool Grey - set van 2",
+    "type": "simple",
+    "cat_full": "Badkamer Accessoires > Badhanddoeken & washandjes",
+    "cat_top": "Badkamer Accessoires",
+    "price": "2,90",
+    "sale": "",
+    "desc": "Kleur: Grijs Om jezelf comfortabel te wassen, zijn zachte washandjes onmisbaar. Wij bieden heerlijke luxe washandjes in uiteenlopende kleuren, die aansluiten bij onze lijnen douche- en badhanddoeken. Zo ontstaat een stijlvol visueel geheel in elke",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1504544680-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668221012",
+    "name": "Washandje 15x21 cm Zwart - set van 2",
+    "type": "simple",
+    "cat_full": "Badkamer Accessoires > Badhanddoeken & washandjes",
+    "cat_top": "Badkamer Accessoires",
+    "price": "2,90",
+    "sale": "",
+    "desc": "Kleur: Zwart Om jezelf comfortabel te wassen, zijn zachte washandjes onmisbaar. Wij bieden heerlijke luxe washandjes in uiteenlopende kleuren, die aansluiten bij onze lijnen douche- en badhanddoeken. Zo ontstaat een stijlvol visueel geheel in elke",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1503406485-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668221006",
+    "name": "Washandje 15x21 cm Taupe - set van 2",
+    "type": "simple",
+    "cat_full": "Badkamer Accessoires > Badhanddoeken & washandjes",
+    "cat_top": "Badkamer Accessoires",
+    "price": "2,90",
+    "sale": "",
+    "desc": "Kleur: Taupe Om jezelf comfortabel te wassen, zijn zachte washandjes onmisbaar. Wij bieden heerlijke luxe washandjes in uiteenlopende kleuren, die aansluiten bij onze lijnen douche- en badhanddoeken. Zo ontstaat een stijlvol visueel geheel in elke",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1757576148-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668221010",
+    "name": "Washandje 15x21 cm Mauve - set van 2",
+    "type": "simple",
+    "cat_full": "Badkamer Accessoires > Badhanddoeken & washandjes",
+    "cat_top": "Badkamer Accessoires",
+    "price": "2,90",
+    "sale": "",
+    "desc": "Kleur: Mauve Om jezelf comfortabel te wassen, zijn zachte washandjes onmisbaar. Wij bieden heerlijke luxe washandjes in uiteenlopende kleuren, die aansluiten bij onze lijnen douche- en badhanddoeken. Zo ontstaat een stijlvol visueel geheel in elke",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1504730884-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668221003",
+    "name": "Washandje 15x21 cm Sand - set van 2",
+    "type": "simple",
+    "cat_full": "Badkamer Accessoires > Badhanddoeken & washandjes",
+    "cat_top": "Badkamer Accessoires",
+    "price": "2,90",
+    "sale": "",
+    "desc": "Kleur: Zand Om jezelf comfortabel te wassen, zijn zachte washandjes onmisbaar. Wij bieden heerlijke luxe washandjes in uiteenlopende kleuren, die aansluiten bij onze lijnen douche- en badhanddoeken. Zo ontstaat een stijlvol visueel geheel in elke",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1757496313-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668221011",
+    "name": "Washandje 15x21 cm Red - set van 2",
+    "type": "simple",
+    "cat_full": "Badkamer Accessoires > Badhanddoeken & washandjes",
+    "cat_top": "Badkamer Accessoires",
+    "price": "2,90",
+    "sale": "",
+    "desc": "Kleur: Rood Om jezelf comfortabel te wassen, zijn zachte washandjes onmisbaar. Wij bieden heerlijke luxe washandjes in uiteenlopende kleuren, die aansluiten bij onze lijnen douche- en badhanddoeken. Zo ontstaat een stijlvol visueel geheel in elke",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1757479583-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668221007",
+    "name": "Washandje 15x21 cm Soft Pink - set van 2",
+    "type": "simple",
+    "cat_full": "Badkamer Accessoires > Badhanddoeken & washandjes",
+    "cat_top": "Badkamer Accessoires",
+    "price": "2,90",
+    "sale": "",
+    "desc": "Kleur: Roos Om jezelf comfortabel te wassen, zijn zachte washandjes onmisbaar. Wij bieden heerlijke luxe washandjes in uiteenlopende kleuren, die aansluiten bij onze lijnen douche- en badhanddoeken. Zo ontstaat een stijlvol visueel geheel in elke",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1504792245-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668221002",
+    "name": "Washandje 15x21 cm Natural - set van 2",
+    "type": "simple",
+    "cat_full": "Badkamer Accessoires > Badhanddoeken & washandjes",
+    "cat_top": "Badkamer Accessoires",
+    "price": "2,90",
+    "sale": "",
+    "desc": "Kleur: Ecru Om jezelf comfortabel te wassen, zijn zachte washandjes onmisbaar. Wij bieden heerlijke luxe washandjes in uiteenlopende kleuren, die aansluiten bij onze lijnen douche- en badhanddoeken. Zo ontstaat een stijlvol visueel geheel in elke",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1504788137-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668221001",
+    "name": "Washandje 15x21 cm Wit - set van 2",
+    "type": "simple",
+    "cat_full": "Badkamer Accessoires > Badhanddoeken & washandjes",
+    "cat_top": "Badkamer Accessoires",
+    "price": "2,90",
+    "sale": "",
+    "desc": "Kleur: Wit Om jezelf comfortabel te wassen, zijn zachte washandjes onmisbaar. Wij bieden heerlijke luxe washandjes in uiteenlopende kleuren, die aansluiten bij onze lijnen douche- en badhanddoeken. Zo ontstaat een stijlvol visueel geheel in elke",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1757576681-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668221009",
+    "name": "Badlaken Antraciet",
+    "type": "variable",
+    "cat_full": "Badkamer Accessoires > Badhanddoeken & washandjes",
+    "cat_top": "Badkamer Accessoires",
+    "price": "",
+    "sale": "",
+    "desc": "\\n Kleur: Antraciet \\n \\n \\n \\n \\nOnze badhanddoeken zijn heerlijk zacht en comfortabel en bieden daarmee een gevoel van luxe in eigen badkamer. De badhanddoeken zijn verkrijgbaar in diverse zachte kleuren, in lijn met de overige badmode.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1503508288-1.jpg"
+    ],
+    "variant_attr": "Formaat Badlaken Antraciet",
+    "variant_values": "Badlaken Antraciet 30cm x 50cm, Badlaken Antraciet 50cm x 100cm, Badlaken Antraciet 70cm x 140cm, Badlaken Antraciet 100cm x 150cm",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668221016",
+    "name": "Badlaken Cool Grey",
+    "type": "variable",
+    "cat_full": "Badkamer Accessoires > Badhanddoeken & washandjes",
+    "cat_top": "Badkamer Accessoires",
+    "price": "",
+    "sale": "",
+    "desc": "\\n Kleur: Grijs \\n \\n \\n \\n \\nOnze badhanddoeken zijn heerlijk zacht en comfortabel en bieden daarmee een gevoel van luxe in eigen badkamer. De badhanddoeken zijn verkrijgbaar in diverse zachte kleuren, in lijn met de overige badmode.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1504647357-1.jpg"
+    ],
+    "variant_attr": "Formaat Badlaken Licht Grijs",
+    "variant_values": "Badlaken Licht Grijs 30cm x 50cm, Badlaken Licht Grijs 50cm x 100cm, Badlaken Licht Grijs 70cm x 140cm, Badlaken Licht Grijs 100cm x 150cm",
+    "unit_suffix": ""
+   }
+  ],
+  "Verf": [
+   {
+    "sku": "303380178",
+    "name": "BRUNIC Muur en Plafond 4L - binnen en buiten - Dadel",
+    "type": "simple",
+    "cat_full": "Verf > Muur- en Plafondverf",
+    "cat_top": "Verf",
+    "price": "49,99",
+    "sale": "34,99",
+    "desc": "\\n Kleur: Bruin \\n \\n \\n \\n \\nBRUNIC muur- en plafondverf voor alle binnen- en buitenschilderwerk. Mat dadel, goed dekkend na droging. De verf is ademend en reukarm. Geschikt als afwerklaag op intacte muurverflagen en ondergronden als baksteen, cement- en pleisterwerk, gipsplaat…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1347434527-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1442304703-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "303380177",
+    "name": "BRUNIC Muur en Plafond 4L - binnen en buiten - Olijf",
+    "type": "simple",
+    "cat_full": "Verf > Muur- en Plafondverf",
+    "cat_top": "Verf",
+    "price": "49,99",
+    "sale": "34,99",
+    "desc": "\\n Kleur: Groen \\n \\n \\n \\n \\nBRUNIC muur- en plafondverf voor alle binnen- en buitenschilderwerk. Mat olijf, goed dekkend na droging. De verf is ademend en reukarm. Geschikt als afwerklaag op intacte muurverflagen en ondergronden als baksteen, cement- en pleisterwerk, gipsplaat…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1347434527-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1442292631-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "303380012",
+    "name": "BRUNIC Muur en Plafond 4L - binnen en buiten - Antraciet",
+    "type": "simple",
+    "cat_full": "Verf > Muur- en Plafondverf",
+    "cat_top": "Verf",
+    "price": "49,99",
+    "sale": "34,99",
+    "desc": "\\n Kleur: Antraciet \\n \\n \\n \\n \\nBRUNIC muur- en plafondverf voor alle binnen- en buitenschilderwerk. Mat antraciet, goed dekkend na droging. De verf is ademend en reukarm. Geschikt als afwerklaag op intacte muurverflagen en ondergronden als baksteen, cement- en pleisterwerk,…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1347434527-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1442241277-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "300516032",
+    "name": "Afplakband 25mm x 50m",
+    "type": "simple",
+    "cat_full": "Verf > Benodigdheden verf",
+    "cat_top": "Verf",
+    "price": "2,20",
+    "sale": "",
+    "desc": "Formaat: 25mm x 50m De universele afplakband is 50 meter lang met een breedte van 25 millimeter. Voor een optimale toepassing, laat de tape niet langer dan enkele uren zitten en druk de randen goed aan met de vingers. Verwijder de tape voordat de verf is opgedroogd en doe dit…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1387256804-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1368121814-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "300516033",
+    "name": "Afplakband 38mm x 50m",
+    "type": "simple",
+    "cat_full": "Verf > Benodigdheden verf",
+    "cat_top": "Verf",
+    "price": "3,20",
+    "sale": "",
+    "desc": "Formaat: 38mm x 50m De universele afplakband is 50 meter lang met een breedte van 38 millimeter. Voor een optimale toepassing, laat de tape niet langer dan enkele uren zitten en druk de randen goed aan met de vingers. Verwijder de tape voordat de verf is opgedroogd en doe dit…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1387260567-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1368110996-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "303380181",
+    "name": "BRUNIC Muur en Plafond 4L - binnen en buiten - Rood",
+    "type": "simple",
+    "cat_full": "Verf > Muur- en Plafondverf",
+    "cat_top": "Verf",
+    "price": "43,69",
+    "sale": "30,58",
+    "desc": "\\n BRUNIC muur- en plafondverf voor alle binnen- en buitenschilderwerk. Mat rood, goed dekkend na droging. De verf is ademend en reukarm. Geschikt als afwerklaag op intacte muurverflagen en ondergronden als baksteen, cement- en pleisterwerk, gipsplaat en glasweefsel, beton,…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1347434527-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1439130022-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "933516006",
+    "name": "Blokborstel / papborstel IN004156 3 x 13",
+    "type": "simple",
+    "cat_full": "Verf > Benodigdheden verf",
+    "cat_top": "Verf",
+    "price": "3,99",
+    "sale": "",
+    "desc": "\\n Formaat: 13cm x 3cm \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1367552232-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "933516005",
+    "name": "Blokborstel / papborstel IN004157 4 x 14",
+    "type": "simple",
+    "cat_full": "Verf > Benodigdheden verf",
+    "cat_top": "Verf",
+    "price": "6,95",
+    "sale": "",
+    "desc": "\\n Formaat: 14cm x 4cm \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1363891233-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "933516001",
+    "name": "Verfroller / Lijmroller 20cm IN001459",
+    "type": "simple",
+    "cat_full": "Verf > Benodigdheden verf",
+    "cat_top": "Verf",
+    "price": "2,99",
+    "sale": "",
+    "desc": "\\n Formaat: 20cm \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1367896099-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "558516006",
+    "name": "Verfroller / Lijmroller 18cm Emil 80407",
+    "type": "simple",
+    "cat_full": "Verf > Benodigdheden verf",
+    "cat_top": "Verf",
+    "price": "3,95",
+    "sale": "",
+    "desc": "\\n Formaat: 18cm \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1363787679-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "558515003",
+    "name": "Universele Cutter Emil 93050",
+    "type": "simple",
+    "cat_full": "Verf > Benodigdheden verf",
+    "cat_top": "Verf",
+    "price": "12,99",
+    "sale": "",
+    "desc": "\\n Kleur: Grijs \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1941332623-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "558516001",
+    "name": "Verfbak + Verfrol 18cm",
+    "type": "simple",
+    "cat_full": "Verf > Benodigdheden verf",
+    "cat_top": "Verf",
+    "price": "6,95",
+    "sale": "",
+    "desc": "Verfbak:",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1374122866-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "558515002",
+    "name": "Lijmkam 4mm x 18cm",
+    "type": "simple",
+    "cat_full": "Verf > Benodigdheden verf",
+    "cat_top": "Verf",
+    "price": "3,99",
+    "sale": "",
+    "desc": "\\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1388648036-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "303386029",
+    "name": "BRUNIC Muur en Plafond - binnen en buiten - Mokka - 4L/10L",
+    "type": "variable",
+    "cat_full": "Verf > Muur- en Plafondverf",
+    "cat_top": "Verf",
+    "price": "",
+    "sale": "",
+    "desc": "\\n Kleur: Bruin \\n \\n \\n \\n \\nBRUNIC muur- en plafondverf voor alle binnen- en buitenschilderwerk. Mat mokka, goed dekkend na droging. De verf is ademend en reukarm. Geschikt als afwerklaag op intacte muurverflagen en ondergronden als baksteen, cement- en pleisterwerk, gipsplaat…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1347434527-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1439102356-1.jpg"
+    ],
+    "variant_attr": "Aantal liter BRUNIC Muur- en plafondverf - mokka",
+    "variant_values": "BRUNIC Muur- en plafondverf 4L - mokka, BRUNIC Muur- en plafondverf 10L - mokka",
+    "unit_suffix": ""
+   }
+  ],
+  "Badkamer": [
+   {
+    "sku": "",
+    "name": "Stein WC-mat Relax Petrol 5405663129",
+    "type": "simple",
+    "cat_full": "Badkamer",
+    "cat_top": "Badkamer",
+    "price": "59,99",
+    "sale": "",
+    "desc": "\\n \\n \\n \\n \\n Kleur: Blauw \\n \\n \\n \\n \\nDe Stein Relax wc-mat is een zeer zachte wc-mat met hoogwaardige kwaliteitsvezels. Deze zijn geschikt voor wasmachine en droger. Was deze met het programma voor fijne was met een wasmiddel voor fijne was gescheiden van ander wasgoed (was…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/05/1772705515.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/1772703788.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/1772710180.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "Stein WC-mat Relax Grijs 5405189129",
+    "type": "simple",
+    "cat_full": "Badkamer",
+    "cat_top": "Badkamer",
+    "price": "59,99",
+    "sale": "",
+    "desc": "\\n \\n \\n \\n \\n Kleur: Grijs \\n \\n \\n \\n \\nDe Stein Relax wc-mat is een zeer zachte wc-mat met hoogwaardige kwaliteitsvezels. Deze zijn geschikt voor wasmachine en droger. Was deze met het programma voor fijne was met een wasmiddel voor fijne was gescheiden van ander wasgoed (was…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/05/1772813014.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/1772787911.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/1772807159.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "823501078",
+    "name": "Move Mirror 8426124886",
+    "type": "simple",
+    "cat_full": "Badkamer",
+    "cat_top": "Badkamer",
+    "price": "29,95",
+    "sale": "",
+    "desc": "Kleur: Zilver Handige make-up spiegel met zwenkbare en uittrekbare arm en 360° draaibaar. Inclusief bevestigingsmateriaal. Echte must have voor iedere badkamerspiegel! Door de zoom functie van de spiegel heb je beter zicht op je huid. Dit resulteert in een mooiere gecontroleerde…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1792452461-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1792450618-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "823501071",
+    "name": "Transparant Mirror 5885116886",
+    "type": "simple",
+    "cat_full": "Badkamer",
+    "cat_top": "Badkamer",
+    "price": "36,80",
+    "sale": "",
+    "desc": "Kleur: Zilver Handige make-up spiegel met voet, 360° draaibaar. Echte must have voor iedere badkamerspiegel! Door de zoom functie van de spiegel heb je beter zicht op je huid. Dit resulteert in een mooiere gecontroleerde huid De spiegel vergroot tot wel 5x zo kan je makkelijk je…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1792726588-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1792719869-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "823501074",
+    "name": "Bright Mirror 5887124886",
+    "type": "simple",
+    "cat_full": "Badkamer",
+    "cat_top": "Badkamer",
+    "price": "67,30",
+    "sale": "",
+    "desc": "Kleur: Zilver Handige make-up spiegel met voet, 360° draaibaar. Echte must have voor iedere badkamerspiegel! Door het ingebouwde licht en de zoom functie van de spiegel heb je beter zicht op je huid. Dit resulteert in een mooiere gecontroleerde huid Door de hoge voet kan je deze…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1787099394-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1787083819-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "823701541-1",
+    "name": "Stein Badmat Tender Beige 60cm x 60cm 4099226360",
+    "type": "simple",
+    "cat_full": "Badkamer",
+    "cat_top": "Badkamer",
+    "price": "65,95",
+    "sale": "",
+    "desc": "\\n Kleur: Beige \\n \\n \\n \\n \\nDe Stein Tender badmat is een zeer zachte badmat met hoogwaardige kwaliteitsvezels. Deze zijn geschikt voor wasmachine en droger. Was deze met het programma voor fijne was met een wasmiddel voor fijne was gescheiden van ander wasgoed (was set-delen…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/05/1784386182.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/1784383469.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "Stein WC-mat Relax Groen 5405615129",
+    "type": "simple",
+    "cat_full": "Badkamer",
+    "cat_top": "Badkamer",
+    "price": "59,99",
+    "sale": "",
+    "desc": "\\n Kleur: Groen \\n \\n \\n \\n \\nDe Stein Relax wc-mat is een zeer zachte wc-mat met hoogwaardige kwaliteitsvezels. Deze zijn geschikt voor wasmachine en droger. Was deze met het programma voor fijne was met een wasmiddel voor fijne was gescheiden van ander wasgoed (was set-delen…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/05/1770758521.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/1772771274.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/1770759394.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "Stein WC-mat Relax Zwart 5405926129",
+    "type": "simple",
+    "cat_full": "Badkamer",
+    "cat_top": "Badkamer",
+    "price": "59,99",
+    "sale": "",
+    "desc": "\\n Kleur: Zwart \\n \\n \\n \\n \\nDe Stein Relax wc-mat is een zeer zachte wc-mat met hoogwaardige kwaliteitsvezels. Deze zijn geschikt voor wasmachine en droger. Was deze met het programma voor fijne was met een wasmiddel voor fijne was gescheiden van ander wasgoed (was set-delen…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/05/1772763301.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/1772763315.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/1772751983.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "Stein WC-mat Relax Blauw 5405316129",
+    "type": "simple",
+    "cat_full": "Badkamer",
+    "cat_top": "Badkamer",
+    "price": "59,99",
+    "sale": "",
+    "desc": "\\n Kleur: Blauw \\n \\n \\n \\n \\nDe Stein Relax wc-mat is een zeer zachte wc-mat met hoogwaardige kwaliteitsvezels. Deze zijn geschikt voor wasmachine en droger. Was deze met het programma voor fijne was met een wasmiddel voor fijne was gescheiden van ander wasgoed (was set-delen…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/05/1772904133.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/1772897671.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/1772897723.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "823701543",
+    "name": "Stein Badmat Tender Beige 4099226225 70cm x 120cm",
+    "type": "simple",
+    "cat_full": "Badkamer",
+    "cat_top": "Badkamer",
+    "price": "139,95",
+    "sale": "",
+    "desc": "Kleur: Beige De Stein Tender badmat is een zachte badmat met hoogwaardige kwaliteitsvezels. Deze zijn geschikt voor wasmachine en droger. Was deze met het programma voor fijne was met een wasmiddel voor fijne was gescheiden van ander wasgoed (was set-delen samen om uiterlijke…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1784386038-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1784385520-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1784372736-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "823701546",
+    "name": "Stein Badmat Tender Antraciet 4099901225 70cm x 120cm",
+    "type": "simple",
+    "cat_full": "Badkamer",
+    "cat_top": "Badkamer",
+    "price": "139,95",
+    "sale": "",
+    "desc": "Kleur: Grijs De Stein Tender badmat is een zachte badmat met hoogwaardige kwaliteitsvezels. Deze zijn geschikt voor wasmachine en droger. Was deze met het programma voor fijne was met een wasmiddel voor fijne was gescheiden van ander wasgoed (was set-delen samen om uiterlijke…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1784367770-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1784361361-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1784356466-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "823501073",
+    "name": "Bright Mirror Shorty 5886124886",
+    "type": "simple",
+    "cat_full": "Badkamer",
+    "cat_top": "Badkamer",
+    "price": "58,50",
+    "sale": "",
+    "desc": "Kleur: Zilver Handige make-up spiegel met voet, 360° draaibaar. Echte must have voor iedere badkamerspiegel! Door het ingebouwde licht en de zoom functie van de spiegel heb je beter zicht op je huid. Dit resulteert in een mooiere gecontroleerde huid Door de voet kan je deze…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1792390696-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1792422142-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "Stein WC-mat Relax Taupe 5405271129",
+    "type": "simple",
+    "cat_full": "Badkamer",
+    "cat_top": "Badkamer",
+    "price": "59,99",
+    "sale": "",
+    "desc": "\\n \\n \\n Kleur: Taupe \\n \\n \\n \\n \\nDe Stein Relax wc-mat is een zeer zachte wc-mat met hoogwaardige kwaliteitsvezels. Deze zijn geschikt voor wasmachine en droger. Was deze met het programma voor fijne was met een wasmiddel voor fijne was gescheiden van ander wasgoed (was…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/05/1772537808.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/1772544595.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "",
+    "name": "Stein WC-mat Relax Rood 5405453129",
+    "type": "simple",
+    "cat_full": "Badkamer",
+    "cat_top": "Badkamer",
+    "price": "59,99",
+    "sale": "",
+    "desc": "\\n \\n \\n Kleur: Rood \\n \\n \\n \\n \\nDe Stein Relax wc-mat is een zeer zachte wc-mat met hoogwaardige kwaliteitsvezels. Deze zijn geschikt voor wasmachine en droger. Was deze met het programma voor fijne was met een wasmiddel voor fijne was gescheiden van ander wasgoed (was…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/05/1772817826.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/1772807922.jpg",
+     "https://brunic.be/wp-content/uploads/2022/05/1772834127.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   }
+  ],
+  "Home & decoratie": [
+   {
+    "sku": "553622007",
+    "name": "Kersenpitkussen Cherry Belly Aap",
+    "type": "simple",
+    "cat_full": "Home & decoratie",
+    "cat_top": "Home & decoratie",
+    "price": "19,99",
+    "sale": "",
+    "desc": "\\n \\n Cherry Belly tovert al haar knuffeldieren om in een aangename warme kindervriend. \\nCherry-Belly is een aangename knuffel en warmtekussentje. Het kersenpitkussentje in hartvorm kan uit de knuffel en even opgewarmd worden in de microgolfoven zodat het nadien een heerlijke…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/12/1200x1200-7.jpg",
+     "https://brunic.be/wp-content/uploads/2022/12/1086x1200.jpg",
+     "https://brunic.be/wp-content/uploads/2022/12/1123x1200.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "553622008",
+    "name": "Kersenpitkussen Cherry Belly Nijlpaard",
+    "type": "simple",
+    "cat_full": "Home & decoratie",
+    "cat_top": "Home & decoratie",
+    "price": "19,99",
+    "sale": "",
+    "desc": "\\n \\n Cherry Belly tovert al haar knuffeldieren om in een aangename warme kindervriend. \\nCherry-Belly is een aangename knuffel en warmtekussentje. Het kersenpitkussentje in hartvorm kan uit de knuffel en even opgewarmd worden in de microgolfoven zodat het nadien een heerlijke…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/12/1200x1200-1-2.jpg",
+     "https://brunic.be/wp-content/uploads/2022/12/1104x1200.jpg",
+     "https://brunic.be/wp-content/uploads/2022/12/1128x1200.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "553622009",
+    "name": "Kersenpitkussen Cherry Belly Billy",
+    "type": "simple",
+    "cat_full": "Home & decoratie",
+    "cat_top": "Home & decoratie",
+    "price": "19,99",
+    "sale": "",
+    "desc": "\\n \\n Cherry Belly tovert al haar knuffeldieren om in een aangename warme kindervriend. \\nCherry-Belly is een aangename knuffel en warmtekussentje. Het kersenpitkussentje in hartvorm kan uit de knuffel en even opgewarmd worden in de microgolfoven zodat het nadien een heerlijke…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/12/1200x955.jpg",
+     "https://brunic.be/wp-content/uploads/2022/12/899x1200.jpg",
+     "https://brunic.be/wp-content/uploads/2022/12/1200x955.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "553622010",
+    "name": "Kersenpitkussen Cherry Belly Kat",
+    "type": "simple",
+    "cat_full": "Home & decoratie",
+    "cat_top": "Home & decoratie",
+    "price": "19,99",
+    "sale": "",
+    "desc": "\\n \\n Cherry Belly tovert al haar knuffeldieren om in een aangename warme kindervriend. \\nCherry-Belly is een aangename knuffel en warmtekussentje. Het kersenpitkussentje in hartvorm kan uit de knuffel en even opgewarmd worden in de microgolfoven zodat het nadien een heerlijke…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/12/1200x1200-4-2.jpg",
+     "https://brunic.be/wp-content/uploads/2022/12/1200x960-2.jpg",
+     "https://brunic.be/wp-content/uploads/2022/12/1200x1146-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "553622001",
+    "name": "Kersenpitkussen Kersepitje Classic 27cm x 27cm",
+    "type": "simple",
+    "cat_full": "Home & decoratie",
+    "cat_top": "Home & decoratie",
+    "price": "13,50",
+    "sale": "",
+    "desc": "\\n \\n Kersepitje, een handgemaakt Belgisch product is een relaxerend warmtekussen. \\nNa opwarming in de magnetron is Kersepitje dé ideale metgezel voor koude avonden en nachten, maar ook een verlichting voor dagelijkse ongemakken en spierpijnen. \\nGekoeld in het vriesvak doet…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/12/1200x1149.jpg",
+     "https://brunic.be/wp-content/uploads/2022/12/953x1200.jpg",
+     "https://brunic.be/wp-content/uploads/2022/12/1050x1200.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "553622002",
+    "name": "Kersenpitkussen Kersepitje Cervico 13cm x 55cm",
+    "type": "simple",
+    "cat_full": "Home & decoratie",
+    "cat_top": "Home & decoratie",
+    "price": "13,50",
+    "sale": "",
+    "desc": "\\n \\n Kersepitje, een handgemaakt Belgisch product is een relaxerend warmtekussen. \\nNa opwarming in de magnetron is Kersepitje dé ideale metgezel voor koude avonden en nachten, maar ook een verlichting voor dagelijkse ongemakken en spierpijnen. \\nGekoeld in het vriesvak doet…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/12/1200x947.jpg",
+     "https://brunic.be/wp-content/uploads/2022/12/678x1200.jpg",
+     "https://brunic.be/wp-content/uploads/2022/12/1046x1200.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "553622003",
+    "name": "Kersenpitkussen Kersepitje Jumbo 26cm x 55cm",
+    "type": "simple",
+    "cat_full": "Home & decoratie",
+    "cat_top": "Home & decoratie",
+    "price": "24,99",
+    "sale": "",
+    "desc": "\\n \\n Kersepitje, een handgemaakt Belgisch product is een relaxerend warmtekussen. \\nNa opwarming in de magnetron is Kersepitje dé ideale metgezel voor koude avonden en nachten, maar ook een verlichting voor dagelijkse ongemakken en spierpijnen. \\nGekoeld in het vriesvak doet…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/12/1200x1108.jpg",
+     "https://brunic.be/wp-content/uploads/2022/12/877x1200.jpg",
+     "https://brunic.be/wp-content/uploads/2022/12/1020x1200.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668622003",
+    "name": "Titia Schaap Licht Grijs 3294",
+    "type": "simple",
+    "cat_full": "Home & decoratie",
+    "cat_top": "Home & decoratie",
+    "price": "21,99",
+    "sale": "",
+    "desc": "\\n \\n \\n Kleur: Licht Grijs \\n \\n \\n \\n \\nKussen met afneembare hoes (rits) en vulling inbegrepen.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/02/1419661540.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668622004",
+    "name": "Titia Schaap Groen 3294",
+    "type": "simple",
+    "cat_full": "Home & decoratie",
+    "cat_top": "Home & decoratie",
+    "price": "21,99",
+    "sale": "",
+    "desc": "\\n \\n \\n Kleur: Groen \\n \\n \\n \\n \\nKussen met afneembare hoes (rits) en vulling inbegrepen.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/02/1419648801.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668622001",
+    "name": "Titia Schaap Blauw 3294",
+    "type": "simple",
+    "cat_full": "Home & decoratie",
+    "cat_top": "Home & decoratie",
+    "price": "21,99",
+    "sale": "",
+    "desc": "\\n \\n \\n Kleur: Blauw \\n \\n \\n \\nKussen met afneembare hoes (rits) en vulling inbegrepen.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/02/1419661822.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668622006",
+    "name": "Titia Schaap Taupe 3294",
+    "type": "simple",
+    "cat_full": "Home & decoratie",
+    "cat_top": "Home & decoratie",
+    "price": "21,99",
+    "sale": "",
+    "desc": "\\n \\n \\n Kleur: Taupe \\n \\n \\n \\nKussen met afneembare hoes (rits) en vulling inbegrepen.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/02/1419670061.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": " 668622022",
+    "name": "Titia Schaap Camel 3294",
+    "type": "simple",
+    "cat_full": "Home & decoratie",
+    "cat_top": "Home & decoratie",
+    "price": "21,99",
+    "sale": "",
+    "desc": "\\n \\n \\n Kleur: Camel \\n \\n \\n \\nKussen met afneembare hoes (rits) en vulling inbegrepen.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/02/1419665627.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668622030",
+    "name": "Titia Bruin 3277",
+    "type": "simple",
+    "cat_full": "Home & decoratie",
+    "cat_top": "Home & decoratie",
+    "price": "13,99",
+    "sale": "11,99",
+    "desc": "\\n Kussen met afneembare hoes (rits) en vulling inbegrepen. \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1920100735-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1920180820-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "668622077",
+    "name": "Cotton Melange Yellow Kussen 3450 45cm x 45cm",
+    "type": "simple",
+    "cat_full": "Home & decoratie",
+    "cat_top": "Home & decoratie",
+    "price": "17,50",
+    "sale": "",
+    "desc": "\\n Kussen met afneembare hoes (rits) en vulling inbegrepen. \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2022/02/3450_YELLOWSUNFLOWER.png",
+     "https://brunic.be/wp-content/uploads/2022/02/3227_3437_3439_3450_3453_YELLOWSUNFLOWER-scaled.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   }
+  ],
+  "Stoffen": [
+   {
+    "sku": "626616001",
+    "name": "Gordijnlint Wit 2,5cm GT7",
+    "type": "simple",
+    "cat_full": "Stoffen > Linten & haakjes",
+    "cat_top": "Stoffen",
+    "price": "1,40",
+    "sale": "",
+    "desc": "\\n Kleur: Wit \\n \\n \\n \\n \\n Ideaal voor het maken van gordijnen of draperieën. \\n \\n Gordijnen \\n Om de 5 cm staat een streepje waardoor je gemakkelijk plooien kan maken. \\n \\n Draperieën \\nHet lint op de stof stikken en met een haakje met 2 beentjes kan je makkelijk een plooi…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2326783710-1.jpg"
+    ],
+    "variant_attr": "Formaat Gordijnlint Wit 2,5cm GT7",
+    "variant_values": "Gordijnlint Wit 2\\,5cm GT7 - 0\\,5m, Gordijnlint Wit 2\\,5cm GT7 - 1\\,5m, Gordijnlint Wit 2\\,5cm GT7 - 2m, Gordijnlint Wit 2\\,5cm GT7 - 2\\,5m, Gordijnlint Wit 2\\,5cm GT7 - 3m, Gordijnlint Wit 2\\,5cm GT7 - 3\\,5m, Gordijnlint Wit 2\\,5cm GT7 - 4m, Gordijnlint Wit 2\\,5cm GT7 - 4\\,5m, Gordijnlint Wit 2\\,5cm GT7 - 5m, Gordijnlint Wit 2\\,5cm GT7 - 5\\,5m, Gordijnlint Wit 2\\,5cm GT7 - 6m, Gordijnlint Wit 2\\,",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "601615002",
+    "name": "Dubbeling Lint Wit 2,5cm GT17",
+    "type": "simple",
+    "cat_full": "Stoffen > Linten & haakjes",
+    "cat_top": "Stoffen",
+    "price": "1,50",
+    "sale": "",
+    "desc": "\\n Kleur: Wit \\n \\n \\n \\n \\n Ideaal om uw niet gevoerde stoffen toch nog te voeren. \\n \\nDe voering tussen het lint steken en vast stikken, het haakje door het lint steken en aan het lint van de te voeren stof haken.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2335744561-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/2335743596-1.jpg"
+    ],
+    "variant_attr": "Formaat Dubbeling Lint Wit 2,5cm GT17",
+    "variant_values": "Dubbeling Lint Wit 2\\,5cm GT17 - 0\\,5m, Dubbeling Lint Wit 2\\,5cm GT17 - 1m, Dubbeling Lint Wit 2\\,5cm GT17 -1\\,5m, Dubbeling Lint Wit 2\\,5cm GT17 - 2m, Dubbeling Lint Wit 2\\,5cm GT17 - 2\\,5m, Dubbeling Lint Wit 2\\,5cm GT17 - 3m, Dubbeling Lint Wit 2\\,5cm GT17 - 3\\,5m, Dubbeling Lint Wit 2\\,5cm GT17 - 4m, Dubbeling Lint Wit 2\\,5cm GT17 - 4\\,5m, Dubbeling Lint Wit 2\\,5cm GT17 - 5m, Dubbeling Lint W",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "626615005",
+    "name": "Fronslint wit 2,5cm GT3",
+    "type": "simple",
+    "cat_full": "Stoffen > Linten & haakjes",
+    "cat_top": "Stoffen",
+    "price": "1,40",
+    "sale": "",
+    "desc": "\\n Kleur: Wit \\n \\n \\n \\n \\n Ideaal voor het maken van gordijnen of draperieën. \\n \\nOp de stof stikken, aan de koortjes trekken en er ontstaat een automatische frons in de stof.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2326905039-1.jpg"
+    ],
+    "variant_attr": "Formaat Fronslint Wit 2,5cm GT3",
+    "variant_values": "Fronslint Wit 2\\,5cm GT3 - 3m, Fronslint Wit 2\\,5cm GT3 - 3\\,5m, Fronslint Wit 2\\,5cm GT3 - 4m, Fronslint Wit 2\\,5cm GT3 - 4\\,5m, Fronslint Wit 2\\,5cm GT3 - 5m, Fronslint Wit 2\\,5cm GT3 - 5\\,5m, Fronslint Wit 2\\,5cm GT3 - 6m, Fronslint Wit 2\\,5cm GT3 - 6\\,5m, Fronslint Wit 2\\,5cm GT3 - 7m, Fronslint Wit 2\\,5cm GT3 - 7\\,5m, Fronslint Wit 2\\,5cm GT3 - 8m, Fronslint Wit 2\\,5cm GT3 - 8\\,5m, Fronslint ",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "601615004",
+    "name": "Dubbel Fronslint wit 5cm GT2",
+    "type": "simple",
+    "cat_full": "Stoffen > Linten & haakjes",
+    "cat_top": "Stoffen",
+    "price": "2,10",
+    "sale": "",
+    "desc": "\\n Kleur: Wit \\n \\n \\n \\n \\n Ideaal voor het maken van gordijnen of draperieën. \\n \\nOp de stof stikken, aan de koortjes trekken en er ontstaat een automatische frons in de stof.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2327248821-1.jpg"
+    ],
+    "variant_attr": "Formaat Fronslint Wit 5cm GT2",
+    "variant_values": "Fronslint Wit 5cm GT2 - 0\\,5m, Fronslint Wit 5cm GT2 - 1m, Fronslint Wit 5cm GT2 - 1\\,5m, Fronslint Wit 5cm GT2 - 2m, Fronslint Wit 5cm GT2 - 2\\,5m, Fronslint Wit 5cm GT2 - 3m, Fronslint Wit 5cm GT2 - 3\\,5m, Fronslint Wit 5cm GT2 - 4m, Fronslint Wit 5cm GT2 - 4\\,5m, Fronslint Wit 5cm GT2 - 5m, Fronslint Wit 5cm GT2 - 5\\,5m, Fronslint Wit 5cm GT2 - 6m, Fronslint Wit 5cm GT2 - 6\\,5m, Fronslint Wit 5",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "601615001",
+    "name": "Groot Fronslint Wit 7cm GT12",
+    "type": "simple",
+    "cat_full": "Stoffen > Linten & haakjes",
+    "cat_top": "Stoffen",
+    "price": "3,99",
+    "sale": "",
+    "desc": "\\n Kleur: Wit \\n \\n \\n \\n \\n Ideaal voor het maken van draperieën. \\n \\nOp de stof stikken, aan de koortjes trekken en er ontstaat een automatische vlinderplooi in de stof.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2335684559-1.jpg"
+    ],
+    "variant_attr": "Formaat Groot Fronslint Wit 7cm GT12",
+    "variant_values": "Groot Fronslint Wit 7cm GT12 - 5m, Groot Fronslint Wit 7cm GT12 - 5\\,5m, Groot Fronslint Wit 7cm GT12 - 6m, Groot Fronslint Wit 7cm GT12 - 6\\,5m, Groot Fronslint Wit 7cm GT12 - 7m, Groot Fronslint Wit 7cm GT12 - 7\\,5m, Groot Fronslint Wit 7cm GT12 - 8m, Groot Fronslint Wit 7cm GT12 - 8\\,5m, Groot Fronslint Wit 7cm GT12 - 9m, Groot Fronslint Wit 7cm GT12 - 9\\,5m, Groot Fronslint Wit 7cm GT12 - 0\\,5",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "625601001",
+    "name": "Velcro Zacht Klevend 2cm",
+    "type": "simple",
+    "cat_full": "Stoffen > Linten & haakjes",
+    "cat_top": "Stoffen",
+    "price": "2,5",
+    "sale": "",
+    "desc": "\\n Kleur: Wit \\n \\n \\n \\n \\n Velcro met klevende achterzijde.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2336116210-1.jpg"
+    ],
+    "variant_attr": "Formaat Velcro Zacht Klevend 2cm",
+    "variant_values": "Velcro Zacht Klevend 2cm - 0\\,5m, Velcro Zacht Klevend 2cm -1\\,5m, Velcro Zacht Klevend 2cm - 2m, Velcro Zacht Klevend 2cm - 2\\,5m, Velcro Zacht Klevend 2cm - 3m, Velcro Zacht Klevend 2cm - 3\\,5m, Velcro Zacht Klevend 2cm - 4m, Velcro Zacht Klevend 2cm - 4\\,5m, Velcro Zacht Klevend 2cm - 5m, Velcro Zacht Klevend 2cm - 5\\,5m, Velcro Zacht Klevend 2cm - 6m, Velcro Zacht Klevend 2cm - 6\\,5m, Velcro Z",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "621601002",
+    "name": "Velcro Hard Klevend 2cm",
+    "type": "simple",
+    "cat_full": "Stoffen > Linten & haakjes",
+    "cat_top": "Stoffen",
+    "price": "1,79",
+    "sale": "",
+    "desc": "\\n Kleur: Wit \\n \\n \\n \\n \\n Velcro met klevende achterzijde.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2335791735-1.jpg"
+    ],
+    "variant_attr": "Formaat Velcro Hard Klevend 2cm",
+    "variant_values": "Velcro Hard Klevend 2cm - 5m, Velcro Hard Klevend 2cm - 5\\,5m, Velcro Hard Klevend 2cm - 6m, Velcro Hard Klevend 2cm - 6\\,5m, Velcro Hard Klevend 2cm - 7m, Velcro Hard Klevend 2cm - 7\\,5m, Velcro Hard Klevend 2cm - 8m, Velcro Hard Klevend 2cm - 8\\,5m, Velcro Hard Klevend 2cm - 9m, Velcro Hard Klevend 2cm - 9\\,5m, Velcro Hard Klevend 2cm - 0\\,5m, Velcro Hard Klevend 2cm - 10m, Velcro Hard Klevend 2",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "621601001",
+    "name": "Velcro Zacht Om Te Stikken 2cm",
+    "type": "simple",
+    "cat_full": "Stoffen > Linten & haakjes",
+    "cat_top": "Stoffen",
+    "price": "1,79",
+    "sale": "",
+    "desc": "\\n Kleur: Wit \\n \\n \\n \\n \\n Velcro zacht om te stikken.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2335940886-1.jpg"
+    ],
+    "variant_attr": "Formaat Velcro Zacht Om Te Stikken 2cm",
+    "variant_values": "Velcro Zacht Om Te Stikken 2cm - 0\\,5m, Velcro Zacht Om Te Stikken 2cm -1\\,5m, Velcro Zacht Om Te Stikken 2cm - 2m, Velcro Zacht Om Te Stikken 2cm - 2\\,5m, Velcro Zacht Om Te Stikken 2cm - 3m, Velcro Zacht Om Te Stikken 2cm - 3\\,5m, Velcro Zacht Om Te Stikken 2cm - 4m, Velcro Zacht Om Te Stikken 2cm - 4\\,5m, Velcro Zacht Om Te Stikken 2cm - 5m, Velcro Zacht Om Te Stikken 2cm - 5\\,5m, Velcro Zacht ",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "621601005",
+    "name": "Velcro Hard Om Te Stikken 2cm",
+    "type": "simple",
+    "cat_full": "Stoffen > Linten & haakjes",
+    "cat_top": "Stoffen",
+    "price": "1,30",
+    "sale": "",
+    "desc": "\\n Kleur: Wit \\n \\n \\n \\n \\n Velcro hard om te stikken.",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2335880793-1.jpg"
+    ],
+    "variant_attr": "Formaat Velcro Hard Om Te Stikken 2cm",
+    "variant_values": "Velcro Hard Om Te Stikken 2cm - 4\\,5m, Velcro Hard Om Te Stikken 2cm - 5m, Velcro Hard Om Te Stikken 2cm - 5\\,5m, Velcro Hard Om Te Stikken 2cm - 6m, Velcro Hard Om Te Stikken 2cm - 6\\,5m, Velcro Hard Om Te Stikken 2cm - 7m, Velcro Hard Om Te Stikken 2cm - 7\\,5m, Velcro Hard Om Te Stikken 2cm - 8m, Velcro Hard Om Te Stikken 2cm - 8\\,5m, Velcro Hard Om Te Stikken 2cm - 9m, Velcro Hard Om Te Stikken",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "621658131",
+    "name": "Stof Bedrukt Black Out 680310 C 1,40m",
+    "type": "simple",
+    "cat_full": "Stoffen > Stoffen > Draperieën",
+    "cat_top": "Stoffen",
+    "price": "19,99",
+    "sale": "",
+    "desc": "\\n Kleur: Meerderkleurig \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2337922934-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/2337924514-1.jpg"
+    ],
+    "variant_attr": "Formaat Stof Bedrukt Black Out 680310 C",
+    "variant_values": "Stof Bedrukt Black Out 680310 C 1\\,40m x 0\\,50m, Stof Bedrukt Black Out 680310 C 1\\,40 x 1m, Stof Bedrukt Black Out 680310 C 1\\,40m x 1\\,50m, Stof Bedrukt Black Out 680310 C 1\\,40 x 2m, Stof Bedrukt Black Out 680310 C 1\\,40m x 2\\,50m, Stof Bedrukt Black Out 680310 C 1\\,40m x 3m, Stof Bedrukt Black Out 680310 C 1\\,40m x 3\\,50m, Stof Bedrukt Black Out 680310 C 1\\,40m x 4m, Stof Bedrukt Black Out 680",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "621658132",
+    "name": "Stof Bedrukt Black Out 680310 Y 1,40m",
+    "type": "simple",
+    "cat_full": "Stoffen > Stoffen > Draperieën",
+    "cat_top": "Stoffen",
+    "price": "19,99",
+    "sale": "",
+    "desc": "\\n Kleur: Meerderkleurig \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2337936614-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/2337911996-1.jpg"
+    ],
+    "variant_attr": "Formaat Stof Bedrukt Black Out 680310 Y",
+    "variant_values": "Stof Bedrukt Black Out 680310 Y 1\\,40m x 4\\,50m, Stof Bedrukt Black Out 680310 Y 1\\,40m x 5m, Stof Bedrukt Black Out 680310 Y 1\\,40m x 5\\,50m, Stof Bedrukt Black Out 680310 Y 1\\,40m x 6m, Stof Bedrukt Black Out 680310 Y 1\\,40m x 6\\,50m, Stof Bedrukt Black Out 680310 Y 1\\,40m x 7m, Stof Bedrukt Black Out 680310 Y 1\\,40m x 7\\,50m, Stof Bedrukt Black Out 680310 Y 1\\,40m x 8m, Stof Bedrukt Black Out 6",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "637646006",
+    "name": "Beertje Hartje 16494 *** 1,40m",
+    "type": "simple",
+    "cat_full": "Stoffen > Kinderstoffen",
+    "cat_top": "Stoffen",
+    "price": "7,5",
+    "sale": "",
+    "desc": "\\n Kleur: Meerderkleurig \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1408630695-1.jpg"
+    ],
+    "variant_attr": "Formaat Beertje Hartje 16494",
+    "variant_values": "Beertje Hartje 1\\,40m x 1\\,00m, Beertje Hartje 1\\,40m x 1\\,50m, Beertje Hartje 1\\,40m x 2\\,00m, Beertje Hartje 1\\,40m x 2\\,50m, Beertje Hartje 1\\,40m x 3\\,00m, Beertje Hartje 1\\,40m x 3\\,50m, Beertje Hartje 1\\,40m x 4\\,00m, Beertje Hartje 1\\,40m x 4\\,50m, Beertje Hartje 1\\,40m x 5\\,00m, Beertje Hartje 1\\,40m x 5\\,50m, Beertje Hartje 1\\,40m x 6\\,00m, Beertje Hartje 1\\,40m x 6\\,50m, Beertje Hartje 1",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "621611001",
+    "name": "Voering Polico 382096",
+    "type": "simple",
+    "cat_full": "Stoffen",
+    "cat_top": "Stoffen",
+    "price": "6,99",
+    "sale": "",
+    "desc": "\\n Kleur: Gebroken Wit \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1407168999-1.jpg"
+    ],
+    "variant_attr": "Formaat Voering Polico 382096",
+    "variant_values": "Voering Polico 382096 1\\,40m x 1\\,50m, Voering Polico 382096 1\\,40m x 2\\,00m, Voering Polico 382096 1\\,40m x 2\\,50m, Voering Polico 382096 1\\,40m x 3\\,00m, Voering Polico 382096 1\\,40m x 3\\,50m, Voering Polico 382096 1\\,40m x 4\\,00m, Voering Polico 382096 1\\,40m x 4\\,50m, Voering Polico 382096 1\\,40m x 5\\,00m, Voering Polico 382096 1\\,40m x 5\\,50m, Voering Polico 382096 1\\,40m x 6\\,00m, Voering Po",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "841666005",
+    "name": "Stof Grijs Black Out Ibis 804 1,40m",
+    "type": "simple",
+    "cat_full": "Stoffen > Stoffen > Draperieën",
+    "cat_top": "Stoffen",
+    "price": "29,99",
+    "sale": "",
+    "desc": "\\n Kleur: Grijs \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/2363571218-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/2363574663-1.jpg"
+    ],
+    "variant_attr": "Formaat Stof Grijs Black Out Ibis 804",
+    "variant_values": "Stof Grijs Black Out Ibis 804 1\\,40m x 4m, Stof Grijs Black Out Ibis 804 1\\,40m x 4\\,50m, Stof Grijs Black Out Ibis 804 1\\,40m x 5m, Stof Grijs Black Out Ibis 804 1\\,40m x 5\\,50m, Stof Grijs Black Out Ibis 804 1\\,40m x 6m, Stof Grijs Black Out Ibis 804 1\\,40m x 6\\,50m, Stof Grijs Black Out Ibis 804 1\\,40m x 7m, Stof Grijs Black Out Ibis 804 1\\,40m x 7\\,50m, Stof Grijs Black Out Ibis 804 1\\,40m x 8",
+    "unit_suffix": ""
+   }
+  ],
+  "Vloerbekleding": [
+   {
+    "sku": "103518004",
+    "name": "Monel 10L",
+    "type": "simple",
+    "cat_full": "Vloerbekleding > Benodigdheden vloerbekleding",
+    "cat_top": "Vloerbekleding",
+    "price": "79,99",
+    "sale": "49,99",
+    "desc": "\\n \\n \\n Eenvoudig onderhoud \\n \\nForbo Monel is bedoeld voor de reiniging en het onderhoud van Marmoleum en vinylvloeren. \\nForbo Monel Floorcare volstaat om vlekken te verwijderen en voor het totale onderhoud! \\nHet vloeroppervlak wordt meteen ook beschermd door het aanbrengen…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1379961910-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "103518003",
+    "name": "Monel 1L",
+    "type": "simple",
+    "cat_full": "Vloerbekleding > Benodigdheden vloerbekleding",
+    "cat_top": "Vloerbekleding",
+    "price": "13,59",
+    "sale": "11,10",
+    "desc": "\\n \\n \\n Eenvoudig onderhoud \\n \\nForbo Monel is bedoeld voor de reiniging en het onderhoud van Marmoleum en vinylvloeren. \\nForbo Monel Floorcare volstaat om vlekken te verwijderen en voor het totale onderhoud! \\nHet vloeroppervlak wordt meteen ook beschermd door het aanbrengen…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1379955635-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "404425029 228",
+    "name": "Columbia 228 Groen 4M/5M",
+    "type": "simple",
+    "cat_full": "Vloerbekleding > Vasttapijt",
+    "cat_top": "Vloerbekleding",
+    "price": "29,99",
+    "sale": "",
+    "desc": "\\n Bij aankoop van dit product ontvangt u een certificaat voor de brandveiligheid. \\n \\n \\n \\n Heeft u nog andere certificaten nodig? \\nMail naar info@brunic.be en we sturen u de nodige documenten. \\n \\n Heeft u graag dat uw vloerbekleding geplaatst wordt? \\nNeem contact met ons…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/10/1917364543.jpg"
+    ],
+    "variant_attr": "Formaat Columbia 948 Grijs 4M",
+    "variant_values": "Columbia 948 Grijs 4m x 1m, Columbia 948 Grijs 4m x 2m, Columbia 948 Grijs 4m x 3m, Columbia 948 Grijs 4m x 4m, Columbia 948 Grijs 4m x 5m, Columbia 948 Grijs 4m x 6m, Columbia 948 Grijs 4m x 7m, Columbia 948 Grijs 4m x 8m, Columbia 948 Grijs 4m x 9m, Columbia 948 Grijs 4m x 10m, Columbia 948 Grijs 4m x 11m, Columbia 948 Grijs 4m x 12m, Columbia 948 Grijs 4m x 13m, Columbia 948 Grijs 4m x 14m, Col",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "404425029 738",
+    "name": "Columbia 738 Bruin 4M/5M",
+    "type": "simple",
+    "cat_full": "Vloerbekleding > Vasttapijt",
+    "cat_top": "Vloerbekleding",
+    "price": "29,99",
+    "sale": "",
+    "desc": "\\n Bij aankoop van dit product ontvangt u een certificaat voor de brandveiligheid. \\n \\n \\n \\n Heeft u nog andere certificaten nodig? \\nMail naar info@brunic.be en we sturen u de nodige documenten. \\n \\n Heeft u graag dat uw vloerbekleding geplaatst wordt? \\nNeem contact met ons…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/10/1917410300.jpg"
+    ],
+    "variant_attr": "Formaat Columbia 948 Grijs 4M",
+    "variant_values": "Columbia 948 Grijs 4m x 1m, Columbia 948 Grijs 4m x 2m, Columbia 948 Grijs 4m x 3m, Columbia 948 Grijs 4m x 4m, Columbia 948 Grijs 4m x 5m, Columbia 948 Grijs 4m x 6m, Columbia 948 Grijs 4m x 7m, Columbia 948 Grijs 4m x 8m, Columbia 948 Grijs 4m x 9m, Columbia 948 Grijs 4m x 10m, Columbia 948 Grijs 4m x 11m, Columbia 948 Grijs 4m x 12m, Columbia 948 Grijs 4m x 13m, Columbia 948 Grijs 4m x 14m, Col",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "404425029 768",
+    "name": "Columbia 768 Bruin 4M",
+    "type": "simple",
+    "cat_full": "Vloerbekleding > Vasttapijt",
+    "cat_top": "Vloerbekleding",
+    "price": "29,99",
+    "sale": "",
+    "desc": "\\n Bij aankoop van dit product ontvangt u een certificaat voor de brandveiligheid. \\n \\n \\n \\n Heeft u nog andere certificaten nodig? \\nMail naar info@brunic.be en we sturen u de nodige documenten. \\n \\n Heeft u graag dat uw vloerbekleding geplaatst wordt? \\nNeem contact met ons…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/10/1917585781.jpg"
+    ],
+    "variant_attr": "Formaat Columbia 948 Grijs 4M",
+    "variant_values": "Columbia 948 Grijs 4m x 1m, Columbia 948 Grijs 4m x 2m, Columbia 948 Grijs 4m x 3m, Columbia 948 Grijs 4m x 4m, Columbia 948 Grijs 4m x 5m, Columbia 948 Grijs 4m x 6m, Columbia 948 Grijs 4m x 7m, Columbia 948 Grijs 4m x 8m, Columbia 948 Grijs 4m x 9m, Columbia 948 Grijs 4m x 10m, Columbia 948 Grijs 4m x 11m, Columbia 948 Grijs 4m x 12m, Columbia 948 Grijs 4m x 13m, Columbia 948 Grijs 4m x 14m, Col",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "404425029 628",
+    "name": "Columbia 628 Beige 4M",
+    "type": "simple",
+    "cat_full": "Vloerbekleding > Vasttapijt",
+    "cat_top": "Vloerbekleding",
+    "price": "29,99",
+    "sale": "",
+    "desc": "\\n Bij aankoop van dit product ontvangt u een certificaat voor de brandveiligheid. \\n \\n \\n \\n Heeft u nog andere certificaten nodig? \\nMail naar info@brunic.be en we sturen u de nodige documenten. \\n \\n Heeft u graag dat uw vloerbekleding geplaatst wordt? \\nNeem contact met ons…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/10/1917580665.jpg"
+    ],
+    "variant_attr": "Formaat Columbia 948 Grijs 4M",
+    "variant_values": "Columbia 948 Grijs 4m x 1m, Columbia 948 Grijs 4m x 2m, Columbia 948 Grijs 4m x 3m, Columbia 948 Grijs 4m x 4m, Columbia 948 Grijs 4m x 5m, Columbia 948 Grijs 4m x 6m, Columbia 948 Grijs 4m x 7m, Columbia 948 Grijs 4m x 8m, Columbia 948 Grijs 4m x 9m, Columbia 948 Grijs 4m x 10m, Columbia 948 Grijs 4m x 11m, Columbia 948 Grijs 4m x 12m, Columbia 948 Grijs 4m x 13m, Columbia 948 Grijs 4m x 14m, Col",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "404425029 008",
+    "name": "Columbia 008 Ivoor 4M/5M",
+    "type": "simple",
+    "cat_full": "Vloerbekleding > Vasttapijt",
+    "cat_top": "Vloerbekleding",
+    "price": "29,99",
+    "sale": "",
+    "desc": "\\n Bij aankoop van dit product ontvangt u een certificaat voor de brandveiligheid. \\n \\n \\n \\n Heeft u nog andere certificaten nodig? \\nMail naar info@brunic.be en we sturen u de nodige documenten. \\n \\n Heeft u graag dat uw vloerbekleding geplaatst wordt? \\nNeem contact met ons…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/10/1917433332.jpg"
+    ],
+    "variant_attr": "Formaat Columbia 948 Grijs 4M",
+    "variant_values": "Columbia 948 Grijs 4m x 1m, Columbia 948 Grijs 4m x 2m, Columbia 948 Grijs 4m x 3m, Columbia 948 Grijs 4m x 4m, Columbia 948 Grijs 4m x 5m, Columbia 948 Grijs 4m x 6m, Columbia 948 Grijs 4m x 7m, Columbia 948 Grijs 4m x 8m, Columbia 948 Grijs 4m x 9m, Columbia 948 Grijs 4m x 10m, Columbia 948 Grijs 4m x 11m, Columbia 948 Grijs 4m x 12m, Columbia 948 Grijs 4m x 13m, Columbia 948 Grijs 4m x 14m, Col",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "404425029 258",
+    "name": "Columbia 258 Groen 4M",
+    "type": "simple",
+    "cat_full": "Vloerbekleding > Vasttapijt",
+    "cat_top": "Vloerbekleding",
+    "price": "29,99",
+    "sale": "",
+    "desc": "\\n Bij aankoop van dit product ontvangt u een certificaat voor de brandveiligheid. \\n \\n \\n \\n Heeft u nog andere certificaten nodig? \\nMail naar info@brunic.be en we sturen u de nodige documenten. \\n \\n Heeft u graag dat uw vloerbekleding geplaatst wordt? \\nNeem contact met ons…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/10/1922564203.jpg"
+    ],
+    "variant_attr": "Formaat Columbia 948 Grijs 4M",
+    "variant_values": "Columbia 948 Grijs 4m x 1m, Columbia 948 Grijs 4m x 2m, Columbia 948 Grijs 4m x 3m, Columbia 948 Grijs 4m x 4m, Columbia 948 Grijs 4m x 5m, Columbia 948 Grijs 4m x 6m, Columbia 948 Grijs 4m x 7m, Columbia 948 Grijs 4m x 8m, Columbia 948 Grijs 4m x 9m, Columbia 948 Grijs 4m x 10m, Columbia 948 Grijs 4m x 11m, Columbia 948 Grijs 4m x 12m, Columbia 948 Grijs 4m x 13m, Columbia 948 Grijs 4m x 14m, Col",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "404425029 448",
+    "name": "Columbia 448 Oranje 4M/5M",
+    "type": "simple",
+    "cat_full": "Vloerbekleding > Vasttapijt",
+    "cat_top": "Vloerbekleding",
+    "price": "29,99",
+    "sale": "",
+    "desc": "\\n Bij aankoop van dit product ontvangt u een certificaat voor de brandveiligheid. \\n \\n \\n \\n Heeft u nog andere certificaten nodig? \\nMail naar info@brunic.be en we sturen u de nodige documenten. \\n \\n Heeft u graag dat uw vloerbekleding geplaatst wordt? \\nNeem contact met ons…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/10/1917407026.jpg"
+    ],
+    "variant_attr": "Formaat Columbia 948 Grijs 4M",
+    "variant_values": "Columbia 948 Grijs 4m x 1m, Columbia 948 Grijs 4m x 2m, Columbia 948 Grijs 4m x 3m, Columbia 948 Grijs 4m x 4m, Columbia 948 Grijs 4m x 5m, Columbia 948 Grijs 4m x 6m, Columbia 948 Grijs 4m x 7m, Columbia 948 Grijs 4m x 8m, Columbia 948 Grijs 4m x 9m, Columbia 948 Grijs 4m x 10m, Columbia 948 Grijs 4m x 11m, Columbia 948 Grijs 4m x 12m, Columbia 948 Grijs 4m x 13m, Columbia 948 Grijs 4m x 14m, Col",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "404425029 598",
+    "name": "Columbia 598 Bourgogne 4M",
+    "type": "simple",
+    "cat_full": "Vloerbekleding > Vasttapijt",
+    "cat_top": "Vloerbekleding",
+    "price": "29,99",
+    "sale": "",
+    "desc": "\\n Bij aankoop van dit product ontvangt u een certificaat voor de brandveiligheid. \\n \\n \\n \\n Heeft u nog andere certificaten nodig? \\nMail naar info@brunic.be en we sturen u de nodige documenten. \\n \\n Heeft u graag dat uw vloerbekleding geplaatst wordt? \\nNeem contact met ons…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/10/1917387390.jpg"
+    ],
+    "variant_attr": "Formaat Columbia 948 Grijs 4M",
+    "variant_values": "Columbia 948 Grijs 4m x 1m, Columbia 948 Grijs 4m x 2m, Columbia 948 Grijs 4m x 3m, Columbia 948 Grijs 4m x 4m, Columbia 948 Grijs 4m x 5m, Columbia 948 Grijs 4m x 6m, Columbia 948 Grijs 4m x 7m, Columbia 948 Grijs 4m x 8m, Columbia 948 Grijs 4m x 9m, Columbia 948 Grijs 4m x 10m, Columbia 948 Grijs 4m x 11m, Columbia 948 Grijs 4m x 12m, Columbia 948 Grijs 4m x 13m, Columbia 948 Grijs 4m x 14m, Col",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "404425029 578",
+    "name": "Columbia 578 Rood 4M/5M",
+    "type": "simple",
+    "cat_full": "Vloerbekleding > Vasttapijt",
+    "cat_top": "Vloerbekleding",
+    "price": "29,99",
+    "sale": "",
+    "desc": "\\n Bij aankoop van dit product ontvangt u een certificaat voor de brandveiligheid. \\n \\n \\n \\n Heeft u nog andere certificaten nodig? \\nMail naar info@brunic.be en we sturen u de nodige documenten. \\n \\n Heeft u graag dat uw vloerbekleding geplaatst wordt? \\nNeem contact met ons…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/10/1917428514.jpg"
+    ],
+    "variant_attr": "Formaat Columbia 948 Grijs 4M",
+    "variant_values": "Columbia 948 Grijs 4m x 1m, Columbia 948 Grijs 4m x 2m, Columbia 948 Grijs 4m x 3m, Columbia 948 Grijs 4m x 4m, Columbia 948 Grijs 4m x 5m, Columbia 948 Grijs 4m x 6m, Columbia 948 Grijs 4m x 7m, Columbia 948 Grijs 4m x 8m, Columbia 948 Grijs 4m x 9m, Columbia 948 Grijs 4m x 10m, Columbia 948 Grijs 4m x 11m, Columbia 948 Grijs 4m x 12m, Columbia 948 Grijs 4m x 13m, Columbia 948 Grijs 4m x 14m, Col",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "404425029 588",
+    "name": "Columbia 588 Rood 4M",
+    "type": "simple",
+    "cat_full": "Vloerbekleding > Vasttapijt",
+    "cat_top": "Vloerbekleding",
+    "price": "29,99",
+    "sale": "",
+    "desc": "\\n Bij aankoop van dit product ontvangt u een certificaat voor de brandveiligheid. \\n \\n \\n \\n Heeft u nog andere certificaten nodig? \\nMail naar info@brunic.be en we sturen u de nodige documenten. \\n \\n Heeft u graag dat uw vloerbekleding geplaatst wordt? \\nNeem contact met ons…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/10/1917424805.jpg"
+    ],
+    "variant_attr": "Formaat Columbia 948 Grijs 4M",
+    "variant_values": "Columbia 948 Grijs 4m x 1m, Columbia 948 Grijs 4m x 2m, Columbia 948 Grijs 4m x 3m, Columbia 948 Grijs 4m x 4m, Columbia 948 Grijs 4m x 5m, Columbia 948 Grijs 4m x 6m, Columbia 948 Grijs 4m x 7m, Columbia 948 Grijs 4m x 8m, Columbia 948 Grijs 4m x 9m, Columbia 948 Grijs 4m x 10m, Columbia 948 Grijs 4m x 11m, Columbia 948 Grijs 4m x 12m, Columbia 948 Grijs 4m x 13m, Columbia 948 Grijs 4m x 14m, Col",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "404425029 168",
+    "name": "Columbia 168 Blauw 4M/5M",
+    "type": "simple",
+    "cat_full": "Vloerbekleding > Vasttapijt",
+    "cat_top": "Vloerbekleding",
+    "price": "29,99",
+    "sale": "",
+    "desc": "\\n Bij aankoop van dit product ontvangt u een certificaat voor de brandveiligheid. \\n \\n \\n \\n Heeft u nog andere certificaten nodig? \\nMail naar info@brunic.be en we sturen u de nodige documenten. \\n \\n Heeft u graag dat uw vloerbekleding geplaatst wordt? \\nNeem contact met ons…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/10/1917577896.jpg"
+    ],
+    "variant_attr": "Formaat Columbia 948 Grijs 4M",
+    "variant_values": "Columbia 948 Grijs 4m x 1m, Columbia 948 Grijs 4m x 2m, Columbia 948 Grijs 4m x 3m, Columbia 948 Grijs 4m x 4m, Columbia 948 Grijs 4m x 5m, Columbia 948 Grijs 4m x 6m, Columbia 948 Grijs 4m x 7m, Columbia 948 Grijs 4m x 8m, Columbia 948 Grijs 4m x 9m, Columbia 948 Grijs 4m x 10m, Columbia 948 Grijs 4m x 11m, Columbia 948 Grijs 4m x 12m, Columbia 948 Grijs 4m x 13m, Columbia 948 Grijs 4m x 14m, Col",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "404425029 128",
+    "name": "Columbia 128 Blauw 4M",
+    "type": "simple",
+    "cat_full": "Vloerbekleding > Vasttapijt",
+    "cat_top": "Vloerbekleding",
+    "price": "29,99",
+    "sale": "",
+    "desc": "\\n Bij aankoop van dit product ontvangt u een certificaat voor de brandveiligheid. \\n \\n \\n \\n Heeft u nog andere certificaten nodig? \\nMail naar info@brunic.be en we sturen u de nodige documenten. \\n \\n Heeft u graag dat uw vloerbekleding geplaatst wordt? \\nNeem contact met ons…",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/10/1922564798.jpg"
+    ],
+    "variant_attr": "Formaat Columbia 948 Grijs 4M",
+    "variant_values": "Columbia 948 Grijs 4m x 1m, Columbia 948 Grijs 4m x 2m, Columbia 948 Grijs 4m x 3m, Columbia 948 Grijs 4m x 4m, Columbia 948 Grijs 4m x 5m, Columbia 948 Grijs 4m x 6m, Columbia 948 Grijs 4m x 7m, Columbia 948 Grijs 4m x 8m, Columbia 948 Grijs 4m x 9m, Columbia 948 Grijs 4m x 10m, Columbia 948 Grijs 4m x 11m, Columbia 948 Grijs 4m x 12m, Columbia 948 Grijs 4m x 13m, Columbia 948 Grijs 4m x 14m, Col",
+    "unit_suffix": ""
+   }
+  ],
+  "Verlichting": [
+   {
+    "sku": "918909020",
+    "name": "Ever 12859 Led-Lamp E27 Dimbaar met schakelaar",
+    "type": "simple",
+    "cat_full": "Verlichting > Lampen",
+    "cat_top": "Verlichting",
+    "price": "13,20",
+    "sale": "",
+    "desc": "Kleur: Amber Deze lamp kan door middel van snel de schakelaar aan en uit te bewegen gedimd worden in 3 standen naar",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1828761381-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "918909024",
+    "name": "Ever 12861 Led-Lamp E27 Dimbaar met de schakelaar",
+    "type": "simple",
+    "cat_full": "Verlichting > Lampen",
+    "cat_top": "Verlichting",
+    "price": "15,50",
+    "sale": "",
+    "desc": "Kleur: Amber Deze lamp kan door middel van snel de schakelaar aan en uit te bewegen gedimd worden in 3 standen naar",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1828751233-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "901916173",
+    "name": "Narcis 207606 Messing Mat",
+    "type": "simple",
+    "cat_full": "Verlichting > Staan- en tafellampen",
+    "cat_top": "Verlichting",
+    "price": "39,95",
+    "sale": "29,99",
+    "desc": "\\n Kleur: Messing \\n \\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1922756273-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1826692403-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "901916174",
+    "name": "Narcis 207607 Nikkel Mat",
+    "type": "simple",
+    "cat_full": "Verlichting > Staan- en tafellampen",
+    "cat_top": "Verlichting",
+    "price": "39,95",
+    "sale": "29,99",
+    "desc": "\\n Kleur: Nikkel \\n \\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1922753487-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1826667492-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "918930001",
+    "name": "Ever 92641 Magnum-Led",
+    "type": "simple",
+    "cat_full": "Verlichting",
+    "cat_top": "Verlichting",
+    "price": "14,99",
+    "sale": "",
+    "desc": "\\n Kleur: Nikkel \\n \\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1809165562-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1809154814-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "918931004",
+    "name": "Ever 95824 Magnum-Led",
+    "type": "simple",
+    "cat_full": "Verlichting",
+    "cat_top": "Verlichting",
+    "price": "36,90",
+    "sale": "",
+    "desc": "\\n Kleur: Nikkel \\n \\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1810898209-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "918931005",
+    "name": "Ever 92644 Magnum-Led",
+    "type": "simple",
+    "cat_full": "Verlichting",
+    "cat_top": "Verlichting",
+    "price": "54,99",
+    "sale": "",
+    "desc": "\\n Kleur: Nikkel \\n \\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1810887869-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "918931002",
+    "name": "Ever 92642 Magnum-Led",
+    "type": "simple",
+    "cat_full": "Verlichting",
+    "cat_top": "Verlichting",
+    "price": "31,50",
+    "sale": "",
+    "desc": "\\n Kleur: Nikkel \\n \\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1809209197-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "918931003",
+    "name": "Ever 92643 Magnum-Led",
+    "type": "simple",
+    "cat_full": "Verlichting",
+    "cat_top": "Verlichting",
+    "price": "47,50",
+    "sale": "",
+    "desc": "\\n Kleur: Nikkel \\n \\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1809378755-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "918931006",
+    "name": "Ever 92645 Magnum-Led",
+    "type": "simple",
+    "cat_full": "Verlichting",
+    "cat_top": "Verlichting",
+    "price": "105,00",
+    "sale": "",
+    "desc": "\\n Kleur: Nikkel \\n \\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1810905791-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "901916171",
+    "name": "Narcis 207602 Chrome Smokey",
+    "type": "simple",
+    "cat_full": "Verlichting > Staan- en tafellampen",
+    "cat_top": "Verlichting",
+    "price": "39,95",
+    "sale": "29,99",
+    "desc": "\\n Kleur: Chrome \\n \\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1922747263-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "901916178",
+    "name": "Narcis 210253 Metal Gold Black",
+    "type": "simple",
+    "cat_full": "Verlichting > Staan- en tafellampen",
+    "cat_top": "Verlichting",
+    "price": "59,83",
+    "sale": "",
+    "desc": "\\n Kleur: Zwart \\n \\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1920220054-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1824793385-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1922862331-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "918922001",
+    "name": "Ever 43214 Combwich Zwart/Crème 40cm",
+    "type": "simple",
+    "cat_full": "Verlichting > Hanglampen",
+    "cat_top": "Verlichting",
+    "price": "124,88",
+    "sale": "93,66",
+    "desc": "\\n Kleur: Zwart \\n \\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1973754637-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1973751688-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1973774152-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   },
+   {
+    "sku": "918922002",
+    "name": "Ever 43214 Combwich Zwart/Crème 53cm",
+    "type": "simple",
+    "cat_full": "Verlichting > Hanglampen",
+    "cat_top": "Verlichting",
+    "price": "199,83",
+    "sale": "149,87",
+    "desc": "\\n Kleur: Zwart \\n \\n \\n \\n \\n",
+    "images": [
+     "https://brunic.be/wp-content/uploads/2021/09/1973754637-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1973751688-1.jpg",
+     "https://brunic.be/wp-content/uploads/2021/09/1973774152-1.jpg"
+    ],
+    "variant_attr": "",
+    "variant_values": "",
+    "unit_suffix": ""
+   }
+  ]
+ }
+}

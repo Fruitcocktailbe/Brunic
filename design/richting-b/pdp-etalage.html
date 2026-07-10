@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gordijnstof Black Out Ibis 804 Grijs — Gordijnen &amp; stoffen — Brunic Ninove</title>
+<meta name="description" content="Verduisterende gordijnstof Ibis 804 in warm grijs, 140 cm breed. Op maat gemaakt in ons eigen atelier. Plan een gratis opmeting aan huis.">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  /* — pagina-eigen stijlen: PDP etalage — */
+  .pdp {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+    gap: clamp(1.75rem, 4vw, 4rem);
+    align-items: start;
+    padding-block: 1rem 2rem;
+  }
+
+  .gallery { display: grid; gap: .8rem; position: sticky; top: 1rem; }
+  .gallery-main {
+    border-radius: var(--r-l);
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: var(--paper-deep);
+    aspect-ratio: 4 / 3.4;
+    box-shadow: var(--shadow-s);
+  }
+  .gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+  .thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; }
+  .thumb {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    border-radius: var(--r-m);
+    overflow: hidden;
+    border: 2px solid transparent;
+    background: var(--paper-deep);
+    aspect-ratio: 1;
+    cursor: pointer;
+    padding: 0;
+    transition: border-color .15s ease;
+    font: inherit;
+  }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .thumb[aria-current="true"] { border-color: var(--brand); }
+  .thumb:hover { border-color: var(--clay); }
+  .thumb--staal {
+    background:
+      repeating-linear-gradient(45deg,  rgba(46,38,32,.05) 0 2px, transparent 2px 9px),
+      repeating-linear-gradient(-45deg, rgba(46,38,32,.035) 0 2px, transparent 2px 9px),
+      var(--clay-soft);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: .4rem;
+  }
+
+  .pdp h1 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); margin-bottom: .35em; }
+  .artnr { font-size: .85rem; color: var(--ink-mute); letter-spacing: .05em; margin-bottom: 1.1rem; }
+  .artnr b { color: var(--ink-soft); font-weight: 700; }
+
+  /* geen prijs — het maatwerk-verhaal in de plaats */
+  .madeto {
+    display: flex;
+    gap: .9rem;
+    align-items: baseline;
+    background: var(--paper-deep);
+    border-left: 3px solid var(--brand);
+    border-radius: var(--r-s);
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 1.4rem;
+  }
+  .madeto .m-ico { flex: none; color: var(--clay); translate: 0 3px; }
+  .madeto p { margin: 0; }
+  .madeto .vanaf { display: block; margin-top: .35em; font-size: .9rem; color: var(--ink-mute); }
+  .madeto .vanaf b { color: var(--ink); font-size: 1.05rem; }
+
+  .etalage-actions { display: grid; gap: .7rem; margin-block: 1.4rem; }
+  .etalage-actions .btn { width: 100%; }
+  .cta-sub { text-align: center; font-size: .88rem; color: var(--ink-mute); margin-top: -.2rem; }
+
+  .visit {
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-m);
+    background: var(--card);
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    gap: .9rem;
+    align-items: baseline;
+    font-size: .95rem;
+  }
+  .visit svg { flex: none; translate: 0 2px; color: var(--clay); }
+  .visit p { margin: 0; }
+
+  .kleuren { margin-top: 1.5rem; }
+  .kleuren h2 { font-size: 1.05rem; font-family: var(--font-body); font-weight: 700; margin-bottom: .6rem; }
+  .kleur-rij { display: flex; gap: .6rem; flex-wrap: wrap; }
+  .kleur-rij a {
+    width: 46px; height: 46px;
+    border-radius: 999px;
+    border: 2px solid var(--card);
+    box-shadow: 0 0 0 1px var(--hairline);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .kleur-rij a:hover { transform: scale(1.1); }
+  .kleur-rij a[aria-current="true"] { box-shadow: 0 0 0 2px var(--brand); }
+
+  .pdp-details {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    gap: clamp(1.75rem, 4vw, 4rem);
+    padding-block: 1rem;
+  }
+  .pdp-details h2 { font-size: 1.45rem; }
+
+  /* atelierband */
+  .atelier-band {
+    background: var(--ink);
+    color: #EFE7DA;
+    border-radius: var(--r-l);
+    padding: clamp(1.75rem, 4vw, 3rem);
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+    gap: 2rem;
+    align-items: center;
+    margin-block: var(--section);
+  }
+  .atelier-band h2 { color: #fff; margin-bottom: .4em; }
+  .atelier-band p { color: rgba(239,231,218,.85); margin-bottom: 0; }
+  .atelier-band .eyebrow { color: var(--clay-soft); }
+  .atelier-band .band-cta { justify-self: start; }
+  @media (min-width: 901px) { .atelier-band .band-cta { justify-self: end; } }
+
+  @media (max-width: 900px) {
+    .pdp, .pdp-details, .atelier-band { grid-template-columns: 1fr; }
+    .gallery { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="topbar">
+    <div class="wrap">
+      <span><b>Gratis opmeting aan huis</b> — wij bellen u binnen 1–2 werkdagen</span>
+      <span class="topbar-note">Winkel open ma–za 9–18u &nbsp;·&nbsp; <a href="tel:+3254337352">054 33 73 52</a></span>
+    </div>
+  </div>
+
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+
+  <div class="masthead wrap">
+    <label for="nav-toggle" class="nav-burger" aria-label="Menu openen">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M2 5h18M2 11h18M2 17h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </label>
+    <a class="wordmark" href="home.html">BRUNIC<span class="wordmark-sub">Interieur &amp; atelier · Ninove</span></a>
+    <form class="search" role="search" action="#">
+      <label class="sr-only" for="q">Zoeken</label>
+      <input id="q" type="search" placeholder="Zoek op product, kleur of merk…">
+      <button type="submit" aria-label="Zoeken">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="2"/><path d="m11.5 11.5 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </form>
+    <div class="header-actions">
+      <a class="hdr-action" href="#favorieten">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5C7 16.6 3.5 13.4 3.5 9.7 3.5 7 5.6 5 8.1 5c1.5 0 2.9.7 3.9 2 1-1.3 2.4-2 3.9-2 2.5 0 4.6 2 4.6 4.7 0 3.7-3.5 6.9-8.5 10.8Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span class="count">2</span><span class="hdr-label">Favorieten</span>
+      </a>
+      <a class="hdr-action" href="#winkelmand">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span class="count">1</span><span class="hdr-label">Winkelmand</span>
+      </a>
+      <a class="btn btn-primary hdr-cta" href="home.html#opmeting">Plan een gratis opmeting</a>
+    </div>
+  </div>
+
+  <nav class="mainnav wrap" aria-label="Hoofdnavigatie">
+    <ul>
+      <li><a href="pdp-etalage.html" aria-current="page">Gordijnen &amp; stoffen</a></li>
+      <li><a href="home.html#behang">Behang</a></li>
+      <li><a href="home.html#vloeren">Vloeren</a></li>
+      <li><a href="plp.html">Tapijten &amp; karpetten</a></li>
+      <li><a href="#raamdecoratie">Raamdecoratie</a></li>
+      <li><a href="#verf">Verf</a></li>
+      <li><a href="#slapen-wonen">Slapen &amp; wonen</a></li>
+      <li class="nav-service"><a href="home.html#atelier">Atelier &amp; maatwerk</a></li>
+      <li class="nav-service"><a href="home.html#opmeting">Opmeting &amp; plaatsing</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <nav class="breadcrumb" aria-label="Kruimelpad">
+    <ol>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="pdp-etalage.html">Gordijnen &amp; stoffen</a></li>
+      <li><a href="pdp-etalage.html">Black-out</a></li>
+      <li aria-current="page">Black Out Ibis 804 Grijs</li>
+    </ol>
+  </nav>
+
+  <article class="pdp">
+
+    <!-- GALERIJ -->
+    <div class="gallery">
+      <div class="gallery-main">
+        <img src="https://brunic.be/wp-content/uploads/2021/09/2363571218-1.jpg" alt="Gordijnstof Black Out Ibis 804 in warm grijs, gedrapeerd zodat de plooival zichtbaar is" width="900" height="765">
+      </div>
+      <div class="thumbs">
+        <button class="thumb" type="button" aria-current="true" aria-label="Foto 1: plooival van de stof">
+          <img loading="lazy" src="https://brunic.be/wp-content/uploads/2021/09/2363571218-1.jpg" alt="" width="220" height="220">
+        </button>
+        <button class="thumb" type="button" aria-label="Foto 2: detail van het weefsel">
+          <img loading="lazy" src="https://brunic.be/wp-content/uploads/2021/09/2363574663-1.jpg" alt="" width="220" height="220">
+        </button>
+        <button class="thumb thumb--staal" type="button" aria-label="Vraag een staal aan in de winkel">
+          Staal in de winkel
+        </button>
+      </div>
+    </div>
+
+    <!-- ETALAGEBLOK — geen prijs, advies eerst -->
+    <div>
+      <p class="eyebrow" style="margin-bottom:.4rem">Gordijnen &amp; stoffen · Black-out</p>
+      <h1>Stof Black Out Ibis 804 — Grijs</h1>
+      <p class="artnr">Art.nr <b>841666005</b> — vermeld dit nummer in de winkel, zo vindt Sandra het meteen terug.</p>
+
+      <div class="madeto">
+        <span class="m-ico" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M12 7c2.5-2.5 6-2.8 8-1-1 3-4 4.6-8 4.5M12 12.5c-2.5-2.5-6-2.8-8-1 1 3 4 4.6 8 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <p><b>Op maat gemaakt in ons eigen atelier.</b> De prijs hangt af van uw raam, de plooi en de afwerking — daarom meten wij eerst gratis op en krijgt u een duidelijke offerte.
+        <span class="vanaf">Richtprijs confectie: <b>vanaf € 29,99 / lopende meter</b>, stof inbegrepen.</span></p>
+      </div>
+
+      <div class="etalage-actions">
+        <a class="btn btn-primary" href="home.html#opmeting">Plan een gratis opmeting</a>
+        <p class="cta-sub">Vrijblijvend — wij bellen u binnen 1–2 werkdagen.</p>
+        <button class="btn btn-ghost" type="button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5C7 16.6 3.5 13.4 3.5 9.7 3.5 7 5.6 5 8.1 5c1.5 0 2.9.7 3.9 2 1-1.3 2.4-2 3.9-2 2.5 0 4.6 2 4.6 4.7 0 3.7-3.5 6.9-8.5 10.8Z" stroke="currentColor" stroke-width="1.8"/></svg>
+          Bewaar als favoriet <span class="muted" style="font-weight:400">&nbsp;(2 van 5 bewaard)</span>
+        </button>
+        <a class="btn btn-quiet" href="#winkel">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5M5.5 8.5V20h13V8.5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.5 20v-6h5v6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          Bekijk in de winkel — Ring-West 19, Ninove
+        </a>
+      </div>
+
+      <div class="visit" id="winkel">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3.5 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <p><b>Vandaag open tot 18u.</b> Voeg dit artikel toe aan uw favorieten en print uw meeneemlijstje — met het artikelnummer erbij ligt de stof zó op de toonbank.</p>
+      </div>
+
+      <div class="kleuren">
+        <h2>Ibis in andere kleuren</h2>
+        <div class="kleur-rij">
+          <a href="pdp-etalage.html" aria-current="true" style="background:#8E8B85" title="Grijs (deze kleur)"><span class="sr-only">Grijs — huidige kleur</span></a>
+          <a href="pdp-etalage.html" style="background:#D9CBB4" title="Zand"><span class="sr-only">Zand</span></a>
+          <a href="pdp-etalage.html" style="background:#4E4A44" title="Antraciet"><span class="sr-only">Antraciet</span></a>
+          <a href="pdp-etalage.html" style="background:#8E9382" title="Saliegroen"><span class="sr-only">Saliegroen</span></a>
+          <a href="pdp-etalage.html" style="background:#B07B5E" title="Terracotta"><span class="sr-only">Terracotta</span></a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- OMSCHRIJVING + SPECS -->
+  <section class="pdp-details">
+    <div>
+      <h2>Over deze stof</h2>
+      <p>De Ibis 804 is een verduisterende gordijnstof in een warm, gemêleerd grijs. De dichte weving houdt het licht volledig tegen — ideaal voor de slaapkamer — en valt tegelijk soepel in mooie, rustige plooien.</p>
+      <p>Onze stiksters verwerken de Ibis met enkelvoudige plooi, dubbele plooi of wave, gevoerd of ongevoerd. U kiest de afwerking; wij zorgen dat het gordijn tot op de centimeter past en hangen het op.</p>
+      <p class="muted">Kleur op uw scherm kan licht afwijken. Kom de stof voelen in de winkel — het staalboek ligt klaar.</p>
+    </div>
+    <div>
+      <h2>Kenmerken</h2>
+      <table class="specs">
+        <tbody>
+          <tr><th scope="row">Artikelnummer</th><td>841666005</td></tr>
+          <tr><th scope="row">Type</th><td>Black-out (verduisterend)</td></tr>
+          <tr><th scope="row">Kleurfamilie</th><td>Grijs</td></tr>
+          <tr><th scope="row">Stofbreedte</th><td>140 cm</td></tr>
+          <tr><th scope="row">Samenstelling</th><td>100% polyester</td></tr>
+          <tr><th scope="row">Confectie</th><td>Op maat in ons eigen atelier — enkele plooi, dubbele plooi of wave</td></tr>
+          <tr><th scope="row">Onderhoud</th><td>Wasbaar op 30°, niet drogen in de droogkast</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ATELIERBAND -->
+  <aside class="atelier-band" aria-label="Atelier en maatwerk">
+    <div>
+      <p class="eyebrow">Atelier &amp; maatwerk</p>
+      <h2>Deze stof wordt uw gordijn — bij ons in Ninove</h2>
+      <p>Van staalboek tot ophanging: advies in de winkel, gratis opmeting bij u thuis, confectie door onze eigen stiksters en plaatsing door onze mensen. Eén adres, geen tussenstations.</p>
+    </div>
+    <a class="btn btn-primary band-cta" href="home.html#opmeting">Plan een gratis opmeting</a>
+  </aside>
+
+  <!-- GERELATEERD -->
+  <section aria-labelledby="rel-title" style="padding-bottom:1rem">
+    <div class="section-head">
+      <p class="eyebrow">Uit dezelfde familie</p>
+      <h2 id="rel-title">Ook het bekijken waard</h2>
+    </div>
+    <div class="product-grid">
+
+      <article class="card">
+        <a class="card-media" href="pdp-etalage.html" tabindex="-1" aria-hidden="true">
+          <img loading="lazy" src="https://brunic.be/wp-content/uploads/2021/09/2337922934-1.jpg" alt="" width="600" height="450">
+        </a>
+        <button class="fav" type="button" aria-pressed="false" aria-label="Stof Bedrukt Black Out 680310 C bewaren als favoriet">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5C7 16.6 3.5 13.4 3.5 9.7 3.5 7 5.6 5 8.1 5c1.5 0 2.9.7 3.9 2 1-1.3 2.4-2 3.9-2 2.5 0 4.6 2 4.6 4.7 0 3.7-3.5 6.9-8.5 10.8Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+        <div class="card-body">
+          <p class="card-cat">Black-out</p>
+          <h3 class="card-title"><a href="pdp-etalage.html">Stof Bedrukt Black Out 680310 C</a></h3>
+          <p class="card-meta">140 cm breed · per meter</p>
+          <p class="card-price">€ 19,99 <span class="muted" style="font-weight:400;font-size:.85rem">/ meter</span></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="card-media" href="pdp-etalage.html" tabindex="-1" aria-hidden="true">
+          <img loading="lazy" src="https://brunic.be/wp-content/uploads/2021/09/2337936614-1.jpg" alt="" width="600" height="450">
+        </a>
+        <button class="fav" type="button" aria-pressed="true" aria-label="Stof Bedrukt Black Out 680310 Y bewaard als favoriet">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5C7 16.6 3.5 13.4 3.5 9.7 3.5 7 5.6 5 8.1 5c1.5 0 2.9.7 3.9 2 1-1.3 2.4-2 3.9-2 2.5 0 4.6 2 4.6 4.7 0 3.7-3.5 6.9-8.5 10.8Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+        <div class="card-body">
+          <p class="card-cat">Black-out</p>
+          <h3 class="card-title"><a href="pdp-etalage.html">Stof Bedrukt Black Out 680310 Y</a></h3>
+          <p class="card-meta">140 cm breed · per meter</p>
+          <p class="card-price">€ 19,99 <span class="muted" style="font-weight:400;font-size:.85rem">/ meter</span></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="card-media" href="pdp-etalage.html" tabindex="-1" aria-hidden="true">
+          <img loading="lazy" src="https://brunic.be/wp-content/uploads/2021/09/1407168999-1.jpg" alt="" width="600" height="450">
+        </a>
+        <button class="fav" type="button" aria-pressed="false" aria-label="Voering Polico bewaren als favoriet">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5C7 16.6 3.5 13.4 3.5 9.7 3.5 7 5.6 5 8.1 5c1.5 0 2.9.7 3.9 2 1-1.3 2.4-2 3.9-2 2.5 0 4.6 2 4.6 4.7 0 3.7-3.5 6.9-8.5 10.8Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+        <div class="card-body">
+          <p class="card-cat">Voering</p>
+          <h3 class="card-title"><a href="pdp-etalage.html">Voering Polico 382096</a></h3>
+          <p class="card-meta">140 cm breed · gebroken wit</p>
+          <p class="card-price">€ 6,99 <span class="muted" style="font-weight:400;font-size:.85rem">/ meter</span></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="card-media card-media--none" href="pdp-etalage.html" style="--tile:var(--sand)" tabindex="-1" aria-hidden="true">
+          <span class="tile-initial">G</span>
+          <span class="tile-label">Gordijnstoffen</span>
+          <span class="tile-note">Staalboek in de winkel</span>
+        </a>
+        <button class="fav" type="button" aria-pressed="false" aria-label="Gordijnstof Scott Rhine bewaren als favoriet">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5C7 16.6 3.5 13.4 3.5 9.7 3.5 7 5.6 5 8.1 5c1.5 0 2.9.7 3.9 2 1-1.3 2.4-2 3.9-2 2.5 0 4.6 2 4.6 4.7 0 3.7-3.5 6.9-8.5 10.8Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+        <div class="card-body">
+          <p class="card-cat">Gordijnstoffen</p>
+          <h3 class="card-title"><a href="pdp-etalage.html">Scott Rhine — alle kleuren</a></h3>
+          <p class="card-meta">143 cm breed · 100% polyester</p>
+          <p class="card-price card-price--none">Vanaf-prijs in de winkel</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-tagline">
+    <div class="wrap">
+      <p class="line">Vakmanschap uit eigen atelier — advies, opmeting en plaatsing aan huis.</p>
+      <span class="since">Al 40 jaar in Ninove</span>
+    </div>
+  </div>
+  <div class="wrap footer-cols">
+    <div class="footer-brand">
+      <a class="wordmark" href="home.html">BRUNIC</a>
+      <p style="margin-top:1rem">Dé interieurzaak van Ninove: gordijnen op maat, behang, vloeren, tapijten, raamdecoratie, verf en slaapcomfort.</p>
+    </div>
+    <nav aria-label="Assortiment">
+      <h4>Assortiment</h4>
+      <ul>
+        <li><a href="pdp-etalage.html">Gordijnen &amp; stoffen</a></li>
+        <li><a href="home.html#behang">Behang</a></li>
+        <li><a href="home.html#vloeren">Vloeren</a></li>
+        <li><a href="plp.html">Tapijten &amp; karpetten</a></li>
+        <li><a href="#">Raamdecoratie</a></li>
+        <li><a href="#">Verf</a></li>
+        <li><a href="#">Slapen &amp; wonen</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Diensten">
+      <h4>Diensten</h4>
+      <ul>
+        <li><a href="home.html#atelier">Atelier &amp; maatwerk</a></li>
+        <li><a href="home.html#opmeting">Opmeting &amp; plaatsing</a></li>
+        <li><a href="#favorieten">Mijn favorieten</a></li>
+        <li><a href="#">Click &amp; collect</a></li>
+        <li><a href="#">Veelgestelde vragen</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h4>De winkel</h4>
+      <address class="footer-nap">
+        <b>Brunic nv</b>
+        <span>Ring-West 19, 9400 Ninove</span>
+        <a href="tel:+3254337352">054 33 73 52</a>
+        <a href="mailto:info@brunic.be">info@brunic.be</a>
+        <span>Ma–za 9–18u · zondag gesloten</span>
+      </address>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <div class="wrap">
+      <span>© 2026 Brunic nv, Ninove — alle rechten voorbehouden</span>
+      <ul>
+        <li><a href="#">Privacybeleid</a></li>
+        <li><a href="#">Cookies</a></li>
+        <li><a href="#">Algemene voorwaarden</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- CHATBOT-WIDGET (bescheiden mock) -->
+<div class="chat-widget">
+  <button class="chat-fab" type="button" aria-label="Chat met Brunic openen">
+    <span class="dot" aria-hidden="true"></span> Vraag advies
+  </button>
+</div>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 > Beslist op 06-08/07/2026 (dossier: J.A.R.V.I.S `clients/brunic/`, decisions/log.md). Dit doc = de bouwkant; open punten staan onderaan.
 
 ## Stack (beslist)
-- **Front:** Next.js (App Router) + Tailwind, deploy op Vercel (team fruitcocktailbe-projects). nl-BE only.
+- **Front:** Next.js (App Router) + Tailwind, deploy op Vercel (team fruitcocktailbe-projects). nl-BE only. Géén Hydrogen/Oxygen — afweging in [ADR 0001](adr/0001-nextjs-vercel-geen-hydrogen-oxygen.md); wél `@shopify/hydrogen-react` als bibliotheek binnen Next.js.
 - **Commerce-motor:** **headless Shopify** via de Storefront API ("optie B", beslist 06/07) — de motor is inwisselbaar, de front is van ons. Checkout blijft Shopify-hosted (Basic-plan: enkel logo/kleur-branding).
 - **Chatbot:** eigen service (spec: dossier-doc 14 — herijken op 13.9k catalogus); productgids + FAQ + lead-capture → terugbelformulier. Anthropic-key met spend-cap (constructie: zie dossier 17).
 - **Catalogus-pipeline:** de trechter (Python) uit het dossier wordt hier een echte pipeline: ERP-exports + WooCommerce-export → verrijking (prijzen, foto's, nette titels, metafields) → Shopify bulk-import (JSONL). Herhaalbaar — correctierondes zijn her-runs, geen handwerk.

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Brunic — designrichtingen (interne review)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380..900;1,9..144,380..900&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivoor:#FAF5EC; --papier:#F7F2EA; --inkt:#241C16; --inkt-zacht:#5D5348;
+    --rood:#E21F1D; --geel:#FFD101; --klei:#B07B5E; --hairline:#E2D7C2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Karla',sans-serif;font-size:17px;line-height:1.65;color:var(--inkt);
+    background:var(--papier);
+    background-image:repeating-linear-gradient(0deg,rgba(36,28,22,.015) 0 1px,transparent 1px 3px);}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  header.page{padding:64px 0 40px;border-bottom:3px solid var(--inkt)}
+  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--inkt-zacht);margin-bottom:12px}
+  h1{font-family:'Fraunces',serif;font-weight:560;font-size:clamp(32px,5vw,52px);line-height:1.1}
+  h1 .accent{color:var(--rood)}
+  .intro{max-width:62ch;margin-top:16px;color:var(--inkt-zacht)}
+  main{padding:48px 0 24px;display:grid;gap:36px}
+  @media(min-width:900px){main{grid-template-columns:1fr 1fr}}
+  .richting{background:#FFFDF9;border:1px solid var(--hairline);display:flex;flex-direction:column}
+  .richting .band{height:10px}
+  .r-a .band{background:linear-gradient(90deg,var(--rood) 0 78%,var(--geel) 78% 100%)}
+  .r-b .band{background:linear-gradient(90deg,#F0E8DB 0 40%,var(--klei) 40% 70%,#8E9382 70% 94%,var(--rood) 94% 100%)}
+  .richting .inner{padding:32px 32px 28px;display:flex;flex-direction:column;gap:18px;flex:1}
+  h2{font-family:'Fraunces',serif;font-weight:560;font-size:30px}
+  h2 small{display:block;font-family:'Karla',sans-serif;font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--inkt-zacht);margin-bottom:6px}
+  .richting p{color:var(--inkt-zacht);font-size:16px}
+  .swatches{display:flex;gap:0;border:1px solid var(--hairline)}
+  .swatches div{flex:1;height:44px;position:relative}
+  .swatches div span{position:absolute;bottom:-22px;left:0;font-size:10.5px;letter-spacing:.02em;color:var(--inkt-zacht);white-space:nowrap}
+  .meta{margin-top:26px;font-size:14px;color:var(--inkt-zacht);border-top:1px dashed var(--hairline);padding-top:14px}
+  .meta strong{color:var(--inkt)}
+  .pages{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto;padding-top:10px}
+  .pages a{display:block;padding:13px 16px;border:1.5px solid var(--inkt);color:var(--inkt);text-decoration:none;font-weight:700;font-size:15px;background:transparent;transition:background .15s,color .15s}
+  .pages a small{display:block;font-weight:400;font-size:12.5px;color:var(--inkt-zacht)}
+  .r-a .pages a:hover,.r-a .pages a:focus-visible{background:var(--rood);border-color:var(--rood);color:#fff}
+  .r-b .pages a:hover,.r-b .pages a:focus-visible{background:var(--inkt);color:var(--papier)}
+  .r-a .pages a:hover small,.r-b .pages a:hover small{color:rgba(255,255,255,.75)}
+  a:focus-visible{outline:3px solid var(--geel);outline-offset:2px}
+  .notes{margin:24px 0 72px;background:#FFFDF9;border:1px solid var(--hairline);border-left:4px solid var(--geel);padding:26px 30px}
+  .notes h3{font-family:'Fraunces',serif;font-weight:560;font-size:20px;margin-bottom:10px}
+  .notes ul{margin-left:20px;color:var(--inkt-zacht);font-size:15px;display:grid;gap:8px}
+  .notes li strong{color:var(--inkt)}
+</style>
+</head>
+<body>
+<header class="page">
+  <div class="wrap">
+    <p class="eyebrow">Interne review · 09/07/2026 · bouwstart §1</p>
+    <h1>Brunic — twee <span class="accent">designrichtingen</span></h1>
+    <p class="intro">Zelfde componentfamilie, zelfde echte catalogus-content, zelfde typografie (Fraunces + Karla) — het verschil is bewust puur de <strong>kleurbehandeling</strong>. Bekijk per richting de vier pagina's; alle producten, prijzen en foto's zijn echt (Woo-export, hotlinks naar brunic.be).</p>
+  </div>
+</header>
+<main class="wrap">
+  <section class="richting r-a">
+    <div class="band"></div>
+    <div class="inner">
+      <h2><small>Richting A</small>Brunic Voluit</h2>
+      <p>De echte merkkleuren, voluit maar volwassen: rood architecturaal ingezet (merklint, CTA's, één rustig merkvlak), geel strikt spaarzaam. Zelfverzekerde erfgoedzaak — nul discount-gevoel.</p>
+      <div class="swatches">
+        <div style="background:#E21F1D"><span>#E21F1D rood</span></div>
+        <div style="background:#FFD101"><span>#FFD101 geel</span></div>
+        <div style="background:#FAF5EC"><span>#FAF5EC ivoor</span></div>
+        <div style="background:#F2EAD9"><span>#F2EAD9</span></div>
+        <div style="background:#241C16"><span>#241C16 inkt</span></div>
+      </div>
+      <div class="pages">
+        <a href="richting-a/home.html">Home<small>hero stoffen/atelier · USP-band · reviews</small></a>
+        <a href="richting-a/plp.html">Categorie (PLP)<small>Tapijten · maat-buckets · 3 fotostaten</small></a>
+        <a href="richting-a/pdp-koopbaar.html">Product — koopbaar<small>maatkiezer · click &amp; collect</small></a>
+        <a href="richting-a/pdp-etalage.html">Product — etalage<small>geen prijs · opmeting-CTA</small></a>
+      </div>
+      <p class="meta"><strong>Typografie:</strong> Fraunces (display) + Karla (UI/body, 17px). <strong>Groen #2F6B4F</strong> enkel voor voorraad/gratis-signalen.</p>
+    </div>
+  </section>
+  <section class="richting r-b">
+    <div class="band"></div>
+    <div class="inner">
+      <h2><small>Richting B</small>Brunic Zacht</h2>
+      <p>Kalm interieur-palet: linnen, ecru, klei-terracotta en vergrijsd groen met textiel-textuur — galerij/atelier-gevoel, warmer en ambachtelijker dan Heytens. Het rood bestaat enkel als precieze accenten.</p>
+      <div class="swatches">
+        <div style="background:#F7F2EA"><span>#F7F2EA linnen</span></div>
+        <div style="background:#F0E8DB"><span>#F0E8DB ecru</span></div>
+        <div style="background:#B07B5E"><span>#B07B5E klei</span></div>
+        <div style="background:#8E9382"><span>#8E9382 groen</span></div>
+        <div style="background:#2E2620"><span>#2E2620 bruin</span></div>
+        <div style="background:#E21F1D"><span>#E21F1D accent</span></div>
+      </div>
+      <div class="pages">
+        <a href="richting-b/home.html">Home<small>hero stoffen/atelier · USP-band · reviews</small></a>
+        <a href="richting-b/plp.html">Categorie (PLP)<small>Tapijten · maat-buckets · 3 fotostaten</small></a>
+        <a href="richting-b/pdp-koopbaar.html">Product — koopbaar<small>maatkiezer · click &amp; collect</small></a>
+        <a href="richting-b/pdp-etalage.html">Product — etalage<small>vanaf-prijs · opmeting-CTA</small></a>
+      </div>
+      <p class="meta"><strong>Typografie:</strong> Fraunces (display) + Karla (UI/body, 17px). <strong>Geel</strong> enkel als reviewsterren-detail.</p>
+    </div>
+  </section>
+</main>
+<div class="wrap">
+  <aside class="notes">
+    <h3>Reviewnotities</h3>
+    <ul>
+      <li><strong>Kleurbeslissing 09/07 (Jeroen):</strong> vertrekken van de brunic.be-kleuren — dit wijkt af van design-brief §3 ("rood/geel loslaten"). Nog te loggen in J.A.R.V.I.S <em>decisions/log.md</em>; brief bijwerken zodra de richting gekozen is.</li>
+      <li><strong>Beide richtingen kozen onafhankelijk dezelfde fontpairing</strong> — daardoor is dit een zuivere kleur-A/B. Wil je typografie óók als variabele, dan maken we van A een tweede pairing.</li>
+      <li><strong>Gemockte datapunten:</strong> het Ocerton-artikelnummer (geen SKU in de export), handelsmaat-prijzen afgeleid van de echte 160×230-prijs (€249), filtertellingen. "Sinds 1986" is afgeleid van "±40 jaar" — exact jaartal bij Bruno checken.</li>
+      <li><strong>Foto's zijn hotlinks</strong> naar brunic.be/wp-content (internet nodig); fotoloze kaarten tonen bewust de fallback-staat. Vector-logo ontbreekt nog (data/Brunic-logo-kleur.png is 0 bytes) — wordmark is tijdelijk tekst.</li>
+      <li><strong>Checkout</strong> valt buiten de comps (Shopify-hosted, enkel logo/kleur) — ontwerp loopt tot en met de winkelmand.</li>
+    </ul>
+  </aside>
+</div>
+</body>
+</html>

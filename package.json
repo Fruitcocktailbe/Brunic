@@ -1,0 +1,12 @@
+{
+  "name": "brunic",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Brunic webshop — headless Shopify storefront + catalogus-pipeline",
+  "scripts": {
+    "dev": "pnpm --filter @brunic/web dev",
+    "build": "pnpm --filter @brunic/web build",
+    "start": "pnpm --filter @brunic/web start",
+    "typecheck": "pnpm -r --if-present typecheck"
+  }
+}

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gratis opmeting aanvragen — Brunic · Ninove</title>
+<meta name="description" content="Vraag een gratis opmeting aan huis aan. Beschrijf uw project, voeg foto's toe — wij bellen u binnen 1–2 werkdagen. Vrijblijvend, door onze eigen mensen.">
+<!-- BOUWVEREISTE: in de echte build worden Fraunces & Karla self-hosted (geen Google-CDN — IP-doorgifte vóór consent, GBA/consent mode v2) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Karla:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* ===== Opmeting / terugbelformulier-specifiek ===== */
+.op-hero{background:var(--c-red-deep);background-image:var(--stripes-light);color:#fff;border-bottom:1px solid var(--c-line)}
+.op-hero__in{padding:clamp(2.4rem,5vw,3.6rem) 0}
+.op-hero .kicker{color:#fff}
+.op-hero .kicker::before{background:var(--c-yellow)}
+.op-hero h1{color:#fff;max-width:20ch}
+.op-hero p{font-size:1.14rem;color:#FFE3E0;max-width:54ch;margin:.4rem 0 0}/* #FFE3E0 op #A81412 = 6.2:1, AA */
+
+.op{padding:clamp(2rem,4vw,3.4rem) 0 clamp(2.6rem,6vw,4.5rem)}
+.op__layout{display:grid;grid-template-columns:1.5fr .9fr;gap:clamp(1.6rem,3.5vw,3rem);align-items:start}
+@media (max-width:900px){.op__layout{grid-template-columns:1fr}}
+
+.op-form{background:#fff;border:1px solid var(--c-line);border-radius:var(--r-m);box-shadow:var(--shadow-s);padding:clamp(1.4rem,3vw,2.2rem)}
+.op-form fieldset{border:0;margin:0 0 1.6rem;padding:0}
+.op-form legend{font:600 1.2rem/1.2 var(--f-display);margin:0 0 .3rem;padding:0}
+.op-form .hint{font-size:.9rem;color:var(--c-ink-soft);margin:0 0 1rem}
+.op-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media (max-width:560px){.op-grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:.4rem}
+.field.full{grid-column:1/-1}
+.field label{font-weight:700;font-size:.95rem}
+.field .req{color:var(--c-red-text)}
+.field input,.field textarea,.field select{
+  font:inherit;padding:.8rem .9rem;border:1.5px solid var(--c-line);border-radius:var(--r-s);
+  background:var(--c-ivory);color:var(--c-ink);width:100%;
+}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--c-red);box-shadow:0 0 0 3px var(--c-yellow)}
+.field small{font-size:.82rem;color:var(--c-ink-soft)}
+
+.checks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+@media (max-width:560px){.checks{grid-template-columns:1fr}}
+.checks label{display:flex;gap:.6rem;align-items:center;border:1.5px solid var(--c-line);border-radius:var(--r-s);padding:.7rem .8rem;cursor:pointer;font-size:.96rem;transition:border-color .15s,background .15s}
+.checks label:hover{border-color:var(--c-red)}
+.checks input{width:18px;height:18px;accent-color:var(--c-red);flex:none}
+.checks input:checked+span{font-weight:700}
+
+.op-submit{display:flex;flex-wrap:wrap;gap:.8rem 1.2rem;align-items:center;margin-top:.4rem}
+.op-submit .note{display:flex;align-items:center;gap:.5rem;font-size:.92rem;color:var(--c-ink-soft)}
+.op-submit .note svg{width:18px;height:18px;color:var(--c-green);flex:none}
+.consent{display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--c-ink-soft);margin:1.2rem 0 0}
+.consent input{width:18px;height:18px;accent-color:var(--c-red);flex:none;margin-top:.15rem}
+
+/* bevestiging na (demo-)verzending */
+.op-done{display:none;background:#fff;border:1px solid var(--c-line);border-left:5px solid var(--c-green);border-radius:var(--r-m);box-shadow:var(--shadow-s);padding:clamp(1.6rem,3vw,2.4rem)}
+.op-done.is-on{display:block}
+.op-done h2{font-size:1.5rem;margin:0 0 .5rem;display:flex;align-items:center;gap:.6rem}
+.op-done h2 svg{width:28px;height:28px;color:var(--c-green);flex:none}
+.op-done p{color:var(--c-ink-soft);margin:0 0 .5rem;max-width:52ch}
+
+/* zijkolom: geruststelling + telefoon-alternatief */
+.op-aside{display:grid;gap:1.2rem;position:sticky;top:1.2rem}
+.op-card{background:var(--c-ivory-2);border:1px solid var(--c-line);border-radius:var(--r-m);padding:1.5rem}
+.op-card h2{font-size:1.2rem;margin:0 0 .8rem}
+.trust{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
+.trust li{display:flex;gap:.65rem;align-items:flex-start;font-size:.96rem}
+.trust svg{width:20px;height:20px;color:var(--c-red);flex:none;margin-top:.15rem}
+.op-tel{display:flex;flex-direction:column;gap:.3rem;margin-top:.4rem}
+.op-tel a{font:800 1.5rem/1 var(--f-display);color:var(--c-red-text);text-decoration:none}
+.op-tel span{font-size:.9rem;color:var(--c-ink-soft)}
+.op-stars{display:inline-flex;gap:.15rem;color:var(--c-yellow);vertical-align:middle}
+.op-stars svg{width:18px;height:18px;fill:currentColor}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Meteen naar de inhoud</a>
+
+<header class="site-head">
+  <div class="topbar">
+    <div class="container topbar__in">
+      <p>Gratis opmeting &amp; advies aan huis — wij bellen u binnen 1–2 werkdagen</p>
+      <div class="topbar__meta">
+        <a href="tel:+3254337352">054 33 73 52</a>
+        <span>Ma–Za 9–18u · zondag gesloten</span>
+      </div>
+    </div>
+  </div>
+  <div class="container head-grid">
+    <a class="brand" href="home.html" aria-label="Brunic — naar de startpagina">
+      <img class="brand__logo" src="logo-kleur.png" width="600" height="376" alt="Brunic">
+    </a>
+    <form class="search" role="search" action="#">
+      <input type="search" placeholder="Zoek op product, kleur of merk…" aria-label="Zoeken in de webshop">
+      <button type="submit" aria-label="Zoeken">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+      </button>
+    </form>
+    <div class="head-actions">
+      <a class="head-icon" id="favlink" href="favorieten.html" aria-label="Favorieten — 2 van maximaal 5 bewaard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7.5-4.9-9.5-9.2C.9 8.4 3 5 6.4 5c2 0 3.6 1.1 4.6 2.7l1 1.6 1-1.6C14 6.1 15.6 5 17.6 5 21 5 23.1 8.4 21.5 11.8 19.5 16.1 12 21 12 21Z"/></svg>
+        <span class="count" id="favcount">2/5</span>
+        <span class="head-icon__txt">Favorieten</span>
+      </a>
+      <a class="head-icon" href="#" aria-label="Winkelmand — 1 artikel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+        <span class="count">1</span>
+        <span class="head-icon__txt">Winkelmand</span>
+      </a>
+    </div>
+  </div>
+  <nav class="mainnav" aria-label="Hoofdnavigatie">
+    <div class="container">
+      <ul>
+        <li><a href="plp.html">Gordijnen &amp; stoffen</a></li>
+        <li><a href="#">Behang</a></li>
+        <li><a href="#">Vloeren</a></li>
+        <li><a href="plp.html">Tapijten &amp; karpetten</a></li>
+        <li><a href="#">Raamdecoratie</a></li>
+        <li><a href="#">Verf</a></li>
+        <li><a href="#">Slapen &amp; wonen</a></li>
+        <li class="nav-service"><a href="home.html#atelier">Atelier &amp; maatwerk</a></li>
+        <li class="nav-service"><a href="opmeting.html" aria-current="page">Opmeting &amp; plaatsing</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="op-hero">
+    <div class="container op-hero__in">
+      <p class="kicker">Gratis &amp; vrijblijvend</p>
+      <h1>Plan een gratis opmeting aan huis</h1>
+      <p>Beschrijf kort uw project en voeg gerust foto's toe. Onze eigen mensen komen bij u langs, meten op en adviseren — u zit nergens aan vast. Wij bellen u binnen 1–2 werkdagen.</p>
+    </div>
+  </section>
+
+  <section class="op">
+    <div class="container op__layout">
+      <div>
+        <form class="op-form" id="opform" novalidate>
+          <fieldset>
+            <legend>1 · Uw gegevens</legend>
+            <p class="hint">Zodat wij u kunnen terugbellen voor een afspraak.</p>
+            <div class="op-grid">
+              <div class="field">
+                <label for="naam">Naam <span class="req" aria-hidden="true">*</span></label>
+                <input id="naam" name="naam" type="text" autocomplete="name" required placeholder="Bv. Marie Verstraeten">
+              </div>
+              <div class="field">
+                <label for="tel">Telefoon <span class="req" aria-hidden="true">*</span></label>
+                <input id="tel" name="tel" type="tel" autocomplete="tel" required placeholder="Bv. 0470 12 34 56">
+              </div>
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="Bv. marie@voorbeeld.be">
+              </div>
+              <div class="field">
+                <label for="plaats">Postcode &amp; gemeente</label>
+                <input id="plaats" name="plaats" type="text" autocomplete="postal-code" placeholder="Bv. 9400 Ninove">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>2 · Waarvoor mogen we langskomen?</legend>
+            <p class="hint">Kruis aan wat van toepassing is — meerdere mag.</p>
+            <ul class="checks">
+              <li><label><input type="checkbox" name="dienst" value="gordijnen"><span>Gordijnen &amp; stoffen</span></label></li>
+              <li><label><input type="checkbox" name="dienst" value="raamdecoratie"><span>Raamdecoratie</span></label></li>
+              <li><label><input type="checkbox" name="dienst" value="vloeren"><span>Vloeren</span></label></li>
+              <li><label><input type="checkbox" name="dienst" value="tapijten"><span>Tapijten &amp; karpetten</span></label></li>
+              <li><label><input type="checkbox" name="dienst" value="behang"><span>Behang</span></label></li>
+              <li><label><input type="checkbox" name="dienst" value="maatwerk"><span>Atelier &amp; maatwerk</span></label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset>
+            <legend>3 · Uw project</legend>
+            <div class="op-grid">
+              <div class="field full">
+                <label for="project">Beschrijf kort wat u wenst</label>
+                <textarea id="project" name="project" placeholder="Bv. nieuwe gordijnen voor de living (3 ramen), graag verduisterend, en advies over de kleur."></textarea>
+              </div>
+              <div class="field full">
+                <label for="fotos">Foto's toevoegen</label>
+                <input id="fotos" name="fotos" type="file" accept="image/*" multiple>
+                <small>Een foto van de ruimte of het raam helpt ons enorm — optioneel.</small>
+              </div>
+              <div class="field">
+                <label for="termijn">Gewenste termijn</label>
+                <select id="termijn" name="termijn">
+                  <option value="">Maakt niet uit</option>
+                  <option>Zo snel mogelijk</option>
+                  <option>Binnen de maand</option>
+                  <option>Binnen 1–3 maanden</option>
+                  <option>Ik oriënteer me nog</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="moment">Voorkeur belmoment</label>
+                <select id="moment" name="moment">
+                  <option value="">Geen voorkeur</option>
+                  <option>Overdag (9–17u)</option>
+                  <option>'s Avonds (17–19u)</option>
+                  <option>Op zaterdag</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <label class="consent"><input type="checkbox" name="consent" required> <span>Ik ga ermee akkoord dat Brunic mijn gegevens gebruikt om contact op te nemen over mijn aanvraag. <a href="#">Privacybeleid</a>.</span></label>
+
+          <div class="op-submit">
+            <button class="btn btn--primary btn--big" type="submit">Vraag mijn gratis opmeting aan</button>
+            <span class="note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Wij bellen u binnen 1–2 werkdagen
+            </span>
+          </div>
+        </form>
+
+        <div class="op-done" id="opdone" role="status" aria-live="polite" tabindex="-1">
+          <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Bedankt, uw aanvraag is verzonden</h2>
+          <p><strong id="donenaam">Wij</strong> nemen binnen 1–2 werkdagen contact met u op om een moment voor de opmeting af te spreken.</p>
+          <p>Liever meteen iemand aan de lijn? Bel <a class="tel" href="tel:+3254337352">054&nbsp;33&nbsp;73&nbsp;52</a> (Ma–Za 9–18u).</p>
+          <p style="margin-top:1rem"><a class="btn btn--ghost" href="home.html">Terug naar de startpagina</a></p>
+        </div>
+        <p class="muted" style="font-size:.86rem;margin-top:1rem">Demo-formulier — in de echte site komt hier de verzending naar Brunic (e-mail/CRM) met foto-upload.</p>
+      </div>
+
+      <aside class="op-aside" aria-label="Waarom Brunic">
+        <div class="op-card">
+          <h2>Waarom een opmeting bij Brunic?</h2>
+          <ul class="trust">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Volledig gratis en vrijblijvend</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Door onze eigen mensen — geen onderaanneming</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Gordijnen uit ons <strong>eigen atelier</strong> in Ninove</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Al 40 jaar advies, opmeting én plaatsing aan huis</li>
+          </ul>
+        </div>
+        <div class="op-card">
+          <h2>Liever bellen?</h2>
+          <div class="op-tel">
+            <a href="tel:+3254337352">054 33 73 52</a>
+            <span>Ma–Za 9–18u · zondag gesloten</span>
+            <span>Ring-West 19, 9400 Ninove</span>
+          </div>
+        </div>
+        <div class="op-card">
+          <span class="op-stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8L12 2z"/></svg>
+          </span>
+          <p style="margin:.5rem 0 0;font-size:.96rem"><strong>5,0 op Google</strong> — beoordeeld door klanten uit de Denderstreek.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="container foot-grid">
+    <nav aria-label="Categorieën">
+      <h4>Assortiment</h4>
+      <ul>
+        <li><a href="plp.html">Gordijnen &amp; stoffen</a></li>
+        <li><a href="#">Behang</a></li>
+        <li><a href="#">Vloeren</a></li>
+        <li><a href="plp.html">Tapijten &amp; karpetten</a></li>
+        <li><a href="#">Raamdecoratie</a></li>
+        <li><a href="#">Verf</a></li>
+        <li><a href="#">Slapen &amp; wonen</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Diensten">
+      <h4>Diensten</h4>
+      <ul>
+        <li><a href="home.html#atelier">Atelier &amp; maatwerk</a></li>
+        <li><a href="opmeting.html" aria-current="page">Opmeting &amp; plaatsing</a></li>
+        <li><a href="favorieten.html">Favorieten &amp; winkellijst</a></li>
+        <li><a href="#">Click &amp; collect</a></li>
+        <li><a href="#">Veelgestelde vragen</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h4>Bezoek de winkel</h4>
+      <address class="foot-nap">
+        <span><strong>Brunic nv</strong></span>
+        <span>Ring-West 19, 9400 Ninove</span>
+        <span><a href="tel:+3254337352">054 33 73 52</a></span>
+        <span><a href="mailto:info@brunic.be">info@brunic.be</a></span>
+        <span>Ma–Za 9–18u · zondag gesloten</span>
+      </address>
+    </div>
+  </div>
+  <div class="container foot-bottom">
+    <p>© 2026 Brunic nv, Ninove — alle rechten voorbehouden.</p>
+    <ul>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Cookies</a></li>
+      <li><a href="#">Algemene voorwaarden</a></li>
+    </ul>
+  </div>
+</footer>
+
+<button class="chat-fab" type="button" aria-label="Chat met Brunic — stel uw vraag">
+  <span class="chat-fab__dot" aria-hidden="true">B</span>
+  Stel uw vraag
+</button>
+
+<div class="cookiebar" role="region" aria-label="Cookievoorkeuren">
+  <p>Wij gebruiken cookies om de site vlot te laten werken en — enkel met uw toestemming — ons aanbod te verbeteren. <a href="#">Lees ons cookiebeleid</a>.</p>
+  <div class="cookiebar__actions">
+    <button class="btn btn--ghost" type="button">Alles aanvaarden</button>
+    <button class="btn btn--ghost" type="button">Enkel noodzakelijke</button>
+    <a class="cookiebar__pref" href="#">Voorkeuren</a>
+  </div>
+</div>
+
+<script>
+/* demo-verzending: geen backend — toon een nette bevestiging zodat de knop "werkt" in het voorbeeld */
+(function(){
+  var form = document.getElementById('opform');
+  var done = document.getElementById('opdone');
+  if (!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    var naam = (document.getElementById('naam').value || '').trim();
+    var dn = document.getElementById('donenaam');
+    if (dn) dn.textContent = naam ? ('Beste ' + naam + ', wij') : 'Wij';
+    form.style.display = 'none';
+    done.classList.add('is-on');
+    done.focus();
+    done.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+})();
+</script>
+</body>
+</html>

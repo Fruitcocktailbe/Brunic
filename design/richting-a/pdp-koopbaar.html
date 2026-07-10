@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tapijt Ocerton Lao458 Taupe · 4 maten · Brunic Ninove</title>
+<meta name="description" content="Tapijt Ocerton Lao458 in taupe: laagpolig, zacht en slijtvast. In 4 handelsmaten, vanaf € 89. Gratis afhalen in Ninove of levering aan huis.">
+<!-- BOUWVEREISTE: in de echte build worden Fraunces & Karla self-hosted (geen Google-CDN — IP-doorgifte vóór consent, GBA/consent mode v2) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Karla:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* ===== PDP-specifiek ===== */
+.pdp{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(2rem,4.5vw,4rem);padding-top:1.6rem;align-items:start}
+@media (max-width:900px){.pdp{grid-template-columns:1fr}}
+
+/* — Galerij — */
+.gallery{position:sticky;top:1.2rem}
+@media (max-width:900px){.gallery{position:static}}
+.gallery__main{
+  position:relative;margin:0;border-radius:var(--r-m);overflow:hidden;border:1px solid var(--c-line);
+  background-color:#fff;background-image:var(--stripes-red); /* fallback bij kapotte hotlink */
+  aspect-ratio:4/3.4;
+}
+.gallery__main img{width:100%;height:100%;object-fit:cover}
+.thumbs{display:flex;gap:var(--s-2);margin-top:var(--s-2)}
+.thumb{
+  width:86px;height:86px;border-radius:var(--r-s);overflow:hidden;padding:0;
+  border:2px solid var(--c-line);background:#fff;flex:none;
+}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb[aria-current="true"]{border-color:var(--c-red)}
+.thumb:hover{border-color:var(--c-ink)}
+.thumb[aria-current="true"]:hover{border-color:var(--c-red)} /* hover mag de selectiestaat niet als deselectie laten lezen */
+
+/* — Kooppaneel — */
+.buy__cat{font:700 .78rem/1 var(--f-body);letter-spacing:.13em;text-transform:uppercase;color:var(--c-red-text);margin:0 0 .5rem} /* --c-red haalt geen AA op ivoor bij deze grootte */
+.buy h1{font-size:clamp(1.7rem,3vw,2.35rem);margin-bottom:.35rem}
+.buy__meta{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;align-items:center;color:var(--c-ink-soft);font-size:.95rem;margin:0 0 1.3rem}
+.buy__meta .artnr{
+  font:700 .82rem/1 var(--f-body);letter-spacing:.06em;background:var(--c-ivory-2);
+  border:1px solid var(--c-line);border-radius:4px;padding:.35rem .6rem;color:var(--c-ink);
+}
+
+.price-block{display:flex;align-items:baseline;gap:.8rem;margin:0 0 .3rem}
+.price-block .price{font:600 2.2rem/1 var(--f-display);color:var(--c-ink)}
+.price-block .per{color:var(--c-ink-soft);font-size:.95rem}
+.stock{display:flex;align-items:center;gap:.5rem;color:var(--c-green);font-weight:700;font-size:.98rem;margin:0 0 1.5rem}
+.stock::before{content:"";width:10px;height:10px;border-radius:999px;background:var(--c-green)}
+
+.sizes{border:0;padding:0;margin:0 0 var(--s-5)}
+.sizes legend{font:800 .8rem/1 var(--f-body);letter-spacing:.13em;text-transform:uppercase;margin-bottom:.8rem;padding:0}
+.sizes legend span{color:var(--c-ink-soft);text-transform:none;letter-spacing:0;font-weight:600}
+.size-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:.7rem}
+.size{position:relative}
+.size input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.size span{
+  display:flex;flex-direction:column;gap:.15rem;align-items:center;text-align:center;
+  border:2px solid var(--c-line-strong);border-radius:var(--r-s);padding:.75rem .5rem;background:#fff;
+  transition:border-color .15s,background .15s;
+}
+.size b{font-size:1.02rem}
+.size small{color:var(--c-ink-soft);font-size:.88rem}
+.size input:checked + span{border-color:var(--c-red);background:var(--c-red-tint)}
+.size input:checked + span small{color:var(--c-red-dark);font-weight:700}
+.size input:focus-visible + span{outline:3px solid var(--c-ink);outline-offset:2px}
+.size:hover span{border-color:var(--c-ink)}
+
+.buy-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1rem}
+.buy-row .btn--primary{flex:1;min-width:220px}
+.fav-inline{
+  display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 1.3rem;border-radius:var(--r-s);
+  border:2px solid var(--c-ink);background:transparent;font:700 1.02rem/1 var(--f-body);color:var(--c-ink);
+  transition:color .15s,border-color .15s,background .15s;
+}
+.fav-inline svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2}
+.fav-inline:hover{color:var(--c-red);border-color:var(--c-red)}
+.fav-inline[aria-pressed="true"]{color:var(--c-red);border-color:var(--c-red);background:var(--c-red-tint)}
+.fav-inline[aria-pressed="true"] svg{fill:var(--c-red);stroke:var(--c-red)}
+
+.fulfil{
+  border:1px solid var(--c-line);border-radius:var(--r-m);background:#fff;
+  padding:1.1rem 1.25rem;display:grid;gap:.85rem;margin-bottom:var(--s-5);
+}
+.fulfil div{display:flex;gap:.8rem;align-items:flex-start}
+.fulfil svg{width:22px;height:22px;color:var(--c-red);flex:none;margin-top:.1rem}
+.fulfil strong{display:block;font-size:.99rem}
+.fulfil span{font-size:.9rem;color:var(--c-ink-soft)}
+.fulfil .free{color:var(--c-green);font-weight:800}
+
+/* — Specs & beschrijving — */
+.pdp-below{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(2rem,4.5vw,4rem);margin-top:var(--s-7);align-items:start}
+@media (max-width:900px){.pdp-below{grid-template-columns:1fr}}
+.desc h2,.specs h2{font-size:1.45rem}
+.desc p{color:var(--c-ink-soft);max-width:62ch}
+.specs table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--c-line);border-radius:var(--r-m);overflow:hidden}
+.specs th,.specs td{text-align:left;padding:.8rem 1.1rem;font-size:.99rem;vertical-align:top}
+.specs tr:nth-child(odd){background:var(--c-ivory-2)}
+.specs th{font-weight:800;width:42%;color:var(--c-ink)}
+.specs td{color:var(--c-ink-soft)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Meteen naar de inhoud</a>
+
+<header class="site-head">
+  <!-- topbar in de header-landmark, zodat screenreaders hem per landmark vinden -->
+  <div class="topbar">
+    <div class="container topbar__in">
+      <p>Gratis opmeting &amp; advies aan huis — wij bellen u binnen 1–2 werkdagen</p>
+      <div class="topbar__meta">
+        <a href="tel:+3254337352">054 33 73 52</a>
+        <span>Ma–Za 9–18u · zondag gesloten</span>
+      </div>
+    </div>
+  </div>
+  <div class="container head-grid">
+    <a class="brand" href="home.html" aria-label="Brunic — naar de startpagina">
+      <img class="brand__logo" src="logo-kleur.png" width="600" height="376" alt="Brunic">
+    </a>
+    <form class="search" role="search" action="#">
+      <input type="search" placeholder="Zoek op product, kleur of merk…" aria-label="Zoeken in de webshop">
+      <button type="submit" aria-label="Zoeken">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+      </button>
+    </form>
+    <div class="head-actions">
+      <a class="head-icon" id="favlink" href="favorieten.html" aria-label="Favorieten — 2 van maximaal 5 bewaard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7.5-4.9-9.5-9.2C.9 8.4 3 5 6.4 5c2 0 3.6 1.1 4.6 2.7l1 1.6 1-1.6C14 6.1 15.6 5 17.6 5 21 5 23.1 8.4 21.5 11.8 19.5 16.1 12 21 12 21Z"/></svg>
+        <span class="count" id="favcount">2/5</span>
+        <span class="head-icon__txt">Favorieten</span>
+      </a>
+      <a class="head-icon" href="#" aria-label="Winkelmand — 1 artikel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+        <span class="count">1</span>
+        <span class="head-icon__txt">Winkelmand</span>
+      </a>
+    </div>
+  </div>
+  <nav class="mainnav" aria-label="Hoofdnavigatie">
+    <div class="container">
+      <ul>
+        <!-- Demo-noot: het PLP-patroon (plp.html) geldt voor alle categorieën; de stoffen-PLP volgt in de bouw -->
+        <li><a href="plp.html">Gordijnen &amp; stoffen</a></li>
+        <li><a href="#">Behang</a></li>
+        <li><a href="#">Vloeren</a></li>
+        <li><a href="plp.html" aria-current="true">Tapijten &amp; karpetten</a></li><!-- "true": actieve sectie — de PDP zelf is de pagina, niet de PLP -->
+        <li><a href="#">Raamdecoratie</a></li>
+        <li><a href="#">Verf</a></li>
+        <li><a href="#">Slapen &amp; wonen</a></li>
+        <li class="nav-service"><a href="home.html#atelier">Atelier &amp; maatwerk</a></li>
+        <li class="nav-service"><a href="opmeting.html">Opmeting &amp; plaatsing</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="container">
+    <nav class="crumbs" aria-label="Kruimelpad">
+      <ol>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="plp.html">Tapijten &amp; karpetten</a></li>
+        <li><a href="plp.html">Moderne tapijten</a></li>
+        <li><span aria-current="page">Tapijt Ocerton Lao458 Taupe</span></li>
+      </ol>
+    </nav>
+
+    <article class="pdp">
+      <!-- Galerij -->
+      <div class="gallery">
+        <figure class="gallery__main" style="margin:0">
+          <img id="mainimg" src="https://brunic.be/wp-content/uploads/2022/05/2001930052.jpg" alt="Tapijt Ocerton Lao458 Taupe, volledig zicht op het dessin" loading="eager">
+        </figure>
+        <div class="thumbs" role="group" aria-label="Productfoto's">
+          <button class="thumb" type="button" aria-current="true" data-src="https://brunic.be/wp-content/uploads/2022/05/2001930052.jpg">
+            <img loading="lazy" src="https://brunic.be/wp-content/uploads/2022/05/2001930052.jpg" alt="Foto 1: volledig tapijt">
+          </button>
+          <button class="thumb" type="button" aria-current="false" data-src="https://brunic.be/wp-content/uploads/2022/05/2001916416.jpg">
+            <img loading="lazy" src="https://brunic.be/wp-content/uploads/2022/05/2001916416.jpg" alt="Foto 2: detail van de pool">
+          </button>
+          <button class="thumb" type="button" aria-current="false" data-src="https://brunic.be/wp-content/uploads/2022/05/2001930094.jpg">
+            <img loading="lazy" src="https://brunic.be/wp-content/uploads/2022/05/2001930094.jpg" alt="Foto 3: tapijt in de ruimte">
+          </button>
+        </div>
+      </div>
+
+      <!-- Kooppaneel -->
+      <div class="buy">
+        <p class="buy__cat">Tapijten &amp; karpetten · Moderne tapijten</p>
+        <h1>Tapijt Ocerton Lao458 Taupe</h1>
+        <p class="buy__meta">
+          <span class="artnr">Art.nr 767715458</span>
+          <span class="stars-s" aria-label="Beoordeeld met 5 sterren">
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.7 5.8 21.2l1.4-7L2 9.4l7-.8L12 2z"/></svg>
+          </span>
+          <span>Zacht laagpolig tapijt in warm taupe-grijs</span>
+        </p>
+
+        <p class="price-block"><span class="price" id="priceout">&euro;&nbsp;249,00</span> <span class="per">incl. btw · voor 160 × 230 cm</span></p>
+        <p class="stock">Op voorraad in de winkel in Ninove</p>
+
+        <fieldset class="sizes">
+          <legend>Kies uw maat <span>— twijfelt u? Wij meten gratis op.</span></legend>
+          <div class="size-grid">
+            <label class="size">
+              <input type="radio" name="maat" value="89" data-label="80 × 150 cm">
+              <span><b>80 × 150</b><small>&euro; 89,00</small></span>
+            </label>
+            <label class="size">
+              <input type="radio" name="maat" value="149" data-label="120 × 170 cm">
+              <span><b>120 × 170</b><small>&euro; 149,00</small></span>
+            </label>
+            <label class="size">
+              <input type="radio" name="maat" value="249" data-label="160 × 230 cm" checked>
+              <span><b>160 × 230</b><small>&euro; 249,00</small></span>
+            </label>
+            <label class="size">
+              <input type="radio" name="maat" value="399" data-label="200 × 290 cm">
+              <span><b>200 × 290</b><small>&euro; 399,00</small></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="buy-row">
+          <a class="btn btn--primary btn--big" href="#">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+            In winkelmand
+          </a>
+          <button class="fav-inline" type="button" aria-pressed="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.9-9.5-9.2C.9 8.4 3 5 6.4 5c2 0 3.6 1.1 4.6 2.7l1 1.6 1-1.6C14 6.1 15.6 5 17.6 5 21 5 23.1 8.4 21.5 11.8 19.5 16.1 12 21 12 21Z"/></svg>
+            Bewaard
+          </button>
+        </div>
+
+        <div class="fulfil">
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h9v10H4zM3 21h18M7 7V4h3v3"/></svg>
+            <div><strong>Click &amp; collect — <span class="free">gratis afhalen in Ninove</span></strong><span>Vandaag besteld, morgen klaar aan Ring-West 19.</span></div>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1 8h13v9H1zM14 11h4l4 3v3h-8"/><circle cx="6" cy="19" r="1.8"/><circle cx="18" cy="19" r="1.8"/></svg>
+            <div><strong>Levering aan huis door eigen mensen</strong><span>In Ninove en de Denderstreek — geen koerierloterij.</span></div>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 17 17 3l4 4L7 21H3v-4Z"/><path d="m14 6 1.5 1.5M11 9l1.5 1.5M8 12l1.5 1.5"/></svg>
+            <div><strong>Niet zeker van de maat?</strong><span><a href="home.html#opmeting">Plan een gratis opmeting</a> — Sandra komt langs met stalen.</span></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Beschrijving + specs -->
+    <div class="pdp-below">
+      <section class="desc">
+        <h2>Over dit tapijt</h2>
+        <p>De Ocerton Lao458 brengt rust in uw living: een fijn, ton-sur-ton dessin in warm taupe met een grijze ondertoon. De laagpolige, dichte pool voelt zacht aan maar blijft mooi onder salontafel en zetel — ook in een druk gezin.</p>
+        <p>Kies uw maat hierboven, of kom het tapijt bekijken in de winkel: voelen zegt meer dan een foto. Wij leveren en leggen desgewenst zelf, met antislip-onderlaag indien nodig.</p>
+      </section>
+      <section class="specs">
+        <h2>Specificaties</h2>
+        <table>
+          <tbody>
+            <tr><th scope="row">Artikelnummer</th><td>767715458</td></tr>
+            <tr><th scope="row">Materiaal</th><td>100% polypropyleen heatset (frisé)</td></tr>
+            <tr><th scope="row">Poolhoogte</th><td>Laagpolig — 13 mm</td></tr>
+            <tr><th scope="row">Kleurfamilie</th><td>Taupe / grijs</td></tr>
+            <tr><th scope="row">Maten</th><td>80 × 150 · 120 × 170 · 160 × 230 · 200 × 290 cm</td></tr>
+            <tr><th scope="row">Onderhoud</th><td>Regelmatig stofzuigen; vlekken deppen met lauw water</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- Gerelateerd -->
+    <section class="section" aria-label="Gerelateerde producten" style="padding-bottom:0">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Ook bekeken</p>
+          <h2>Past hier mooi bij</h2>
+        </div>
+        <a class="arrow-link" href="plp.html">Alle tapijten &amp; karpetten</a>
+      </div>
+      <div class="grid-cards">
+        <article class="card">
+          <a class="card__media" href="#" tabindex="-1" aria-hidden="true">
+            <img loading="lazy" src="https://brunic.be/wp-content/uploads/2022/05/2001908028.jpg" alt="">
+          </a>
+          <button class="fav" type="button" aria-pressed="false" aria-label="Bewaar Tapijt Ocerton Lao458 Silver als favoriet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.9-9.5-9.2C.9 8.4 3 5 6.4 5c2 0 3.6 1.1 4.6 2.7l1 1.6 1-1.6C14 6.1 15.6 5 17.6 5 21 5 23.1 8.4 21.5 11.8 19.5 16.1 12 21 12 21Z"/></svg></button>
+          <div class="card__body">
+            <p class="card__cat">Moderne tapijten</p>
+            <h3 class="card__title"><a href="#">Tapijt Ocerton Lao458 Silver</a></h3>
+            <p class="card__size">160 × 230 cm · 4 maten</p>
+            <p class="card__price">&euro;&nbsp;249,00</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="card__media" href="#" tabindex="-1" aria-hidden="true">
+            <img loading="lazy" src="https://brunic.be/wp-content/uploads/2021/09/1733632331-1.jpg" alt="">
+          </a>
+          <button class="fav" type="button" aria-pressed="false" aria-label="Bewaar Oregano Lol181 Bunny als favoriet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.9-9.5-9.2C.9 8.4 3 5 6.4 5c2 0 3.6 1.1 4.6 2.7l1 1.6 1-1.6C14 6.1 15.6 5 17.6 5 21 5 23.1 8.4 21.5 11.8 19.5 16.1 12 21 12 21Z"/></svg></button>
+          <div class="card__body">
+            <p class="card__cat">Kindertapijten</p>
+            <h3 class="card__title"><a href="#">Oregano Lol181 Bunny</a></h3>
+            <p class="card__size">120 × 170 cm · wasbaar</p>
+            <p class="card__price">&euro;&nbsp;59,96</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="card__media card__media--none" href="#" tabindex="-1" aria-hidden="true">
+            <span class="noimg__word">Trude<br>Puzzel</span>
+            <span class="noimg__note">Foto volgt — bekijk dit tapijt in de winkel</span>
+          </a>
+          <button class="fav" type="button" aria-pressed="false" aria-label="Bewaar Knoeimat Trude Puzzel als favoriet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.9-9.5-9.2C.9 8.4 3 5 6.4 5c2 0 3.6 1.1 4.6 2.7l1 1.6 1-1.6C14 6.1 15.6 5 17.6 5 21 5 23.1 8.4 21.5 11.8 19.5 16.1 12 21 12 21Z"/></svg></button>
+          <div class="card__body">
+            <p class="card__cat">Knoeimatten</p>
+            <h3 class="card__title"><a href="#">Knoeimat Trude Puzzel 5331141</a></h3>
+            <p class="card__size">100 × 100 cm · vierkant</p>
+            <p class="card__price">&euro;&nbsp;34,90</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="card__media" href="#" tabindex="-1" aria-hidden="true">
+            <img loading="lazy" src="https://brunic.be/wp-content/uploads/2021/09/1755261151-1.jpg" alt="">
+          </a>
+          <button class="fav" type="button" aria-pressed="false" aria-label="Bewaar Kindertapijt Nijntje Tent als favoriet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.9-9.5-9.2C.9 8.4 3 5 6.4 5c2 0 3.6 1.1 4.6 2.7l1 1.6 1-1.6C14 6.1 15.6 5 17.6 5 21 5 23.1 8.4 21.5 11.8 19.5 16.1 12 21 12 21Z"/></svg></button>
+          <div class="card__body">
+            <p class="card__cat">Kindertapijten</p>
+            <h3 class="card__title"><a href="#">Kindertapijt Nijntje Tent</a></h3>
+            <p class="card__size">65 × 90 cm</p>
+            <p class="card__price"><s>&euro;&nbsp;64,00</s> &euro;&nbsp;19,00</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="container foot-grid">
+    <div class="foot-brand">
+      <span class="brand__word">BRUNIC<span class="brand__dot">.</span></span>
+      <p>Vakmanschap uit eigen atelier — advies, opmeting en plaatsing aan huis. Al 40 jaar in Ninove.</p>
+    </div>
+    <nav aria-label="Categorieën">
+      <h4>Assortiment</h4>
+      <ul>
+        <li><a href="pdp-etalage.html">Gordijnen &amp; stoffen</a></li>
+        <li><a href="#">Behang</a></li>
+        <li><a href="#">Vloeren</a></li>
+        <li><a href="plp.html">Tapijten &amp; karpetten</a></li>
+        <li><a href="#">Raamdecoratie</a></li>
+        <li><a href="#">Verf</a></li>
+        <li><a href="#">Slapen &amp; wonen</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Diensten">
+      <h4>Diensten</h4>
+      <ul>
+        <li><a href="home.html#atelier">Atelier &amp; maatwerk</a></li>
+        <li><a href="home.html#opmeting">Opmeting &amp; plaatsing</a></li>
+        <li><a href="favorieten.html">Favorieten &amp; winkellijst</a></li>
+        <li><a href="#">Click &amp; collect</a></li>
+        <li><a href="#">Veelgestelde vragen</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h4>Bezoek de winkel</h4>
+      <address class="foot-nap">
+        <span><strong>Brunic nv</strong></span>
+        <span>Ring-West 19, 9400 Ninove</span>
+        <span><a href="tel:+3254337352">054 33 73 52</a></span>
+        <span><a href="mailto:info@brunic.be">info@brunic.be</a></span>
+        <span>Ma–Za 9–18u · zondag gesloten</span>
+      </address>
+    </div>
+  </div>
+  <div class="container foot-bottom">
+    <p>© 2026 Brunic nv, Ninove — alle rechten voorbehouden.</p>
+    <ul>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Cookies</a></li>
+      <li><a href="#">Algemene voorwaarden</a></li>
+    </ul>
+  </div>
+</footer>
+
+<button class="chat-fab" type="button" aria-label="Chat met Brunic — stel uw vraag">
+  <span class="chat-fab__dot" aria-hidden="true">B</span>
+  Stel uw vraag
+</button>
+
+<script>
+document.querySelectorAll('.fav, .fav-inline').forEach(function(b){
+  b.addEventListener('click',function(){
+    var pressed = b.getAttribute('aria-pressed')!=='true';
+    b.setAttribute('aria-pressed', pressed);
+    if (b.classList.contains('fav-inline')){
+      b.lastChild.textContent = pressed ? ' Bewaard' : ' Bewaar als favoriet';
+    }
+  });
+});
+/* galerij: thumbnail wisselt hoofdbeeld */
+var main = document.getElementById('mainimg');
+document.querySelectorAll('.thumb').forEach(function(t){
+  t.addEventListener('click',function(){
+    main.src = t.dataset.src;
+    document.querySelectorAll('.thumb').forEach(function(x){x.setAttribute('aria-current','false')});
+    t.setAttribute('aria-current','true');
+  });
+});
+/* maatkiezer: prijs mee laten veranderen */
+var euro = {89:'€ 89,00',149:'€ 149,00',249:'€ 249,00',399:'€ 399,00'};
+document.querySelectorAll('.sizes input').forEach(function(r){
+  r.addEventListener('change',function(){
+    document.getElementById('priceout').textContent = euro[r.value];
+    document.querySelector('.price-block .per').textContent = 'incl. btw · voor ' + r.dataset.label;
+  });
+});
+</script>
+</body>
+</html>

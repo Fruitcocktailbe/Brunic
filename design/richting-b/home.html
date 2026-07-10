@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brunic — Gordijnen op maat, interieur & atelier in Ninove</title>
+<meta name="description" content="Al 40 jaar dé interieurzaak van Ninove. Gordijnen op maat uit eigen atelier, behang, vloeren, tapijten en raamdecoratie. Gratis opmeting aan huis.">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  /* — pagina-eigen stijlen: home — */
+  .hero {
+    position: relative;
+    padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3rem, 7vw, 5.5rem);
+    background:
+      radial-gradient(900px 420px at 85% -10%, rgba(217,191,169,.35), transparent 70%),
+      linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+    border-bottom: 1px solid var(--hairline);
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .hero h1 { margin-bottom: .45em; }
+  .hero h1 em { font-style: italic; font-weight: 380; color: var(--clay-text); } /* clay-text: ruim AA-large, ook op paper-deep */
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; margin-top: 1.6rem; }
+  .hero-trust { margin-top: 1rem; font-size: .9rem; color: var(--ink-mute); }
+  .hero-trust b { color: var(--ink-soft); }
+
+  .hero-visual { position: relative; }
+  .hero-visual .hero-img {
+    border-radius: var(--r-l);
+    overflow: hidden;
+    box-shadow: var(--shadow-m);
+    aspect-ratio: 4 / 4.6;
+    background: var(--sand);
+  }
+  .hero-visual .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+  /* hero-card als genaaid stoflabel uit het atelier: gestikte randlijn,
+     tikje gedraaid — geen zwevende testimonial-kaart */
+  .hero-card {
+    position: absolute;
+    left: -1.75rem; bottom: 1.75rem;
+    max-width: 250px;
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-s);
+    box-shadow: var(--shadow-m);
+    padding: 1.2rem 1.35rem;
+    transform: rotate(-1.4deg);
+  }
+  .hero-card::after {
+    content: "";
+    position: absolute; inset: 6px;
+    border: 1.5px dashed var(--clay-soft);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+  .hero-card .hero-card-kicker {
+    font-size: .7rem; font-weight: 700; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--clay-text); margin: 0 0 .35em;
+  }
+  .hero-card p:last-child { margin: 0; font-family: var(--font-display); font-style: italic; font-size: 1.08rem; line-height: 1.35; }
+
+  /* categorietegels */
+  .cat-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .cat-tile {
+    position: relative;
+    display: block;
+    border-radius: var(--r-l);
+    overflow: hidden;
+    text-decoration: none;
+    aspect-ratio: 4 / 5;
+    background: var(--sand);
+    box-shadow: var(--shadow-s);
+  }
+  .cat-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.22,.61,.2,1); }
+  .cat-tile:hover img { transform: scale(1.05); }
+  .cat-tile .cat-tile-scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(185deg, transparent 42%, rgba(30,23,18,.72) 100%);
+  }
+  .cat-tile .cat-tile-caption {
+    position: absolute; left: 1.4rem; right: 1.4rem; bottom: 1.25rem;
+    display: block;
+    color: #FBF7F0;
+  }
+  .cat-tile .cat-tile-caption b {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 480;
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    margin-bottom: .15em;
+  }
+  .cat-tile .cat-tile-caption span { font-size: .85rem; opacity: .85; }
+  .cat-tile .cat-tile-caption .tile-cta {
+    display: inline-block; margin-top: .6em;
+    font-size: .82rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    border-bottom: 2px solid var(--clay-soft);
+    padding-bottom: 2px;
+  }
+
+  /* atelier-sectie */
+  .atelier-grid {
+    display: grid;
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  .atelier-placeholder {
+    aspect-ratio: 4 / 4.4;
+    border-radius: var(--r-l);
+    display: grid;
+    place-content: center;
+    text-align: center;
+    gap: .5rem;
+    padding: 2rem;
+    color: var(--ink-soft);
+    background:
+      repeating-linear-gradient(45deg,  rgba(46,38,32,.05) 0 2px, transparent 2px 11px),
+      repeating-linear-gradient(-45deg, rgba(46,38,32,.035) 0 2px, transparent 2px 11px),
+      var(--clay-soft);
+    border: 1px solid var(--hairline);
+    box-shadow: var(--shadow-s);
+  }
+  .atelier-placeholder .ph-mono {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 380;
+    line-height: 1;
+    color: var(--ink);
+    opacity: .8;
+  }
+  .atelier-placeholder .ph-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.3rem;
+  }
+  .atelier-placeholder .ph-note { font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--ink-mute); }
+
+  .steps { list-style: none; margin: 1.75rem 0 0; padding: 0; display: grid; gap: 1.1rem; counter-reset: stap; }
+  .steps li { display: flex; gap: 1rem; align-items: baseline; counter-increment: stap; }
+  .steps li::before {
+    content: counter(stap, decimal-leading-zero);
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--clay-text);
+    min-width: 2.2ch;
+  }
+  .steps b { display: block; }
+  .steps span { color: var(--ink-mute); font-size: .95rem; }
+
+  /* opmeting / terugbelformulier */
+  .opmeting-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .opmeting-form {
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    border-top: 3px solid var(--clay);
+    border-radius: var(--r-l);
+    box-shadow: var(--shadow-m);
+    padding: clamp(1.4rem, 3vw, 2.25rem);
+  }
+  .opmeting-form h3 { margin-bottom: .25em; }
+  .form-note { display: flex; gap: .6rem; align-items: flex-start; font-size: .9rem; color: var(--ink-mute); margin-top: 1rem; }
+  .check-list { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: .8rem; }
+  .check-list li { display: flex; gap: .7rem; align-items: baseline; }
+  .check-list svg { flex: none; translate: 0 3px; color: var(--clay); }
+
+  /* reviews */
+  .review-head { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-bottom: 2rem; }
+  .review-score {
+    display: flex; align-items: center; gap: .8rem;
+    background: var(--card); border: 1px solid var(--hairline); border-radius: 999px;
+    padding: .55rem 1.2rem; box-shadow: var(--shadow-s);
+  }
+  .review-score b { font-size: 1.3rem; font-family: var(--font-display); }
+  .review-score small { color: var(--ink-mute); }
+  .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .review {
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-l);
+    padding: 1.6rem 1.6rem 1.4rem;
+    box-shadow: var(--shadow-s);
+    display: grid;
+    gap: .9rem;
+    align-content: start;
+  }
+  .review blockquote {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.13rem;
+    line-height: 1.5;
+    font-weight: 380;
+  }
+  .review blockquote::before { content: "“"; color: var(--clay); font-size: 1.5em; line-height: 0; vertical-align: -0.28em; margin-right: .08em; }
+  .review footer { font-size: .88rem; color: var(--ink-mute); }
+  .review footer b { color: var(--ink-soft); }
+
+  @media (max-width: 900px) {
+    .hero-grid, .atelier-grid, .opmeting-grid { grid-template-columns: 1fr; }
+    .hero-visual { max-width: 560px; }
+    .hero-card { left: auto; right: -.4rem; bottom: -1rem; }
+    .cat-tiles { grid-template-columns: 1fr; }
+    .cat-tile { aspect-ratio: 16 / 9; }
+    .reviews { grid-template-columns: 1fr; }
+    .atelier-grid .atelier-placeholder { order: 2; max-width: 480px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="topbar">
+    <div class="wrap">
+      <span><b>Gratis opmeting aan huis</b> — wij bellen u binnen 1–2 werkdagen</span>
+      <span class="topbar-note">Winkel open ma–za 9–18u &nbsp;·&nbsp; <a href="tel:+3254337352">054 33 73 52</a></span>
+    </div>
+  </div>
+
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Hoofdmenu openen">
+
+  <div class="masthead wrap">
+    <label for="nav-toggle" class="nav-burger" aria-label="Menu openen">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M2 5h18M2 11h18M2 17h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </label>
+    <a class="wordmark" href="home.html">BRUNIC<span class="wordmark-sub">Interieur &amp; atelier · Ninove</span></a>
+    <form class="search" role="search" action="#">
+      <label class="sr-only" for="q">Zoeken</label>
+      <input id="q" type="search" placeholder="Zoek op product, kleur of merk…">
+      <button type="submit" aria-label="Zoeken">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="2"/><path d="m11.5 11.5 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </form>
+    <div class="header-actions">
+      <a class="hdr-action" href="favorieten.html">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5C7 16.6 3.5 13.4 3.5 9.7 3.5 7 5.6 5 8.1 5c1.5 0 2.9.7 3.9 2 1-1.3 2.4-2 3.9-2 2.5 0 4.6 2 4.6 4.7 0 3.7-3.5 6.9-8.5 10.8Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span class="count">2</span><span class="hdr-label">Favorieten</span>
+      </a>
+      <a class="hdr-action" href="#winkelmand">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span class="count">1</span><span class="hdr-label">Winkelmand</span>
+      </a>
+      <a class="btn btn-primary hdr-cta" href="#opmeting">Plan een gratis opmeting</a>
+    </div>
+  </div>
+
+  <nav class="mainnav wrap" aria-label="Hoofdnavigatie">
+    <ul>
+      <li class="nav-cta-mobile"><a class="btn btn-primary" href="#opmeting">Plan een gratis opmeting</a></li>
+      <li class="nav-sub">
+        <a href="pdp-etalage.html">Gordijnen &amp; stoffen</a>
+        <ul class="subnav">
+          <li><a href="#">Gordijnstoffen</a></li>
+          <li><a href="#">Voiles</a></li>
+          <li><a href="#">Livingstoffen</a></li>
+          <li><a href="pdp-etalage.html">Black-out</a></li>
+          <li><a href="#">Projectstoffen (B2B)</a></li>
+        </ul>
+      </li>
+      <li><a href="#behang">Behang</a></li>
+      <li><a href="#vloeren">Vloeren</a></li>
+      <li><a href="plp.html">Tapijten &amp; karpetten</a></li>
+      <li><a href="#">Raamdecoratie</a></li>
+      <li><a href="#">Verf</a></li>
+      <li><a href="#">Slapen &amp; wonen</a></li>
+      <li class="nav-service"><a href="#atelier">Atelier &amp; maatwerk</a></li>
+      <li class="nav-service"><a href="#opmeting">Opmeting &amp; plaatsing</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO — gordijnen & stoffen, het atelierverhaal -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow reveal" style="--d:0">Al 40 jaar in Ninove</p>
+        <h1 class="reveal" style="--d:1">Gordijnen op maat,<br>genaaid in <em>ons eigen atelier</em>.</h1>
+        <p class="lede reveal" style="--d:2">Vakmanschap uit eigen atelier — advies, opmeting en plaatsing aan huis. U kiest de stof, onze stiksters maken uw gordijnen tot op de centimeter juist.</p>
+        <div class="hero-actions reveal" style="--d:3">
+          <a class="btn btn-primary" href="#opmeting">Plan een gratis opmeting</a>
+          <a class="arrow-link" href="pdp-etalage.html">Ontdek onze stoffen</a>
+        </div>
+        <p class="hero-trust reveal" style="--d:4">Vrijblijvend en gratis — <b>wij bellen u binnen 1–2 werkdagen.</b></p>
+      </div>
+      <div class="hero-visual reveal" style="--d:2">
+        <div class="hero-img">
+          <img src="https://brunic.be/wp-content/uploads/2021/09/2363571218-1.jpg" alt="Gordijnstof Black Out Ibis in warm grijs, gedrapeerd" width="800" height="920">
+        </div>
+        <div class="hero-card reveal" style="--d:5">
+          <p class="hero-card-kicker">Uit het atelier</p>
+          <p>Elke plooi met de hand gelegd, elke zoom gestikt in Ninove.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USP-BAND -->
+  <section class="usp-band" aria-label="Waarom Brunic">
+    <div class="wrap">
+      <ul>
+        <li>
+          <span class="usp-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 9.5 12 3l9 6.5M5.5 8.5V20h13V8.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.5 20v-6h5v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <span><b>Gratis opmeting aan huis</b><small>Vrijblijvend, in heel de Denderstreek</small></span>
+        </li>
+        <li>
+          <span class="usp-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M12 7c2.5-2.5 6-2.8 8-1-1 3-4 4.6-8 4.5M12 12.5c-2.5-2.5-6-2.8-8-1 1 3 4 4.6 8 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span><b>Eigen atelier &amp; stiksters</b><small>Maatwerk uit ons huis, niet uit een fabriek</small></span>
+        </li>
+        <li>
+          <span class="usp-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M2.5 6h12v11h-12zM14.5 10h4l2.5 3.5V17h-6.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="1.8" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="18" r="1.8" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <span><b>Eigen plaatsing &amp; levering</b><small>Door onze mensen, netjes afgewerkt</small></span>
+        </li>
+        <li>
+          <span class="usp-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <span><b>Al 40 jaar in Ninove</b><small>Familiezaak, gekend in de streek</small></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CATEGORIETEGELS -->
+  <section class="section" aria-labelledby="cats-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Ons assortiment</p>
+        <h2 id="cats-title">Van muur tot vloer, alles onder één dak</h2>
+        <p class="lede">Behang, vloeren en tapijten — gekozen met dezelfde zorg als onze stoffen. Kom voelen in de winkel of verken online.</p>
+      </div>
+      <div class="cat-tiles">
+        <a class="cat-tile" href="plp.html" id="behang">
+          <img loading="lazy" src="https://brunic.be/wp-content/uploads/2023/05/Z80004.jpg" alt="Vliesbehang Philipp Plein in brons en grijs" width="600" height="750">
+          <span class="cat-tile-scrim" aria-hidden="true"></span>
+          <span class="cat-tile-caption"><b>Behang</b><span>2.691 dessins, vlies vooraan</span><span class="tile-cta">Bekijk behang</span></span>
+        </a>
+        <a class="cat-tile" href="plp.html" id="vloeren">
+          <img loading="lazy" src="https://brunic.be/wp-content/uploads/2021/10/1917433332.jpg" alt="Vasttapijt Columbia in ivoor" width="600" height="750">
+          <span class="cat-tile-scrim" aria-hidden="true"></span>
+          <span class="cat-tile-caption"><b>Vloeren</b><span>Vinyl, parket, laminaat &amp; vasttapijt</span><span class="tile-cta">Bekijk vloeren</span></span>
+        </a>
+        <a class="cat-tile" href="plp.html">
+          <img loading="lazy" src="https://brunic.be/wp-content/uploads/2021/09/2013019603-1.jpg" alt="Tapijt Oregano Sas690 in grijs" width="600" height="750">
+          <span class="cat-tile-scrim" aria-hidden="true"></span>
+          <span class="cat-tile-caption"><b>Tapijten &amp; karpetten</b><span>2.257 tapijten, zoek op maat</span><span class="tile-cta">Bekijk tapijten</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATELIER -->
+  <section class="section section--deep" id="atelier" aria-labelledby="atelier-title">
+    <div class="wrap atelier-grid">
+      <div class="atelier-placeholder" role="img" aria-label="Plaatshouder: fotoreportage van het atelier volgt">
+        <span class="ph-mono" aria-hidden="true">B</span>
+        <span class="ph-title">Het atelier, Ring-West 19</span>
+        <span class="ph-note">Fotoreportage van onze stiksters volgt</span>
+      </div>
+      <div>
+        <p class="eyebrow">Atelier &amp; maatwerk</p>
+        <h2 id="atelier-title">De stiksters achter uw gordijnen</h2>
+        <p class="lede">Bij Brunic wordt niets doorgestuurd naar een fabriek. Onze eigen stiksters meten, snijden en stikken elk gordijn in het atelier boven de winkel — al 40 jaar, plooi per plooi.</p>
+        <ol class="steps">
+          <li><span><b>Advies</b><span>In de winkel of bij u thuis: samen de juiste stof en afwerking kiezen.</span></span></li>
+          <li><span><b>Opmeting</b><span>Wij komen gratis en vrijblijvend opmeten, tot op de centimeter.</span></span></li>
+          <li><span><b>Maatwerk</b><span>Uw gordijnen worden in ons eigen atelier gemaakt.</span></span></li>
+          <li><span><b>Plaatsing</b><span>Onze mensen hangen alles op en werken netjes af.</span></span></li>
+        </ol>
+        <div class="hero-actions">
+          <a class="btn btn-secondary" href="#opmeting">Vraag uw opmeting aan</a>
+          <a class="arrow-link" href="pdp-etalage.html">Bekijk de stoffencollectie</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPMETING / TERUGBELFORMULIER -->
+  <section class="section" id="opmeting" aria-labelledby="opmeting-title">
+    <div class="wrap opmeting-grid">
+      <div>
+        <p class="eyebrow">Opmeting &amp; plaatsing</p>
+        <h2 id="opmeting-title">Plan een gratis opmeting aan huis</h2>
+        <p class="lede">Beschrijf kort uw project en voeg gerust enkele foto's toe. Wij bellen u binnen 1–2 werkdagen om een afspraak vast te leggen — gratis en zonder verplichting.</p>
+        <ul class="check-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m2.5 8.5 3.5 3.5 7.5-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Gordijnen, raamdecoratie, vloeren of behang — één opmeting, één aanspreekpunt.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m2.5 8.5 3.5 3.5 7.5-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>U krijgt een duidelijke offerte, zonder verrassingen achteraf.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m2.5 8.5 3.5 3.5 7.5-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ook voor projecten: horeca en zorg, met brandvertragende stoffen en attesten.</span></li>
+        </ul>
+      </div>
+      <form class="opmeting-form" action="#">
+        <h3>Vertel ons over uw project</h3>
+        <p class="muted mb-14">Wij bellen u binnen 1–2 werkdagen terug.</p>
+        <div class="field">
+          <label for="f-naam">Uw naam</label>
+          <input id="f-naam" name="naam" type="text" autocomplete="name" placeholder="Bijv. Marc Van den Berghe">
+        </div>
+        <div class="field">
+          <label for="f-tel">Telefoonnummer</label>
+          <input id="f-tel" name="telefoon" type="tel" autocomplete="tel" placeholder="Bijv. 0475 12 34 56">
+        </div>
+        <div class="field">
+          <label for="f-project">Waarover gaat het?</label>
+          <textarea id="f-project" name="project" placeholder="Bijv. nieuwe gordijnen voor de living, ramen van ± 3 m breed…"></textarea>
+          <span class="hint">Hoe meer u vertelt, hoe beter wij ons kunnen voorbereiden.</span>
+        </div>
+        <div class="field">
+          <label class="file-drop"><b>Foto's toevoegen</b> (optioneel) — sleep ze hierheen of <u>kies bestanden</u>
+            <input type="file" name="fotos" multiple accept="image/*" class="sr-only">
+          </label>
+        </div>
+        <button class="btn btn-primary w-full" type="submit">Bel mij terug voor een gratis opmeting</button>
+        <p class="form-note">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex:none;translate:0 3px"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 7.5V11M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Uw gegevens gebruiken we enkel om u terug te bellen. Liever meteen iemand aan de lijn? Bel <a href="tel:+3254337352"><b>054 33 73 52</b></a>.</span>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section section--deep" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="review-head">
+        <div>
+          <p class="eyebrow">Wat klanten zeggen</p>
+          <h2 id="reviews-title" style="margin-bottom:0">Gekend en gewaardeerd in de streek</h2>
+        </div>
+        <p class="review-score"><span class="stars" aria-hidden="true">★★★★★</span> <span><b>5,0</b> <small>op Google</small></span></p>
+      </div>
+      <div class="reviews">
+        <article class="review">
+          <span class="stars" aria-label="5 op 5 sterren">★★★★★</span>
+          <blockquote>Gordijnen voor heel het huis laten maken. De opmeting was tot op de millimeter juist en de plaatsing verliep vlekkeloos. Echt vakwerk.</blockquote>
+          <footer><b>Hilde D.</b> · Ninove</footer>
+        </article>
+        <article class="review">
+          <span class="stars" aria-label="5 op 5 sterren">★★★★★</span>
+          <blockquote>Eerlijk advies, geen verkooppraat. Ze zeiden zelfs dat een goedkopere stof beter zou hangen. Zo win je klanten voor het leven.</blockquote>
+          <footer><b>Peter en An V.</b> · Denderleeuw</footer>
+        </article>
+        <article class="review">
+          <span class="stars" aria-label="5 op 5 sterren">★★★★★</span>
+          <blockquote>Nieuw vasttapijt voor ons restaurant, met brandattest en al. Snel geregeld en keurig geplaatst buiten de openingsuren.</blockquote>
+          <footer><b>Bart M.</b> · Geraardsbergen</footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-tagline">
+    <div class="wrap">
+      <p class="line">Vakmanschap uit eigen atelier — advies, opmeting en plaatsing aan huis.</p>
+      <span class="since">Al 40 jaar in Ninove</span>
+    </div>
+  </div>
+  <div class="wrap footer-cols">
+    <div class="footer-brand">
+      <a class="wordmark" href="home.html">BRUNIC</a>
+      <p style="margin-top:1rem">Dé interieurzaak van Ninove: gordijnen op maat, behang, vloeren, tapijten, raamdecoratie, verf en slaapcomfort.</p>
+    </div>
+    <nav aria-label="Assortiment">
+      <h4>Assortiment</h4>
+      <ul>
+        <li><a href="pdp-etalage.html">Gordijnen &amp; stoffen</a></li>
+        <li><a href="#behang">Behang</a></li>
+        <li><a href="#vloeren">Vloeren</a></li>
+        <li><a href="plp.html">Tapijten &amp; karpetten</a></li>
+        <li><a href="#raamdecoratie">Raamdecoratie</a></li>
+        <li><a href="#verf">Verf</a></li>
+        <li><a href="#slapen-wonen">Slapen &amp; wonen</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Diensten">
+      <h4>Diensten</h4>
+      <ul>
+        <li><a href="#atelier">Atelier &amp; maatwerk</a></li>
+        <li><a href="#opmeting">Opmeting &amp; plaatsing</a></li>
+        <li><a href="#favorieten">Mijn favorieten</a></li>
+        <li><a href="#">Click &amp; collect</a></li>
+        <li><a href="#">Veelgestelde vragen</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h4>De winkel</h4>
+      <address class="footer-nap">
+        <b>Brunic nv</b>
+        <span>Ring-West 19, 9400 Ninove</span>
+        <a href="tel:+3254337352">054 33 73 52</a>
+        <a href="mailto:info@brunic.be">info@brunic.be</a>
+        <span>Ma–za 9–18u · zondag gesloten</span>
+      </address>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <div class="wrap">
+      <span>© 2026 Brunic nv, Ninove — alle rechten voorbehouden</span>
+      <ul>
+        <li><a href="#">Privacybeleid</a></li>
+        <li><a href="#">Cookies</a></li>
+        <li><a href="#">Algemene voorwaarden</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- CHATBOT-WIDGET (bescheiden mock) -->
+<div class="chat-widget">
+  <button class="chat-fab" type="button" aria-label="Chat met Brunic openen">
+    <span class="dot" aria-hidden="true"></span> Vraag advies
+  </button>
+</div>
+
+<!-- COOKIEBANNER (mock) -->
+<aside class="cookie-note" role="dialog" aria-label="Cookievoorkeuren">
+  <p><b>Een koekje bij de koffie?</b> Wij gebruiken cookies om uw bezoek vlot te laten verlopen en onze site te verbeteren.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-primary" type="button">Alles aanvaarden</button>
+    <button class="btn btn-quiet" type="button">Enkel noodzakelijke</button>
+    <a class="cookie-pref" href="#">Voorkeuren</a>
+  </div>
+</aside>
+
+</body>
+</html>

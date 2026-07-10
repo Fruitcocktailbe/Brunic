@@ -1,0 +1,9 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+  - "services/*"
+# sharp = native image-encoder van Next. We gebruiken een custom Shopify-CDN-loader,
+# dus Next optimaliseert zelf geen beelden — maar de build-scripts toestaan houdt
+# `next start` en toekomstige lokale optimalisatie werkend.
+allowBuilds:
+  sharp: true

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Favorieten &amp; winkellijst — Brunic · Ninove</title>
+<meta name="description" content="Uw bewaarde favorieten (max 5) als meeneemdocument met artikelnummer: toon het in de winkel of plan een gratis opmeting aan huis.">
+<meta name="robots" content="noindex"><!-- persoonlijke lijst: nooit indexeren -->
+<!-- BOUWVEREISTE: in de echte build worden Fraunces & Karla self-hosted (geen Google-CDN — IP-doorgifte vóór consent, GBA/consent mode v2) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Karla:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* ===== Favorieten / winkellijst-specifiek ===== */
+.fav-hero{background:var(--c-ivory-2);border-bottom:1px solid var(--c-line)}
+.fav-hero__grid{padding:clamp(2.2rem,5vw,3.4rem) 0 clamp(2rem,4vw,2.8rem);display:grid;gap:1.4rem;grid-template-columns:1.3fr 1fr;align-items:end}
+.fav-hero h1{margin-bottom:.6rem}
+.fav-hero__lead{font-size:1.12rem;color:var(--c-ink-soft);max-width:52ch;margin:0}
+.fav-hero__meta{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:flex-end}
+@media (max-width:820px){.fav-hero__grid{grid-template-columns:1fr}.fav-hero__meta{justify-content:flex-start}}
+
+.wl{padding:clamp(2rem,4vw,3.2rem) 0 clamp(2.6rem,6vw,4.5rem)}
+.wl__layout{display:grid;grid-template-columns:1.5fr .85fr;gap:clamp(1.6rem,3vw,2.6rem);align-items:start}
+@media (max-width:900px){.wl__layout{grid-template-columns:1fr}}
+
+/* het meeneemdocument zelf — bewust "papier": een echte, printbare lijst */
+.doc{background:#fff;border:1px solid var(--c-line);border-radius:var(--r-m);box-shadow:var(--shadow-s);overflow:hidden}
+.doc__head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding:1.5rem clamp(1.2rem,2.5vw,2rem);border-bottom:3px solid var(--c-ink)}
+.doc__brand{font:700 1.35rem/1 var(--f-display);letter-spacing:-.01em}
+.doc__brand .brand__dot{color:var(--c-red)}
+.doc__brand small{display:block;font:700 .62rem/1.4 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--c-ink-soft);margin-top:.35rem}
+.doc__stamp{text-align:right;font-size:.86rem;color:var(--c-ink-soft)}
+.doc__stamp strong{display:block;color:var(--c-ink);font-family:var(--f-display);font-size:1.02rem}
+
+.wl-item{display:grid;grid-template-columns:88px 1fr auto;gap:1.1rem;padding:1.15rem clamp(1.2rem,2.5vw,2rem);border-bottom:1px solid var(--c-line);align-items:center}
+.wl-item:last-child{border-bottom:0}
+.wl-item__media{width:88px;aspect-ratio:1;border-radius:var(--r-s);overflow:hidden;border:1px solid var(--c-line);background-color:var(--c-ivory-2);background-image:var(--stripes-red);flex:none}
+.wl-item__media img{width:100%;height:100%;object-fit:cover;font:700 .68rem/1.3 var(--f-body);color:var(--c-ink-soft)}
+.wl-item__cat{font:700 .72rem/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--c-red-text);margin:0 0 .3rem}
+.wl-item__name{font:600 1.14rem/1.2 var(--f-display);margin:0 0 .5rem}
+.wl-item__facts{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0;font-size:.9rem;color:var(--c-ink-soft)}
+.wl-item__sku{font-weight:800;color:var(--c-ink);background:var(--c-yellow);border-radius:4px;padding:.12rem .5rem;letter-spacing:.02em;white-space:nowrap}
+.wl-item__sku[data-mock]::after{content:"*";color:var(--c-red-text)}
+.wl-item__price{font:800 1.05rem/1 var(--f-body);color:var(--c-ink);white-space:nowrap}
+.wl-item__price small{display:block;font-weight:500;font-size:.72rem;color:var(--c-ink-soft);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem}
+.wl-item__side{display:flex;flex-direction:column;align-items:flex-end;gap:.6rem;text-align:right}
+.wl-remove{border:1px solid var(--c-line);background:#fff;color:var(--c-ink-soft);border-radius:var(--r-s);padding:.42rem .7rem;font:700 .82rem/1 var(--f-body);display:inline-flex;align-items:center;gap:.4rem}
+.wl-remove:hover{border-color:var(--c-red);color:var(--c-red-text)}
+.wl-remove svg{width:15px;height:15px}
+@media (max-width:560px){.wl-item{grid-template-columns:64px 1fr}.wl-item__media{width:64px}.wl-item__side{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center}}
+
+.doc__note{padding:1.1rem clamp(1.2rem,2.5vw,2rem);background:var(--c-ivory-2);border-top:1px solid var(--c-line);font-size:.86rem;color:var(--c-ink-soft);margin:0}
+.doc__note b{color:var(--c-ink)}
+
+/* actie-zijkolom: opmeting = primaire conversie, print = het meeneemdocument */
+.wl-aside{position:sticky;top:1.2rem;display:grid;gap:1.2rem}
+.wl-card{background:#fff;border:1px solid var(--c-line);border-radius:var(--r-m);padding:1.5rem}
+.wl-card--red{background:var(--c-red-deep);background-image:var(--stripes-light);color:#fff;border-color:transparent}
+.wl-card h2{font-size:1.3rem;margin:0 0 .5rem}
+.wl-card--red h2{color:#fff}
+.wl-card p{font-size:.96rem;color:var(--c-ink-soft);margin:0 0 1.1rem}
+.wl-card--red p{color:#FFE3E0}/* #FFE3E0 op #A81412 = 6.2:1, AA */
+.wl-card .btn{width:100%}
+.wl-card__steps{list-style:none;margin:0 0 1.2rem;padding:0;display:grid;gap:.6rem;font-size:.92rem}
+.wl-card__steps li{display:flex;gap:.6rem;align-items:baseline}
+.wl-card__steps li::before{content:"";width:8px;height:8px;border-radius:999px;background:var(--c-yellow);flex:none;transform:translateY(-1px)}
+.wl-collect{display:flex;gap:.7rem;align-items:flex-start;font-size:.9rem;color:var(--c-ink-soft)}
+.wl-collect svg{width:22px;height:22px;color:var(--c-green);flex:none;margin-top:.1rem}
+
+/* lege staat */
+.wl-empty{text-align:center;padding:clamp(2.5rem,6vw,4rem) 1.5rem;border:1px dashed var(--c-line);border-radius:var(--r-m);background:#fff}
+.wl-empty svg{width:44px;height:44px;color:var(--c-red);margin-bottom:.8rem}
+.wl-empty h2{font-size:1.4rem;margin:0 0 .5rem}
+.wl-empty p{color:var(--c-ink-soft);max-width:42ch;margin:0 auto 1.4rem}
+
+/* ===== Print: het scherm wordt een schoon A4-meeneemdocument ===== */
+@media print{
+  .topbar,.mainnav,.search,.head-actions,.fav-hero__meta,.wl-aside,.site-foot,.chat-fab,.cookiebar,.skip,.wl-remove{display:none!important}
+  body{background:#fff}
+  body::after{display:none}
+  .fav-hero{background:#fff;border-bottom:0}
+  .fav-hero__grid{padding:0 0 .6rem;display:block}
+  .site-head{border-bottom:0}
+  .head-grid{padding-top:.4rem}
+  .wl{padding:0}
+  .wl__layout{display:block}
+  .doc{border:1px solid #000;box-shadow:none}
+  .doc__stamp .doc__print-hint{display:none}
+  .wl-item{break-inside:avoid}
+  .wl-item__sku{background:transparent;border:1px solid #000;color:#000}
+  a[href]::after{content:""}/* geen URL-staarten in de print */
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Meteen naar de inhoud</a>
+
+<header class="site-head">
+  <div class="topbar">
+    <div class="container topbar__in">
+      <p>Gratis opmeting &amp; advies aan huis — wij bellen u binnen 1–2 werkdagen</p>
+      <div class="topbar__meta">
+        <a href="tel:+3254337352">054 33 73 52</a>
+        <span>Ma–Za 9–18u · zondag gesloten</span>
+      </div>
+    </div>
+  </div>
+  <div class="container head-grid">
+    <a class="brand" href="home.html" aria-label="Brunic — naar de startpagina">
+      <img class="brand__logo" src="logo-kleur.png" width="600" height="376" alt="Brunic">
+    </a>
+    <form class="search" role="search" action="#">
+      <input type="search" placeholder="Zoek op product, kleur of merk…" aria-label="Zoeken in de webshop">
+      <button type="submit" aria-label="Zoeken">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+      </button>
+    </form>
+    <div class="head-actions">
+      <a class="head-icon" id="favlink" href="favorieten.html" aria-current="page" aria-label="Favorieten — 3 van maximaal 5 bewaard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7.5-4.9-9.5-9.2C.9 8.4 3 5 6.4 5c2 0 3.6 1.1 4.6 2.7l1 1.6 1-1.6C14 6.1 15.6 5 17.6 5 21 5 23.1 8.4 21.5 11.8 19.5 16.1 12 21 12 21Z"/></svg>
+        <span class="count" id="favcount">3/5</span>
+        <span class="head-icon__txt">Favorieten</span>
+      </a>
+      <a class="head-icon" href="#" aria-label="Winkelmand — 1 artikel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+        <span class="count">1</span>
+        <span class="head-icon__txt">Winkelmand</span>
+      </a>
+    </div>
+  </div>
+  <nav class="mainnav" aria-label="Hoofdnavigatie">
+    <div class="container">
+      <ul>
+        <li><a href="plp.html">Gordijnen &amp; stoffen</a></li>
+        <li><a href="#">Behang</a></li>
+        <li><a href="#">Vloeren</a></li>
+        <li><a href="plp.html">Tapijten &amp; karpetten</a></li>
+        <li><a href="#">Raamdecoratie</a></li>
+        <li><a href="#">Verf</a></li>
+        <li><a href="#">Slapen &amp; wonen</a></li>
+        <li class="nav-service"><a href="#atelier">Atelier &amp; maatwerk</a></li>
+        <li class="nav-service"><a href="opmeting.html">Opmeting &amp; plaatsing</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="fav-hero">
+    <div class="container fav-hero__grid">
+      <div>
+        <p class="kicker">Uw winkellijst</p>
+        <h1>Favorieten &amp; meeneemdocument</h1>
+        <p class="fav-hero__lead">Bewaar tot <strong>5 producten</strong> en neem uw lijst mee naar de winkel — mét artikelnummer, zodat Sandra elk stuk meteen terugvindt aan de toonbank. Liever advies aan huis? Vraag met één klik een gratis opmeting.</p>
+      </div>
+      <div class="fav-hero__meta">
+        <button class="btn btn--ghost" type="button" id="printbtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>
+          Print of bewaar als PDF
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="wl">
+    <div class="container wl__layout">
+      <!-- HET MEENEEMDOCUMENT -->
+      <div>
+        <div class="doc" id="doc">
+          <div class="doc__head">
+            <p class="doc__brand">BRUNIC<span class="brand__dot">.</span><small>Meeneemdocument · winkellijst</small></p>
+            <div class="doc__stamp">
+              <strong>Uw selectie</strong>
+              <span>Ring-West 19, 9400 Ninove · 054 33 73 52</span>
+              <span class="doc__print-hint">Toon dit aan de toonbank of print het</span>
+            </div>
+          </div>
+
+          <article class="wl-item" data-fav>
+            <span class="wl-item__media"><img src="https://brunic.be/wp-content/uploads/2021/09/IMG_6920-scaled.jpg" alt="Tapijt Ocerton Lao458 Taupe, geknoopt vloerkleed in taupe" loading="lazy"></span>
+            <div>
+              <p class="wl-item__cat">Tapijten &amp; karpetten</p>
+              <h2 class="wl-item__name">Tapijt Ocerton Lao458 Taupe</h2>
+              <p class="wl-item__facts">
+                <span class="wl-item__sku" data-mock>Art. LAO458-TA</span>
+                <span>Handelsmaat 160 × 230 cm</span>
+                <span>Kleur taupe</span>
+              </p>
+            </div>
+            <div class="wl-item__side">
+              <span class="wl-item__price"><small>Vanaf</small>€ 249</span>
+              <button class="wl-remove" type="button" aria-label="Verwijder Tapijt Ocerton Lao458 Taupe van uw lijst">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M6 6l1 14h10l1-14"/></svg>
+                Verwijder
+              </button>
+            </div>
+          </article>
+
+          <article class="wl-item" data-fav>
+            <span class="wl-item__media"><img src="https://brunic.be/wp-content/uploads/2021/09/2036617722-1.jpg" alt="Vliesbehang Philipp Plein, grafisch dessin" loading="lazy"></span>
+            <div>
+              <p class="wl-item__cat">Behang</p>
+              <h2 class="wl-item__name">Vliesbehang Philipp Plein</h2>
+              <p class="wl-item__facts">
+                <span class="wl-item__sku" data-mock>Art. PP-56302</span>
+                <span>Vlies · rol 10,05 × 0,53 m</span>
+                <span>Baanmontage</span>
+              </p>
+            </div>
+            <div class="wl-item__side">
+              <span class="wl-item__price"><small>Per rol</small>€ 89</span>
+              <button class="wl-remove" type="button" aria-label="Verwijder Vliesbehang Philipp Plein van uw lijst">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M6 6l1 14h10l1-14"/></svg>
+                Verwijder
+              </button>
+            </div>
+          </article>
+
+          <article class="wl-item" data-fav>
+            <span class="wl-item__media"><img src="https://brunic.be/wp-content/uploads/2021/09/2189479143-1.jpg" alt="Rolgordijn Grijs Verduisterend, verduisterend rolgordijn op maat" loading="lazy"></span>
+            <div>
+              <p class="wl-item__cat">Raamdecoratie</p>
+              <h2 class="wl-item__name">Rolgordijn Grijs Verduisterend</h2>
+              <p class="wl-item__facts">
+                <span class="wl-item__sku">Art. 554505019</span>
+                <span>Op maat — opmeting nodig</span>
+                <span>Verduisterend</span>
+              </p>
+            </div>
+            <div class="wl-item__side">
+              <span class="wl-item__price"><small>Prijs</small>Op opmeting</span>
+              <button class="wl-remove" type="button" aria-label="Verwijder Rolgordijn Grijs Verduisterend van uw lijst">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M6 6l1 14h10l1-14"/></svg>
+                Verwijder
+              </button>
+            </div>
+          </article>
+
+          <p class="doc__note"><b>* Voorlopig artikelnummer</b> voor stukken zonder ERP-code in de export (o.a. het Ocerton-tapijt en het Philipp&nbsp;Plein-behang) — in de echte build komt het exacte ERP-nummer uit de catalogus-DB. Producten <b>op maat</b> (rolgordijn) tonen geen webprijs: die volgt na opmeting.</p>
+        </div>
+      </div>
+
+      <!-- ACTIE-ZIJKOLOM -->
+      <aside class="wl-aside" aria-label="Volgende stap">
+        <div class="wl-card wl-card--red">
+          <h2>Liever eerst advies?</h2>
+          <p>Onze mensen komen gratis bij u langs, meten op en adviseren — vrijblijvend. U hoort binnen 1–2 werkdagen van ons.</p>
+          <ul class="wl-card__steps">
+            <li>U beschrijft uw project + foto's</li>
+            <li>Wij bellen u voor een afspraak</li>
+            <li>Opmeting &amp; advies bij u thuis</li>
+          </ul>
+          <a class="btn btn--light btn--big" href="opmeting.html">Plan een gratis opmeting</a>
+        </div>
+        <div class="wl-card">
+          <h2>Naar de winkel</h2>
+          <p>Toon dit meeneemdocument (of enkel de artikelnummers) aan de toonbank. Sandra vindt elk stuk meteen terug.</p>
+          <div class="wl-collect">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l1-5h16l1 5"/><path d="M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9"/><path d="M9 22V13h6v9"/></svg>
+            <span><strong>Click &amp; collect</strong> — reserveer online, haal af in de winkel te Ninove (Ma–Za 9–18u).</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- LEGE STAAT (getoond zodra de lijst leeg is) -->
+      <div class="wl-empty" id="wlEmpty" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7.5-4.9-9.5-9.2C.9 8.4 3 5 6.4 5c2 0 3.6 1.1 4.6 2.7l1 1.6 1-1.6C14 6.1 15.6 5 17.6 5 21 5 23.1 8.4 21.5 11.8 19.5 16.1 12 21 12 21Z"/></svg>
+        <h2>Nog geen favorieten</h2>
+        <p>Blader door de collectie en tik op het hartje om producten te bewaren — daarna maakt u hier uw meeneemdocument.</p>
+        <a class="btn btn--primary" href="plp.html">Bekijk de collectie</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="container foot-grid">
+    <nav aria-label="Categorieën">
+      <h4>Assortiment</h4>
+      <ul>
+        <li><a href="plp.html">Gordijnen &amp; stoffen</a></li>
+        <li><a href="#">Behang</a></li>
+        <li><a href="#">Vloeren</a></li>
+        <li><a href="plp.html">Tapijten &amp; karpetten</a></li>
+        <li><a href="#">Raamdecoratie</a></li>
+        <li><a href="#">Verf</a></li>
+        <li><a href="#">Slapen &amp; wonen</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Diensten">
+      <h4>Diensten</h4>
+      <ul>
+        <li><a href="#atelier">Atelier &amp; maatwerk</a></li>
+        <li><a href="opmeting.html">Opmeting &amp; plaatsing</a></li>
+        <li><a href="favorieten.html" aria-current="page">Favorieten &amp; winkellijst</a></li>
+        <li><a href="#">Click &amp; collect</a></li>
+        <li><a href="#">Veelgestelde vragen</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h4>Bezoek de winkel</h4>
+      <address class="foot-nap">
+        <span><strong>Brunic nv</strong></span>
+        <span>Ring-West 19, 9400 Ninove</span>
+        <span><a href="tel:+3254337352">054 33 73 52</a></span>
+        <span><a href="mailto:info@brunic.be">info@brunic.be</a></span>
+        <span>Ma–Za 9–18u · zondag gesloten</span>
+      </address>
+    </div>
+  </div>
+  <div class="container foot-bottom">
+    <p>© 2026 Brunic nv, Ninove — alle rechten voorbehouden.</p>
+    <ul>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Cookies</a></li>
+      <li><a href="#">Algemene voorwaarden</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Chatbot-widget (mock) -->
+<button class="chat-fab" type="button" aria-label="Chat met Brunic — stel uw vraag">
+  <span class="chat-fab__dot" aria-hidden="true">B</span>
+  Stel uw vraag
+</button>
+
+<!-- Cookiebanner (mock) -->
+<div class="cookiebar" role="region" aria-label="Cookievoorkeuren">
+  <p>Wij gebruiken cookies om de site vlot te laten werken en — enkel met uw toestemming — ons aanbod te verbeteren. <a href="#">Lees ons cookiebeleid</a>.</p>
+  <div class="cookiebar__actions">
+    <button class="btn btn--ghost" type="button">Alles aanvaarden</button>
+    <button class="btn btn--ghost" type="button">Enkel noodzakelijke</button>
+    <a class="cookiebar__pref" href="#">Voorkeuren</a>
+  </div>
+</div>
+
+<script>
+/* winkellijst: verwijderen synct de teller; op 0 verschijnt de lege staat. Print = meeneemdocument. */
+(function(){
+  var MAX = 5;
+  var badge = document.getElementById('favcount');
+  var link  = document.getElementById('favlink');
+  var doc   = document.getElementById('doc');
+  var empty = document.getElementById('wlEmpty');
+  function count(){ return document.querySelectorAll('.wl-item[data-fav]').length; }
+  function sync(){
+    var total = count();
+    if (badge) badge.textContent = total + '/' + MAX;
+    if (link)  link.setAttribute('aria-label', 'Favorieten — ' + total + ' van maximaal ' + MAX + ' bewaard');
+    if (total === 0){ if(doc) doc.hidden = true; if(empty) empty.hidden = false; }
+  }
+  document.querySelectorAll('.wl-remove').forEach(function(b){
+    b.addEventListener('click', function(){
+      var row = b.closest('.wl-item');
+      if (row) row.remove();
+      sync();
+    });
+  });
+  var pb = document.getElementById('printbtn');
+  if (pb) pb.addEventListener('click', function(){ window.print(); });
+  sync();
+})();
+</script>
+</body>
+</html>
