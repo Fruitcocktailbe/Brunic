@@ -44,6 +44,7 @@ export async function storefront<T>(
       "X-Shopify-Storefront-Access-Token": token,
     },
     body: JSON.stringify({ query, variables }),
+    // On-demand revalidatie gebeurt via revalidatePath in /api/webhooks/shopify.
     ...(revalidate === false ? { cache: "no-store" as const } : { next: { revalidate } }),
   });
 

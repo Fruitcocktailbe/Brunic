@@ -4,7 +4,7 @@ import { Winkellijst } from "@/components/winkellijst";
 export const metadata: Metadata = {
   title: "Favorieten & winkellijst",
   description:
-    "Uw bewaarde favorieten (max 5) als meeneemdocument met artikelnummer: toon het in de winkel of plan een gratis opmeting.",
+    "Uw bewaarde favorieten als meeneemdocument met artikelnummer: toon het in de winkel of plan een opmeting.",
   // Persoonlijke lijst: nooit indexeren.
   robots: { index: false, follow: false },
 };
@@ -19,8 +19,8 @@ export default function FavorietenPage() {
         </p>
         <h1 className="text-4xl">Favorieten &amp; meeneemdocument</h1>
         <p className="mt-3 max-w-[58ch] text-ink-soft">
-          Bewaar tot <strong className="text-ink">5 producten</strong> en neem uw lijst mee naar de
-          winkel — mét artikelnummer, zodat Sandra elk stuk meteen terugvindt aan de toonbank.
+          Bewaar uw favorieten en neem uw lijst mee naar de winkel — mét artikelnummer, zodat
+          Sandra elk stuk meteen terugvindt aan de toonbank.
         </p>
       </header>
 

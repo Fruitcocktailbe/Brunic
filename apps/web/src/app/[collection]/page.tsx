@@ -3,10 +3,12 @@ import { notFound } from "next/navigation";
 import { CollectionView } from "@/components/collection-view";
 import { getCollection, isSysteemCollectie } from "@/lib/shopify/collection";
 import { storefront } from "@/lib/shopify/client";
+import { facetProductFilters, heeftFacets, type SearchParams, selectedFacets } from "@/lib/shopify/facets";
 import { COLLECTION_HANDLES_QUERY } from "@/lib/shopify/queries";
 
-// Statisch + ISR. Bewust GEEN searchParams hier: dat zou de route dynamisch maken.
-// De maat-filter leeft in /[collection]/maat/[bucket]. Zie decisions/log.md 2026-07-10.
+// De basispagina is statisch + ISR. De maat-filter leeft in /[collection]/maat/[bucket].
+// De generieke facets (kleur…) leven in de query-string en maken die render dynamisch —
+// gefilterde combinaties zijn noindex (canonical → basispad). Zie decisions/log.md.
 export const revalidate = 3600;
 export const dynamicParams = true;
 
@@ -24,27 +26,44 @@ export async function generateStaticParams(): Promise<Params[]> {
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<Params>;
+  searchParams: Promise<SearchParams>;
 }): Promise<Metadata> {
   const { collection: handle } = await params;
   const collection = await getCollection(handle);
   if (!collection) return {};
 
+  const gefilterd = heeftFacets(selectedFacets(await searchParams));
   return {
     title: collection.title,
     description: collection.description || undefined,
-    // Vangt eventuele ?maat=-links op: die tonen dezelfde HTML, dus één canonical.
+    // Gefilterde facet-combinaties canonicaliseren naar het basispad en gaan niet in de index.
     alternates: { canonical: `/${handle}` },
+    robots: gefilterd ? { index: false, follow: true } : undefined,
   };
 }
 
-export default async function CollectionPage({ params }: { params: Promise<Params> }) {
+export default async function CollectionPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<Params>;
+  searchParams: Promise<SearchParams>;
+}) {
   const { collection: handle } = await params;
   if (isSysteemCollectie(handle)) notFound();
 
   const collection = await getCollection(handle);
   if (!collection) notFound();
 
-  return <CollectionView collection={collection} producten={collection.products.nodes} />;
+  // De facetlijst voor de zijbalk komt uit de ONgefilterde fetch (opties verdwijnen niet);
+  // de producten uit een tweede, gefilterde fetch.
+  const selected = selectedFacets(await searchParams);
+  const filters = facetProductFilters(selected);
+  const gefilterd = filters.length > 0 ? await getCollection(handle, filters) : null;
+  const producten = gefilterd?.products.nodes ?? collection.products.nodes;
+
+  return <CollectionView collection={collection} producten={producten} selected={selected} />;
 }

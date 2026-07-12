@@ -17,3 +17,6 @@ dist/
 # OS/editor
 .DS_Store
 Thumbs.db
+
+# Machine-specifieke multi-root workspace (absolute paden naar het J.A.R.V.I.S-dossier)
+*.code-workspace

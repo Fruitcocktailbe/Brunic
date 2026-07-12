@@ -62,6 +62,12 @@ export const PRODUCT_QUERY = /* GraphQL */ `
       title
       productType
       vendor
+      collections(first: 10) {
+        nodes {
+          handle
+          title
+        }
+      }
       descriptionHtml
       etalage: metafield(namespace: "brunic", key: "etalage") {
         value

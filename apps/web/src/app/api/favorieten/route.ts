@@ -3,7 +3,8 @@ import { storefront } from "@/lib/shopify/client";
 
 export const dynamic = "force-dynamic";
 
-const MAX = 5;
+// Gelijk houden met MAX_FAVORIETEN in lib/favorieten/store.ts (client-const, niet server-importeerbaar).
+const MAX = 20;
 
 const FAV_FIELDS = /* GraphQL */ `
   fragment FavFields on Product {
@@ -57,7 +58,7 @@ export async function POST(request: Request) {
   const handles = [...new Set(ruw.filter((h): h is string => typeof h === "string" && HANDLE.test(h)))].slice(0, MAX);
   if (handles.length === 0) return NextResponse.json({ producten: [] });
 
-  // Eén document met aliassen: max 5 producten, dus één round-trip.
+  // Eén document met aliassen: alle favorieten in één round-trip.
   const args = handles.map((_, i) => `$h${i}: String!`).join(", ");
   const velden = handles.map((_, i) => `p${i}: product(handle: $h${i}) { ...FavFields }`).join("\n    ");
   const query = `${FAV_FIELDS}\n  query Favorieten(${args}) {\n    ${velden}\n  }`;

@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { OpmetingForm } from "@/components/opmeting-form";
 
 export const metadata: Metadata = {
-  title: "Gratis opmeting aanvragen",
+  title: "Opmeting aan huis aanvragen",
   description:
-    "Vraag een gratis opmeting aan huis aan. Beschrijf uw project — wij bellen u binnen 1–2 werkdagen. Vrijblijvend, door onze eigen mensen.",
+    "Vraag een opmeting aan huis aan — gratis bij aankoop. Beschrijf uw project, wij bellen u binnen 1–2 werkdagen. Vrijblijvend, door onze eigen mensen.",
   alternates: { canonical: "/opmeting" },
 };
 
 const TROEVEN = [
-  "Volledig gratis en vrijblijvend",
+  "Gratis bij aankoop, altijd vrijblijvend",
   "Door onze eigen mensen — geen onderaanneming",
   "Gordijnen uit ons eigen atelier in Ninove",
   "Al 40 jaar advies, opmeting én plaatsing aan huis",
@@ -22,15 +22,19 @@ export default function OpmetingPage() {
         <div className="mx-auto max-w-(--container-brunic) px-6 py-12">
           <p className="mb-3 flex items-center gap-3 text-[0.82rem] font-bold uppercase tracking-[0.14em]">
             <span className="h-[3px] w-[26px] rounded-[2px] bg-geel" />
-            Gratis &amp; vrijblijvend
+            Vrijblijvend &amp; bij u thuis
           </p>
           <h1 className="max-w-[20ch] text-4xl text-white sm:text-5xl">
-            Plan een gratis opmeting aan huis
+            Plan een opmeting aan huis
           </h1>
           {/* #FFE3E0 op #A81412 = 6,2:1 — AA */}
           <p className="mt-3 max-w-[54ch] text-lg" style={{ color: "#FFE3E0" }}>
             Beschrijf kort uw project. Onze eigen mensen komen bij u langs, meten op en adviseren —
             u zit nergens aan vast. Wij bellen u binnen 1–2 werkdagen.
+          </p>
+          <p className="mt-4 max-w-[54ch] text-sm" style={{ color: "#FFD9D6" }}>
+            De opmeting is <strong className="text-white">gratis wanneer u bij ons bestelt</strong>.
+            Bestelt u niets, dan rekenen we de opmeting aan.
           </p>
         </div>
       </section>

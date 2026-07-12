@@ -31,8 +31,12 @@ export function MaatKiezer({
   const breedte = gekozen.breedte?.value;
   const lengte = gekozen.lengte?.value;
 
+  // Eén variant (behang, verf, stof per stuk) = geen maatkeuze; toon enkel het koopblok.
+  const toonMaten = variants.length > 1;
+
   return (
     <div className="mt-6">
+      {toonMaten ? (
       <fieldset>
         <legend className="font-display text-lg">Kies uw maat</legend>
         <p className="mb-3 text-sm text-ink-soft">
@@ -45,7 +49,7 @@ export function MaatKiezer({
             return (
               <label
                 key={v.id}
-                className={`cursor-pointer rounded-s border px-4 py-2 text-sm transition ${
+                className={`cursor-pointer rounded-s border px-4 py-2 text-sm transition has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand has-[:focus-visible]:ring-offset-2 ${
                   actief
                     ? "border-brand bg-brand font-bold text-white"
                     : "border-line-strong hover:border-brand hover:text-brand-text"
@@ -57,7 +61,7 @@ export function MaatKiezer({
                   value={v.id}
                   checked={actief}
                   onChange={() => setGekozenId(v.id)}
-                  className="sr-only-focusable absolute"
+                  className="sr-only"
                 />
                 {maatLabel(v)}
               </label>
@@ -65,6 +69,7 @@ export function MaatKiezer({
           })}
         </div>
       </fieldset>
+      ) : null}
 
       {breedte && lengte ? (
         <p className="mt-4 text-sm text-ink-soft">

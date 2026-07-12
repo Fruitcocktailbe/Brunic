@@ -33,6 +33,7 @@ export type ProductCard = {
 export type Product = ProductCard & {
   descriptionHtml: string;
   vendor: string;
+  collections: { nodes: { handle: string; title: string }[] };
   materiaal: MetafieldValue;
   kleurfamilie: MetafieldValue;
   poolklasse: MetafieldValue;

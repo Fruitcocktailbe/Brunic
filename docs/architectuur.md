@@ -31,6 +31,28 @@ data/             # ruwe exports — GITIGNORED, device-local
 5. **Eenheden-normalisatie** (open): default per familie, vast te leggen met Sandra.
 6. **ERP-sync-model** (open): eenmalige import vs. periodieke handmatige export. Voorraad tonen: ja/nee/"op aanvraag" per categorie.
 
+## Filters & facetten (beslist 11/07/2026)
+
+**Twee mechanismen, bewust gescheiden:**
+1. **Maat = eigen route** (`/[collection]/maat/[bucket]`) — statisch, indexeerbaar, deelbaar, werkt zonder JS. Buckets (`tot 120 · 120–170 · 170–240 · 240+`) vertalen naar een OR-lijst van discrete `breedte_cm`-waarden (Storefront kent geen numerieke ranges). Zie §Datamodel.
+2. **Generieke facets = query-string** (`?kleur=Beige&materiaal=Wol`) — kleur, materiaal, poolklasse… Meerdere waarden binnen één facet = OR, verschillende facets = AND (native S&D-gedrag). Gefilterde combinaties zijn **`noindex` + canonical → het kale pad** (geen facet-explosie in de index). Maat + facets composeren: de facet-querystring blijft behouden bij het wisselen van maat-bucket.
+
+**Implementatie:** `apps/web/src/lib/shopify/facets.ts` (`FACET_DEFS`) + `components/facet-filters.tsx`. **Een filter toevoegen = één regel in `FACET_DEFS` + het filter aanzetten in de Search & Discovery-app** (dat publiceert `filter.p.m.brunic.<key>`). Facets zijn exact-match op metafield-waarden; numerieke assen (rolbreedte) krijgen dezelfde bucket-behandeling als maat. Alleen prijs heeft een native range-filter.
+
+**Voorgestelde facet-taxonomie per webcategorie** (Kleur + Prijs + Beschikbaarheid overal; later Merk zodra de leverancierslijst er is):
+
+| Categorie | Facets (naast Kleur/Prijs/Beschikbaarheid) |
+|---|---|
+| **Tapijten & karpetten** | Maat (breedte-bucket) · Materiaal · Stijl · Poolklasse (hoog/laagpolig) · Vorm |
+| **Behang** | Patroon · Type (vlies/vinyl) · Stijl · Rolbreedte (bucket) · Wasbaarheid |
+| **Gordijnen & stoffen** | Type (black-out/voile/living/project) · Transparantie · Stijl · Brandvertragend (B2B) · Wasbaarheid |
+| **Vloeren** | Type (vinyl/laminaat/parket/vasttapijt) · Houttint · Slijtklasse · Waterbestendig · Toepassing |
+| **Verf** | Finish (mat/satijn/glans) · Toepassing (muur/plafond/hout/buiten) · Binnen/buiten · Verpakking (L) · Merk |
+| **Raamdecoratie** | Type (rolgordijn/duo/plissé) · Lichtdoorlatendheid · Maat |
+| **Slapen & wonen** | subcategorie-afhankelijk |
+
+**Status (11/07):** live op het staal = Kleur (universeel), Materiaal + Poolklasse (tapijten). Metafield-definities die al bestaan: `materiaal, kleurfamilie, poolklasse, brandvertragend_norm, breedte_cm, lengte_cm`. **Nog toe te voegen (iteratie):** `patroon, stijl_design, type, transparantie, rolbreedte_cm, finish, toepassing` + de bijhorende S&D-filters. Dit blijft bewust open: de definitieve facetlijst per categorie hangt af van **welke producten er straks echt zijn en welke attributen de leveranciersfeeds meegeven** — pas invullen wanneer de echte catalogus + supplier-attributen bekend zijn (zie J.A.R.V.I.S doc 17 §8 Lane C).
+
 ## Productdata: bron van waarheid (beslist 08/07 — de PIM-vraag)
 **Drie lagen, één bron — géén losse Excel als master, géén Shopify-admin als master:**
 1. **Bron = de catalog-pipeline in dit repo** (`packages/catalog`): gestructureerde dataset (SQLite; schema git-versioned, data gitignored). Álle verrijking landt hier programmatisch: ERP-joins, leveranciers-scraping (poolhoogte, kleur, design, materiaal, patroon…), foto-mapping, nette titels. Herhaalbare her-runs (trechter-principe) — dat kan niet als de admin of een Excel de master is.
@@ -44,6 +66,22 @@ data/             # ruwe exports — GITIGNORED, device-local
 - **next/image met een custom Shopify-loader** die die CDN-transformaties gebruikt → Vercel Image-Optimization-kost ≈ €0 (anders betaalt Vercel-transformatiepricing op 14k producten × formaten de marge op de maandvergoeding op). Vercel serveert enkel UI-assets.
 - Eigendom: beelden zitten in Bruno's store (verkoopverhaal) en elk later kanaal (Google Shopping-feed) leest ze gratis mee; koppeling beeld↔product/variant is ook in de admin zichtbaar voor Aga.
 - Upload-route: gescrapete beelden → staging `data/media/` (artikelnummer-genaamd, bron+licentie gelogd) → staged uploads + koppeling via `productSet`.
+
+## URL-structuur (beslist 12/07/2026)
+**Producten blijven op een plat pad `/product/<slug>`, niet genest onder de categorie.** Collecties zijn `/[collection]`; generieke facets leven in de query-string (zie §Filters). Waarom plat:
+- Een product hoort vaak in **meerdere categorieën** (badmat = Tapijten én later Badkamer). Nesten dwingt één canonical-ouder af en geeft duplicate-content/canonical-problemen zodra hetzelfde product via meerdere paden bereikbaar is. Plat = exact één URL per product.
+- Het is **Shopify's eigen conventie** (`/products/handle`); Google heeft er geen enkel probleem mee.
+- **Mapdiepte is een verwaarloosbaar rankingsignaal** — de keyword-rijke *slug* draagt de waarde, niet het `/product/`-voorvoegsel.
+- **Stabiliteit = linkwaarde:** herclassificeren mag de product-URL niet breken. Een plat pad leeft even lang als het product; een genest pad zou bij elke hercategorisering een 301 vergen.
+- Hiërarchie geven we door via **BreadcrumbList-JSON-LD** + het zichtbare kruimelpad (PDP toont Home › webcategorie › product o.b.v. de échte collectie van het product), niet via het pad.
+
+**Gevolg voor de pipeline:** genereer **propere keyword-slugs** (naam + kleur + maat, géén ERP-/ontwerpcodes; de staal-handles als `tapijt-ravenna-057-0119-9295` zijn precies wat te vermijden is).
+
+**Subcategorieën (beslist 12/07, bouw geparkeerd tot klant-input).** Per hoofdcategorie komen subcategorieën (Behang › Vliesbehang/Vinyl…, Tapijten › Handgeknoopt… — J.A.R.V.I.S doc 11). Dat is een **collectie**-niveau, niet productniveau: het platte product-pad blijft `/product/<slug>`.
+- ✅ **Sub-collectie-URL = genest: `/behang/vliesbehang`.** Een subcategorie heeft precies één ouder, dus nesten mag hier wél (anders dan bij producten, die in meerdere categorieën zitten). Route wordt `/[collection]/[subcollection]`; let op de reservering van `maat` als subpad (`/[collection]/maat/[bucket]`) — subcollectie-slugs mogen daar niet mee botsen.
+- Het **kruimelpad** wordt dan Home › Behang › Vliesbehang › product.
+- **Pas dán** de **BreadcrumbList + Product/Offer-JSON-LD** op de PDP bouwen, zodat ze het volledige (diepere) pad weerspiegelen — daarom nu bewust nog niet gebouwd. Offer enkel op koopbare, niet-etalage items.
+- **Blokkeert op klant-input:** de subcategorie-indeling per familie hangt af van de leverancierslijst + de definitieve catalogus (welke families/producten er echt zijn). Zie J.A.R.V.I.S doc 17 §3 (blokkerende afhankelijkheden) + §8 Lane C.
 
 ## Migratie & SEO
 - Volledige **301-map**: alle WooCommerce-URL's + brunic.shop-legacy → nieuwe structuur. GSC onder Bruno's account.

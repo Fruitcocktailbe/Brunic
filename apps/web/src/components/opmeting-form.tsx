@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { useFormStatus } from "react-dom";
 import {
   BELMOMENTEN,
@@ -23,7 +23,7 @@ function Verstuurknop() {
       disabled={pending}
       className="rounded-s bg-brand px-7 py-4 text-lg font-bold text-white transition hover:bg-brand-deep disabled:opacity-60"
     >
-      {pending ? "Bezig met versturen…" : "Vraag mijn gratis opmeting aan"}
+      {pending ? "Bezig met versturen…" : "Vraag mijn opmeting aan"}
     </button>
   );
 }
@@ -35,8 +35,11 @@ function Fout({ tekst }: { tekst?: string }) {
 
 const veld = "rounded-s border-[1.5px] border-line-strong bg-ivory px-3 py-3";
 
+const MAX_FOTOS = 5;
+
 export function OpmetingForm() {
   const [state, formAction] = useActionState(verstuurOpmeting, START);
+  const [fotoNamen, setFotoNamen] = useState<string[]>([]);
 
   if (state.status === "ok") {
     return (
@@ -168,8 +171,32 @@ export function OpmetingForm() {
               placeholder="Bv. nieuwe gordijnen voor de living (3 ramen), graag verduisterend, en advies over de kleur."
               className={`${veld} resize-y`}
             />
-            <small className="text-ink-soft">
-              Foto&apos;s toevoegen kan binnenkort — bezorg ze gerust telefonisch of per e-mail.
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <label htmlFor="fotos" className="font-bold">
+              Foto&apos;s van de ruimte{" "}
+              <span className="font-normal text-ink-soft">(optioneel, max {MAX_FOTOS})</span>
+            </label>
+            <input
+              id="fotos"
+              name="fotos"
+              type="file"
+              accept="image/*"
+              multiple
+              onChange={(e) =>
+                setFotoNamen(Array.from(e.target.files ?? []).slice(0, MAX_FOTOS).map((f) => f.name))
+              }
+              className="text-sm file:mr-3 file:rounded-s file:border-0 file:bg-brand file:px-4 file:py-2 file:font-bold file:text-white hover:file:cursor-pointer hover:file:bg-brand-deep"
+            />
+            {fotoNamen.length > 0 ? (
+              <p className="mt-1 text-sm text-groen">
+                {fotoNamen.length} foto&apos;s gekozen: {fotoNamen.join(", ")}
+              </p>
+            ) : null}
+            <small className="mt-1 text-ink-soft">
+              Wij gebruiken uw foto&apos;s enkel om uw project te bekijken en u beter te adviseren —
+              voor niets anders.
             </small>
           </div>
 
@@ -207,7 +234,7 @@ export function OpmetingForm() {
           <input type="checkbox" name="consent" required className="mt-1 h-5 w-5 accent-brand" />
           <span>
             {SERVICE_CONSENT_TEKST} <span className="text-brand-text">*</span>{" "}
-            <Link href="#" className="underline">
+            <Link href="/privacy" className="underline">
               Privacybeleid
             </Link>
             .

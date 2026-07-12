@@ -13,13 +13,17 @@ export function MaatFilter({
   filters,
   basePath,
   actief,
+  query = "",
 }: {
   filters: StorefrontFilter[];
   basePath: string;
   actief?: string;
+  /** actieve facet-querystring (zonder ?) — meegevoerd zodat maat + kleur samen blijven */
+  query?: string;
 }) {
   const buckets = bucketsWithAvailability(filters);
   if (!buckets.some((b) => b.hasValues)) return null;
+  const qs = query ? `?${query}` : "";
 
   return (
     <section aria-labelledby="maat-filter-titel">
@@ -31,7 +35,7 @@ export function MaatFilter({
       <ul className="flex flex-wrap gap-2 lg:flex-col">
         <li>
           <Link
-            href={basePath}
+            href={`${basePath}${qs}`}
             aria-current={!actief ? "true" : undefined}
             className={`inline-block rounded-s border px-3 py-2 text-sm transition ${
               !actief
@@ -63,7 +67,7 @@ export function MaatFilter({
           return (
             <li key={bucket.id}>
               <Link
-                href={isActief ? basePath : `${basePath}/maat/${bucket.id}`}
+                href={isActief ? `${basePath}${qs}` : `${basePath}/maat/${bucket.id}${qs}`}
                 aria-current={isActief ? "true" : undefined}
                 className={`inline-block rounded-s border px-3 py-2 text-sm transition ${
                   isActief

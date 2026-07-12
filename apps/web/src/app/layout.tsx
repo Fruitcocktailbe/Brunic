@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CartBadge } from "@/components/cart-badge";
 import { FavorietenBadge } from "@/components/favorieten-badge";
+import { Hoofdnav } from "@/components/hoofdnav";
 import "./globals.css";
 
 // next/font host de fonts self-hosted mee in de build: géén runtime-request naar
@@ -31,16 +32,6 @@ export const metadata: Metadata = {
     "Al 40 jaar dé interieurzaak van Ninove: gordijnen op maat uit eigen atelier, behang, vloeren, tapijten en raamdecoratie. Gratis opmeting aan huis.",
 };
 
-const NAV = [
-  { href: "/gordijnen-stoffen", label: "Gordijnen & stoffen" },
-  { href: "/behang", label: "Behang" },
-  { href: "/vloeren", label: "Vloeren" },
-  { href: "/tapijten-karpetten", label: "Tapijten & karpetten" },
-  { href: "/raamdecoratie", label: "Raamdecoratie" },
-  { href: "/verf", label: "Verf" },
-  { href: "/slapen-wonen", label: "Slapen & wonen" },
-];
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="nl-BE" className={`${fraunces.variable} ${karla.variable}`}>
@@ -55,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="border-b border-line">
           <div className="on-red bg-brand-deep stripes-light text-white">
             <div className="mx-auto flex max-w-(--container-brunic) flex-wrap items-center justify-between gap-2 px-6 py-2 text-sm">
-              <p>Gratis opmeting &amp; advies aan huis — wij bellen u binnen 1–2 werkdagen</p>
+              <p>Opmeting aan huis, gratis bij aankoop — wij bellen u binnen 1–2 werkdagen</p>
               <div className="flex items-center gap-4">
                 <a href="tel:+3254337352" className="font-bold underline-offset-2 hover:underline">
                   054 33 73 52
@@ -74,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 height={376}
                 priority
                 unoptimized
-                className="h-[54px] w-auto rounded-[6px] md:h-[68px]"
+                className="h-[64px] w-auto rounded-[6px] md:h-[84px]"
               />
             </Link>
             <p className="hidden max-w-sm text-sm text-ink-soft lg:block">
@@ -87,20 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
 
-          <nav aria-label="Hoofdnavigatie" className="border-t border-line">
-            <ul className="mx-auto flex max-w-(--container-brunic) flex-wrap gap-x-6 gap-y-1 px-6 py-2 text-[0.95rem]">
-              {NAV.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="inline-block border-b-2 border-transparent py-1 hover:border-brand hover:text-brand-dark"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <Hoofdnav />
         </header>
 
         <main id="main">{children}</main>
@@ -129,9 +107,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </address>
           </div>
           <div className="border-t border-white/10">
-            <p className="mx-auto max-w-(--container-brunic) px-6 py-4 text-xs text-ivory/60">
-              © 2026 Brunic nv, Ninove — alle rechten voorbehouden.
-            </p>
+            <div className="mx-auto flex max-w-(--container-brunic) flex-wrap items-center justify-between gap-3 px-6 py-4 text-xs text-ivory/60">
+              <p>© 2026 Brunic nv, Ninove — alle rechten voorbehouden.</p>
+              <nav aria-label="Juridisch" className="flex flex-wrap gap-x-4 gap-y-1">
+                <Link href="/algemene-voorwaarden" className="hover:text-ivory">
+                  Algemene voorwaarden
+                </Link>
+                <Link href="/privacy" className="hover:text-ivory">
+                  Privacybeleid
+                </Link>
+                <Link href="/herroepingsrecht" className="hover:text-ivory">
+                  Herroepingsrecht
+                </Link>
+                <Link href="/retourbeleid" className="hover:text-ivory">
+                  Retourbeleid
+                </Link>
+              </nav>
+            </div>
           </div>
         </footer>
       </body>

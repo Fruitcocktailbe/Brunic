@@ -1,8 +1,8 @@
 "use server";
 
 import { DIENSTEN, geldigEmail, normaliseerTelefoon } from "./consent";
-import { bewaarKlant, markeerVoorOpvolging } from "./klant";
-import { stuurNotificatie } from "./notify";
+import { uploadOpmetingFotos } from "./fotos";
+import { bewaarKlant, koppelOpmetingFotos, markeerVoorOpvolging } from "./klant";
 import type { Lead, OpmetingState } from "./types";
 
 const GELDIGE_DIENSTEN = new Set(DIENSTEN.map((d) => d.value));
@@ -69,22 +69,9 @@ export async function verstuurOpmeting(
     console.error("[opmeting] opslaan als Shopify-klant mislukt:", e);
   }
 
-  // 2) "Onbehandeld"-vlag zetten → dit is wat Shopify Flow doet afgaan (Customer updated).
-  let gemarkeerd = false;
-  if (klantId) {
-    try {
-      await markeerVoorOpvolging(klantId);
-      gemarkeerd = true;
-    } catch (e) {
-      console.error("[opmeting] markeren voor opvolging mislukt (Flow vuurt niet!):", e);
-    }
-  }
-
-  // 3) Optioneel eigen mailkanaal. Zonder RESEND_API_KEY een stille no-op — Flow doet het werk.
-  const mail = await stuurNotificatie(lead);
-
-  // De aanvraag is pas écht verloren als er niets duurzaams is opgeslagen én niemand gemaild is.
-  if (!klantId && !mail.verzonden) {
+  // De aanvraag is pas écht verloren als er niets duurzaams is opgeslagen.
+  // De klant zit dan nergens in Shopify, dus er is geen vangnet — zeg dat eerlijk.
+  if (!klantId) {
     return {
       status: "fout",
       message:
@@ -92,13 +79,29 @@ export async function verstuurOpmeting(
     };
   }
 
-  // Wél opgeslagen, maar niemand verwittigd: de lead staat veilig in Shopify onder de tag
-  // 'opmeting-lead', dus geen foutmelding aan de klant — wel luid loggen voor ons.
-  if (klantId && !gemarkeerd && !mail.verzonden) {
+  // 2) Foto's uploaden en aan de klant koppelen. Best effort — een mislukte upload mag
+  //    de lead niet kelderen. Gebeurt vóór de Flow-vlag zodat de foto's al bij de klant
+  //    hangen wanneer Sandra de notificatie krijgt.
+  try {
+    const fotos = formData.getAll("fotos").filter((x): x is File => x instanceof File);
+    const gids = await uploadOpmetingFotos(fotos);
+    await koppelOpmetingFotos(klantId, gids);
+  } catch (e) {
+    console.error("[opmeting] foto-upload/koppeling mislukt (lead blijft behouden):", e);
+  }
+
+  // 3) "Onbehandeld"-vlag zetten → dit is wat Shopify Flow doet afgaan (Customer updated),
+  //    waarna Flow Sandra mailt. Zie decisions/log.md 2026-07-10.
+  try {
+    await markeerVoorOpvolging(klantId);
+  } catch (e) {
+    // De lead is opgeslagen onder tag 'opmeting-lead' (zichtbare achterstand in de admin),
+    // dus geen foutmelding aan de klant — wel luid loggen: Sandra krijgt geen mail.
     console.error(
-      "[opmeting] LEAD OPGESLAGEN MAAR NIEMAND VERWITTIGD — klant:",
+      "[opmeting] LEAD OPGESLAGEN MAAR FLOW-VLAG MISLUKT — klant:",
       klantId,
-      "| Flow-vlag mislukt en geen mailkanaal geconfigureerd.",
+      "| Sandra kreeg geen notificatie. Fout:",
+      e,
     );
   }
 

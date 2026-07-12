@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MAX_FAVORIETEN, useFavorieten } from "@/lib/favorieten/store";
+import { useFavorieten } from "@/lib/favorieten/store";
 
 const HART =
   "M12 21s-7.5-4.9-9.5-9.2C.9 8.4 3 5 6.4 5c2 0 3.6 1.1 4.6 2.7l1 1.6 1-1.6C14 6.1 15.6 5 17.6 5 21 5 23.1 8.4 21.5 11.8 19.5 16.1 12 21 12 21Z";
@@ -82,7 +82,7 @@ function Vol() {
       role="status"
       className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-s bg-ink px-5 py-3 text-sm font-bold text-ivory shadow-l"
     >
-      Uw winkellijst is vol — verwijder eerst een favoriet (max {MAX_FAVORIETEN}).
+      Uw winkellijst zit vol — verwijder eerst een favoriet om er nog een toe te voegen.
     </p>
   );
 }

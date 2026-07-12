@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-export const MAX_FAVORIETEN = 5;
+export const MAX_FAVORIETEN = 20;
 export const FAVORIETEN_UPDATED = "favorieten:updated";
 
 const SLEUTEL = "brunic:favorieten:v1";
@@ -62,7 +62,7 @@ export function useFavorieten() {
 
   const bevat = useCallback((handle: string) => lijst.some((f) => f.handle === handle), [lijst]);
 
-  /** @returns false als de lijst vol zat (max 5) */
+  /** @returns false als de lijst vol zat (max MAX_FAVORIETEN) */
   const toggle = useCallback((fav: Favoriet): boolean => {
     const huidig = lees();
     const bestaat = huidig.some((f) => f.handle === fav.handle);

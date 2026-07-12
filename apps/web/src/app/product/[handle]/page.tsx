@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { MaatKiezer } from "@/components/maat-kiezer";
 import { beeldloosWoord } from "@/lib/format";
 import { storefront } from "@/lib/shopify/client";
+import { isSysteemCollectie } from "@/lib/shopify/collection";
 import { PRODUCT_QUERY, TOP_PRODUCT_HANDLES_QUERY } from "@/lib/shopify/queries";
 import { isEtalage, type Product } from "@/lib/shopify/types";
 
@@ -49,6 +50,8 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
 
   const etalage = isEtalage(product);
   const beelden = product.images.nodes;
+  // De eerste niet-systeemcollectie is de webcategorie (bv. Vloeren) — voor het kruimelpad.
+  const categorie = product.collections.nodes.find((c) => !isSysteemCollectie(c.handle));
 
   const specs = [
     ["Materiaal", product.materiaal?.value],
@@ -63,10 +66,14 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         <Link href="/" className="hover:text-brand-text">
           Home
         </Link>
-        <span className="mx-2">/</span>
-        <Link href="/tapijten-karpetten" className="hover:text-brand-text">
-          Tapijten &amp; karpetten
-        </Link>
+        {categorie ? (
+          <>
+            <span className="mx-2">/</span>
+            <Link href={`/${categorie.handle}`} className="hover:text-brand-text">
+              {categorie.title}
+            </Link>
+          </>
+        ) : null}
         <span className="mx-2">/</span>
         <span aria-current="page">{product.title}</span>
       </nav>
@@ -151,7 +158,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
           />
 
           <p className="mt-8 border-t border-line pt-4 text-sm text-ink-soft">
-            Twijfelt u over de maat? Onze mensen meten gratis bij u thuis op —{" "}
+            Twijfelt u over de maat? Onze mensen meten bij u thuis op —{" "}
             <Link href="/opmeting" className="font-bold text-brand-text hover:underline">
               plan een opmeting
             </Link>

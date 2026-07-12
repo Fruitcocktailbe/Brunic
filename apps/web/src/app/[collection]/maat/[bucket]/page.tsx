@@ -4,6 +4,7 @@ import { CollectionView } from "@/components/collection-view";
 import { bucketById, bucketsWithAvailability, filtersForBucket } from "@/lib/shopify/buckets";
 import { getCollection, heeftMaatFilter, isSysteemCollectie } from "@/lib/shopify/collection";
 import { storefront } from "@/lib/shopify/client";
+import { facetProductFilters, heeftFacets, type SearchParams, selectedFacets } from "@/lib/shopify/facets";
 import { COLLECTION_HANDLES_QUERY } from "@/lib/shopify/queries";
 
 export const revalidate = 3600;
@@ -37,7 +38,7 @@ export async function generateStaticParams(): Promise<Params[]> {
 }
 
 /** Haalt collectie + gefilterde producten op. Gedeeld door generateMetadata en de page. */
-async function laad(handle: string, bucketId: string) {
+async function laad(handle: string, bucketId: string, selected: Record<string, string[]> = {}) {
   if (isSysteemCollectie(handle)) return null;
 
   const bucket = bucketById(bucketId);
@@ -47,7 +48,8 @@ async function laad(handle: string, bucketId: string) {
   // Maat is betekenisloos voor behang/verf: die krijgen géén (dunne, indexeerbare) bucketpagina.
   if (!collection || !heeftMaatFilter(collection)) return null;
 
-  const filters = filtersForBucket(collection.products.filters, bucket);
+  // Maat-bucket (breedte-OR-lijst) + de gekozen generieke facets samen toepassen.
+  const filters = [...filtersForBucket(collection.products.filters, bucket), ...facetProductFilters(selected)];
   const gefilterd = filters.length > 0 ? await getCollection(handle, filters) : null;
 
   return { bucket, collection, producten: gefilterd?.products.nodes ?? [] };
@@ -55,10 +57,13 @@ async function laad(handle: string, bucketId: string) {
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<Params>;
+  searchParams: Promise<SearchParams>;
 }): Promise<Metadata> {
   const { collection: handle, bucket: bucketId } = await params;
+  const gefilterd = heeftFacets(selectedFacets(await searchParams));
   const data = await laad(handle, bucketId);
   if (!data) return {};
 
@@ -68,15 +73,22 @@ export async function generateMetadata({
     title: `${collection.title} — ${bucket.label}`,
     description: `${collection.title} met een breedte van ${bucket.label.toLowerCase()}. Vaste handelsmaten, advies en gratis opmeting aan huis.`,
     alternates: { canonical: `/${handle}/maat/${bucket.id}` },
-    // Een bucket kan (tijdelijk) leeg zijn — die pagina hoort niet in de index.
-    robots: producten.length === 0 ? { index: false, follow: true } : undefined,
+    // Lege bucket óf actieve facet-combinatie: niet indexeren (canonical → de kale bucket).
+    robots: producten.length === 0 || gefilterd ? { index: false, follow: true } : undefined,
   };
 }
 
-export default async function MaatBucketPage({ params }: { params: Promise<Params> }) {
+export default async function MaatBucketPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<Params>;
+  searchParams: Promise<SearchParams>;
+}) {
   const { collection: handle, bucket: bucketId } = await params;
 
-  const data = await laad(handle, bucketId);
+  const selected = selectedFacets(await searchParams);
+  const data = await laad(handle, bucketId, selected);
   if (!data) notFound();
 
   return (
@@ -84,6 +96,7 @@ export default async function MaatBucketPage({ params }: { params: Promise<Param
       collection={data.collection}
       producten={data.producten}
       bucket={data.bucket}
+      selected={selected}
     />
   );
 }
