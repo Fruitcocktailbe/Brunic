@@ -6,6 +6,7 @@ import { getCollection, heeftMaatFilter, isSysteemCollectie } from "@/lib/shopif
 import { storefront } from "@/lib/shopify/client";
 import { facetProductFilters, heeftFacets, type SearchParams, selectedFacets } from "@/lib/shopify/facets";
 import { COLLECTION_HANDLES_QUERY } from "@/lib/shopify/queries";
+import { isSubcollectie } from "@/lib/shopify/taxonomie";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -20,12 +21,12 @@ type Params = { collection: string; bucket: string };
 export async function generateStaticParams(): Promise<Params[]> {
   const data = await storefront<{ collections: { nodes: { handle: string }[] } }>(
     COLLECTION_HANDLES_QUERY,
-    { first: 20 },
+    { first: 100 },
   );
 
   const params: Params[] = [];
   for (const { handle } of data.collections.nodes) {
-    if (isSysteemCollectie(handle)) continue;
+    if (isSysteemCollectie(handle) || isSubcollectie(handle)) continue;
 
     const collection = await getCollection(handle);
     if (!collection || !heeftMaatFilter(collection)) continue;
@@ -39,7 +40,9 @@ export async function generateStaticParams(): Promise<Params[]> {
 
 /** Haalt collectie + gefilterde producten op. Gedeeld door generateMetadata en de page. */
 async function laad(handle: string, bucketId: string, selected: Record<string, string[]> = {}) {
-  if (isSysteemCollectie(handle)) return null;
+  // Bucketpagina's hangen onder de categorie, niet onder een subcategorie: /behang-effen/maat/…
+  // bestaat niet (de sub-URL is /behang/effen).
+  if (isSysteemCollectie(handle) || isSubcollectie(handle)) return null;
 
   const bucket = bucketById(bucketId);
   if (!bucket) return null;

@@ -74,7 +74,7 @@ export function Winkellijst() {
           hier uw meeneemdocument.
         </p>
         <Link
-          href="/tapijten-karpetten"
+          href="/tapijten"
           className="mt-6 inline-block rounded-s bg-brand px-6 py-3 font-bold text-white transition hover:bg-brand-deep"
         >
           Bekijk de collectie

@@ -56,8 +56,8 @@ export function UspBand() {
 
 const TEGELS = [
   { titel: "Behang", sub: "2.691 dessins, vlies vooraan", href: "/behang", img: "https://brunic.be/wp-content/uploads/2023/05/Z80001.jpg" },
-  { titel: "Vloeren", sub: "Vinyl, laminaat & vasttapijt", href: "/vloeren", img: "https://brunic.be/wp-content/uploads/2021/10/1917433332.jpg" },
-  { titel: "Tapijten & karpetten", sub: "Zoek meteen op uw maat", href: "/tapijten-karpetten", img: "https://brunic.be/wp-content/uploads/2022/05/2001916416.jpg" },
+  { titel: "Vloerbekleding", sub: "Vinyl, laminaat & vasttapijt", href: "/vloerbekleding", img: "https://brunic.be/wp-content/uploads/2021/10/1917433332.jpg" },
+  { titel: "Tapijten", sub: "Zoek meteen op uw maat", href: "/tapijten", img: "https://brunic.be/wp-content/uploads/2022/05/2001916416.jpg" },
 ];
 
 export function Categorietegels() {
@@ -68,7 +68,7 @@ export function Categorietegels() {
           <Kicker>Verder in huis</Kicker>
           <h2 className="text-3xl">Van muur tot vloer, alles onder één dak</h2>
         </div>
-        <Link href="/tapijten-karpetten" className="font-bold text-brand-text underline-offset-4 hover:underline">
+        <Link href="/tapijten" className="font-bold text-brand-text underline-offset-4 hover:underline">
           Bekijk alle categorieën →
         </Link>
       </div>

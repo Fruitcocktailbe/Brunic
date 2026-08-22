@@ -27,7 +27,7 @@ export default async function WinkelmandPage() {
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
           <Link
-            href="/tapijten-karpetten"
+            href="/tapijten"
             className="rounded-s bg-brand px-6 py-3 font-bold text-white transition hover:bg-brand-deep"
           >
             Bekijk de tapijten

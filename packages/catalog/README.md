@@ -31,12 +31,15 @@ Alle definities filterable via Search & Discovery; namespace-voorstel `brunic`.
 | `materiaal` | text (lijst) | product | alle |
 | `kleurfamilie` | text (lijst) | product | alle |
 | `stijl_design` | text (lijst) | product | tapijten, behang, stoffen |
-| `patroon` | text | product | behang, stoffen |
+| `patroon` | text | product | behang, stoffen (effen/bloemen/streep/tekening — draagt de subcollecties) |
+| `vorm` | text | product | tapijten (rond/vierkant/speciaal — draagt de vorm-subcollecties) |
+| `look` | text | product | click vinyl (parket/uniform/tegel — filter, geen subcategorie) |
+| `toepassing` | text | product | tapijten (binnen/buiten), vloerbekleding |
 | `brandvertragend_norm` | text | product | projectstoffen, tapijten (B2B-filter) |
-| `rolbreedte_cm` | number_integer | product | behang, wasdoek, vasttapijt |
+| `rolbreedte_cm` | number_integer | product | behang (53), wasdoek, vasttapijt, kamerhoogte-stoffen (270/320) |
 | `etalage` | boolean | product | alle (true = tonen-niet-verkopen; front-end verbergt prijs/koopknop, chatbot noemt geen prijs) |
 | `erp_familie` | text | product | alle (herkomst-koppeling `LLL FFF`) |
-| `verkoop_per_meter` | boolean | product | wasdoek, stoffen, vasttapijt (UX-keuze nog open) |
+| `verkoop_eenheid` | text | product | alle — `lopende meter` / `m2` / `rol` / `stuk` (vervangt het eerdere `verkoop_per_meter`-voorstel; UX per-meter-verkoop nog open) |
 
 ## Domeinregels (vastgelegd 09/07/2026, uit de data geverifieerd)
 - **`breedte = min(a, b)`, `lengte = max(a, b)`** — bronnamen zijn niet consistent georiënteerd (Woo: "Herati 141x72", "Tosserkhan 230x140"). Het maatfilter draait op breedte, dus normaliseren is verplicht.
@@ -55,4 +58,8 @@ Het ERP houdt **één artikel per maat** aan; `architectuur.md` §Datamodel eist
 Stap 3 (`verrijk`) moet hiervoor een expliciete groeperingssleutel krijgen (ERP-familiecode `LLL FFF` + design/kleurcode), niet de vrije tekst.
 
 ## Open beslissingen (zie ook docs/architectuur.md §Datamodel)
-Per-meter-verkoopmodel (0,1m-increment vs lengte-invoer) · eenheden-defaults per familie (Sandra) · ERP-sync-cadans na livegang · scraping-bronnen (wacht op leverancierslijst) + gebruiksrecht beelden als dealer checken.
+Per-meter-verkoopmodel (0,1m-increment vs lengte-invoer; minimale afname + snij-stap nog bij Sandra ophalen) · ERP-sync-cadans na livegang · scraping-bronnen: leverancierslijst ✅ 14/07 (crediteur = `440`+LLL, geverifieerd) en beeldrechten als dealer ✅ — dealersportaal-toegang nog te ontvangen.
+
+**Beslist 14/07 (antwoorden Bruno, zie J.A.R.V.I.S doc 20):** prijzen **incl. btw** importeren zoals geleverd · alles koopbaar **behalve raamdecoratie** (`etalage = true` op die hele webcategorie) · eenheden: stoffen per lopende meter, behang per rol (10 m × 0,53 m, `PER ROL`-prijskolom), vloer per m² · `***` in omschrijving = **uitgefaseerd** → uitfilteren in trechter v3 · consignatie blijft eruit.
+
+**Doorgevoerd 02/08 (subcategorie-conventies, zie J.A.R.V.I.S doc 11 §v3):** hoofdcollecties hernoemd (**Vloerbekleding** `vloerbekleding`, **Tapijten** `tapijten`) · **29 subcollecties** aangemaakt in de dev-store, handle-conventie **`<hoofdprefix>-<sub>`** (`stoffen-effen` … `behang-baby`; gedeeld: `logotapijt` onder Tapijten én Vloerbekleding), allemaal gepubliceerd op **Brunic Headless** · metafield-definities `patroon, stijl_design, vorm, look, toepassing, rolbreedte_cm, verkoop_eenheid` aangemaakt (PUBLIC_READ; ⚠️ S&D-filters nog handmatig aanzetten in de app) · aanvulling eenheden: stoffen ook per **kamerhoogte** (rol 2,70/3,20 m) — verkoopmodel bij Sandra ophalen (doc 20 punt 8). De import (stap 6) moet elk product behalve aan de hoofd- ook aan de juiste **subcollectie(s)** toevoegen; tapijt-subs mogen overlappen. ⚠️ De front leidt het kruimelpad af uit de collecties van het product: staat een product **enkel** in een subcollectie en niet in zijn hoofdcategorie, dan verdwijnt het van de categoriepagina. Zet dus altijd **beide**. De boom zelf staat in `apps/web/src/lib/shopify/taxonomie.ts` — een nieuwe subcategorie = die tabel + de collectie in Shopify (handle `<hoofdprefix>-<sub>`, publiceren op Brunic Headless).

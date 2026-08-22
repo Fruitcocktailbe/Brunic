@@ -18,8 +18,8 @@ export const MARKETING_CONSENT_TEKST =
 export const DIENSTEN = [
   { value: "gordijnen", label: "Gordijnen & stoffen" },
   { value: "raamdecoratie", label: "Raamdecoratie" },
-  { value: "vloeren", label: "Vloeren" },
-  { value: "tapijten", label: "Tapijten & karpetten" },
+  { value: "vloeren", label: "Vloerbekleding" },
+  { value: "tapijten", label: "Tapijten" },
   { value: "behang", label: "Behang" },
   { value: "maatwerk", label: "Atelier & maatwerk" },
 ] as const;

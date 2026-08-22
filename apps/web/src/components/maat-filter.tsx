@@ -4,7 +4,7 @@ import type { StorefrontFilter } from "@/lib/shopify/types";
 
 /**
  * Maat = hét zoekcriterium bij tapijten (design-brief §5.2). Puur links, geen client-JS:
- * elke bucket is een eigen pad (/tapijten-karpetten/maat/120-170), dus statisch te
+ * elke bucket is een eigen pad (/tapijten/maat/120-170), dus statisch te
  * genereren, deelbaar, indexeerbaar en werkend zonder JavaScript.
  *
  * NB: "maat" is daarmee een gereserveerde subcategorie-slug onder /[collection]/.

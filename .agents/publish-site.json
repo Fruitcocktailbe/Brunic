@@ -1,0 +1,22 @@
+{
+  "skill": "publish-site",
+  "version": 1,
+  "completedAt": "2026-07-14T11:01:05.761Z",
+  "siteDir": "D:\\GithubLocal\\Brunic\\apps\\web",
+  "github": {
+    "owner": "Fruitcocktailbe",
+    "name": "Brunic",
+    "url": "https://github.com/Fruitcocktailbe/Brunic",
+    "private": true
+  },
+  "vercel": {
+    "projectId": "prj_d0A8R9ZzkX35a9diYNyAfAaOnglB",
+    "projectName": "Brunic",
+    "deployUrl": "https://brunic.vercel.app",
+    "dashboardUrl": "https://vercel.com/dashboard/projects/prj_d0A8R9ZzkX35a9diYNyAfAaOnglB"
+  },
+  "domain": {
+    "intended": null,
+    "attached": null
+  }
+}

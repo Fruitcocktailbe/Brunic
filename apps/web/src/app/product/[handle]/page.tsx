@@ -7,6 +7,7 @@ import { beeldloosWoord } from "@/lib/format";
 import { storefront } from "@/lib/shopify/client";
 import { isSysteemCollectie } from "@/lib/shopify/collection";
 import { PRODUCT_QUERY, TOP_PRODUCT_HANDLES_QUERY } from "@/lib/shopify/queries";
+import { categoriePad } from "@/lib/shopify/taxonomie";
 import { isEtalage, type Product } from "@/lib/shopify/types";
 
 export const revalidate = 3600;
@@ -50,8 +51,11 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
 
   const etalage = isEtalage(product);
   const beelden = product.images.nodes;
-  // De eerste niet-systeemcollectie is de webcategorie (bv. Vloeren) — voor het kruimelpad.
-  const categorie = product.collections.nodes.find((c) => !isSysteemCollectie(c.handle));
+  // Het kruimelpad volgt de échte collecties van het product: zit het in een subcategorie,
+  // dan wordt het Home › Behang › Effen › product.
+  const kruimels = categoriePad(
+    product.collections.nodes.filter((c) => !isSysteemCollectie(c.handle)),
+  );
 
   const specs = [
     ["Materiaal", product.materiaal?.value],
@@ -66,14 +70,14 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         <Link href="/" className="hover:text-brand-text">
           Home
         </Link>
-        {categorie ? (
-          <>
+        {kruimels.map((kruimel) => (
+          <span key={kruimel.href}>
             <span className="mx-2">/</span>
-            <Link href={`/${categorie.handle}`} className="hover:text-brand-text">
-              {categorie.title}
+            <Link href={kruimel.href} className="hover:text-brand-text">
+              {kruimel.label}
             </Link>
-          </>
-        ) : null}
+          </span>
+        ))}
         <span className="mx-2">/</span>
         <span aria-current="page">{product.title}</span>
       </nav>

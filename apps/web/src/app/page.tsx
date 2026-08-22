@@ -27,7 +27,7 @@ async function InDeKijker() {
             <Kicker>In de kijker</Kicker>
             <h2 className="text-3xl">Door ons geselecteerd</h2>
           </div>
-          <Link href="/tapijten-karpetten" className="font-bold text-brand-text underline-offset-4 hover:underline">
+          <Link href="/tapijten" className="font-bold text-brand-text underline-offset-4 hover:underline">
             Bekijk de volledige collectie →
           </Link>
         </div>
@@ -66,7 +66,7 @@ export default function Home() {
             <Link href="/opmeting" className="rounded-s bg-brand px-7 py-4 text-lg font-bold text-white transition hover:bg-brand-deep">
               Plan een opmeting
             </Link>
-            <Link href="/tapijten-karpetten" className="rounded-s border-2 border-ink px-7 py-4 text-lg font-bold transition hover:bg-ink hover:text-ivory">
+            <Link href="/tapijten" className="rounded-s border-2 border-ink px-7 py-4 text-lg font-bold transition hover:bg-ink hover:text-ivory">
               Bekijk de collectie
             </Link>
           </div>

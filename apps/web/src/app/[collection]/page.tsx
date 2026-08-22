@@ -5,6 +5,7 @@ import { getCollection, isSysteemCollectie } from "@/lib/shopify/collection";
 import { storefront } from "@/lib/shopify/client";
 import { facetProductFilters, heeftFacets, type SearchParams, selectedFacets } from "@/lib/shopify/facets";
 import { COLLECTION_HANDLES_QUERY } from "@/lib/shopify/queries";
+import { isSubcollectie } from "@/lib/shopify/taxonomie";
 
 // De basispagina is statisch + ISR. De maat-filter leeft in /[collection]/maat/[bucket].
 // De generieke facets (kleur…) leven in de query-string en maken die render dynamisch —
@@ -17,10 +18,10 @@ type Params = { collection: string };
 export async function generateStaticParams(): Promise<Params[]> {
   const data = await storefront<{ collections: { nodes: { handle: string }[] } }>(
     COLLECTION_HANDLES_QUERY,
-    { first: 20 },
+    { first: 100 },
   );
   return data.collections.nodes
-    .filter((c) => !isSysteemCollectie(c.handle))
+    .filter((c) => !isSysteemCollectie(c.handle) && !isSubcollectie(c.handle))
     .map((c) => ({ collection: c.handle }));
 }
 
@@ -32,6 +33,8 @@ export async function generateMetadata({
   searchParams: Promise<SearchParams>;
 }): Promise<Metadata> {
   const { collection: handle } = await params;
+  if (isSubcollectie(handle)) return {};
+
   const collection = await getCollection(handle);
   if (!collection) return {};
 
@@ -53,7 +56,9 @@ export default async function CollectionPage({
   searchParams: Promise<SearchParams>;
 }) {
   const { collection: handle } = await params;
-  if (isSysteemCollectie(handle)) notFound();
+  // Een subcollectie leeft op /[collection]/[subcollection]; haar kale handle mag géén
+  // tweede URL voor dezelfde producten worden (duplicate content).
+  if (isSysteemCollectie(handle) || isSubcollectie(handle)) notFound();
 
   const collection = await getCollection(handle);
   if (!collection) notFound();
