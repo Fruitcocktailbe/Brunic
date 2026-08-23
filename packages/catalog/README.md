@@ -19,8 +19,10 @@
 ```
 Elke stap idempotent en her-runbaar (trechter-principe: correctieronde = her-run, geen handwerk).
 
-## `trechter.py`
-De v1-trechter (06/07): parseert de ERP-PDF, decodeert `LLL FFF RRR` via het familie-codeboek, klasseert 65.314 artikelen → `data/trechter/erp-geclassificeerd.csv`. Mapping-regels: J.A.R.V.I.S dossier-doc 11 (webcategorie-mapping). Wordt de basis van stap 1-2.
+## `trechter_v3.py` — dé trechter (✅ eerste echte run 22/08, gereconcilieerd)
+Draait volledig op de Excels (geen PDF/pypdf meer; dependency: `openpyxl`) en heeft de v2-selectielogica in code: **shortlist = (verkocht ∪ voorraad) − consignatie − uitgefaseerd (`***`, regel 14/07)**. Inputs (zie `data/README.md` voor de bestandsnamen — hernoemd 22/08, oude namen worden als fallback herkend): prijzenlijst 14/07 + verkoop-per-artikel 08/07 + voorraad 08/07 + crediteurenlijst + Woo-export (.csv of .xlsx). Outputs in `data/trechter/`, telkens in **twee formaten**: `.xlsx` voor mensen (vaste vette kopregel, filterknoppen, kolombreedtes, echte getallen — sorteren werkt) én `.csv` voor de pipeline: `trechter-v3-shortlist` (verrijkt: prijs/per-rol — prijs 0 = sentinel, telt als ontbrekend —, leveranciersnaam via `440`+LLL, `bron`, `etalage` op raamdecoratie, maat-parsing volgens de domeinregels hieronder, woo-match, omzet 12m), `-geclassificeerd` (alle artikelen, gededupt), `-prijsloos` (vraaglijst Sandra), `-woo-niet-in-erp`. Flags: `--categorieen "…"` (deelscope) en `--uitsluiten verhuur,coupon-outlet,op-bestelling` (strenger schiften; standaard blijven die ín de set, gemarkeerd in `status`, voor vergelijkbaarheid met v2).
+
+**Run 22/08 (eerste op echte data): shortlist 12.734** — reconciliatie met de baselines klopt: prijsdekking exact 98,7% (170 prijsloos ≈ de gedocumenteerde 169), Woo-niet-in-ERP exact 1.145, categorie-aantallen ≈ design-brief (Tapijten 2.257, Raamdecoratie 323, Vasttapijt 177 exact). Verschil met de v2-baseline (12.765) = de 25 nieuw-uitgefilterde `***`-artikelen + 16 niet-numerieke unie-rijen. Artikelbestand: 64.859 = v1's 65.314 minus de 455 bekende duplicaten, exact — daarmee is de PDF-route (v1, `trechter.py`) geverifieerd overbodig en op 22/08 verwijderd (staat in git-historie; v1-outputs `erp-geclassificeerd.csv`/`woo-only.csv` blijven historisch in `data/trechter/`).
 
 ## Metafield-schema (stap 3/6 — vast te klikken vóór de bulk-import)
 Alle definities filterable via Search & Discovery; namespace-voorstel `brunic`.
