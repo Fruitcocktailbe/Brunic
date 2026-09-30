@@ -1,0 +1,312 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Brunic prototype — designtokens
+   Maten, radii en kleurverhoudingen gemeten op fr.vente-unique.be (1440 px,
+   26/09/2026, computed styles) en toegepast op de Brunic-huisstijl:
+   - tekst/knoppen: warm bijna-zwart (#130C0C) zoals de referentie
+   - accent: Brunic-rood #E21F1D (i.p.v. referentierood #EC002E), geel #FFD101 spaarzaam
+   - koppen: Fraunces met SOFT-as (vrije vervanger voor het commerciële Recoleta)
+   - UI: Poppins (identiek aan de referentie), basis 14 px i.p.v. 13 px (doelgroep 30+)
+   ========================================================================== */
+@theme {
+  --color-ink: #130c0c;
+  --color-ink-80: rgb(23 13 14 / 0.8);
+  --color-ink-60: rgb(31 20 21 / 0.64);
+  --color-ink-40: rgb(31 20 21 / 0.42);
+  --color-line: rgb(184 168 171 / 0.32);
+  --color-line-strong: rgb(86 67 69 / 0.5);
+  --color-sand: #f5eae1;
+  --color-sand-2: #eee0d4;
+  --color-mist: #f4f1f0;
+  --color-cloud: #f8f6f5;
+  --color-brand: #e21f1d;
+  --color-brand-dark: #b3140f;
+  --color-brand-tint: #fdeceb;
+  --color-geel: #ffd101;
+  --color-attention: #bd4800;
+  --color-attention-bg: #fff1eb;
+  --color-success: #008554;
+  --color-warning: #9a5b00;
+  --color-on-picture: rgb(86 67 69 / 0.5);
+
+  --font-sans: var(--font-poppins), "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+
+  --radius-tile: 20px;
+  --radius-pill: 28px;
+  --radius-field: 14px;
+
+  --shadow-label: 0 4px 12px rgb(197 185 187 / 0.14);
+  --shadow-pop: 0 18px 50px -16px rgb(19 12 12 / 0.28);
+  --shadow-drawer: -12px 0 40px -12px rgb(19 12 12 / 0.25);
+
+  --breakpoint-xs: 30rem;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* De kleverige header verandert van hoogte; browser-scrollanchoring zou dan de
+       scrollpositie mee verschuiven en de header laten flikkeren. */
+    overflow-anchor: none;
+  }
+  body {
+    background: #fff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.2;
+  }
+  button,
+  [role="button"] {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+  ::selection {
+    background: var(--color-geel);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus-ring, var(--color-ink));
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@layer components {
+  /* Paginabreedte: vloeiend zoals de referentie (48 px marge op desktop). */
+  .shell {
+    width: 100%;
+    max-width: 1824px;
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 24px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .shell {
+      padding-inline: 48px;
+    }
+  }
+  /* Smallere inhoudskolom (catalogus/PLP: 72 px inzet op 1440 bij de referentie). */
+  .shell-inset {
+    width: 100%;
+    max-width: 1824px;
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+  @media (min-width: 768px) {
+    .shell-inset {
+      padding-inline: 24px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .shell-inset {
+      padding-inline: 72px;
+    }
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-variation-settings:
+      "SOFT" 100,
+      "WONK" 0;
+    letter-spacing: -0.01em;
+  }
+
+  /* Sectiekop (40/48 op desktop) */
+  .section-title {
+    font-family: var(--font-display);
+    font-variation-settings:
+      "SOFT" 100,
+      "WONK" 0;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+  @media (min-width: 1024px) {
+    .section-title {
+      font-size: 2.5rem;
+    }
+  }
+
+  /* Knoppen */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 12px 20px;
+    border-radius: var(--radius-pill);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    transition:
+      background-color 0.15s,
+      color 0.15s,
+      border-color 0.15s,
+      box-shadow 0.15s;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--color-ink);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: #2d2222;
+  }
+  .btn-primary:disabled {
+    background: rgb(19 12 12 / 0.35);
+  }
+  .btn-outline {
+    background: #fff;
+    color: var(--color-ink);
+    border: 1px solid var(--color-line-strong);
+  }
+  .btn-outline:hover {
+    border-color: var(--color-ink);
+  }
+  .btn-picture {
+    background: var(--color-on-picture);
+    color: #fff;
+    border: 1px solid rgb(249 250 251 / 0.3);
+    box-shadow: var(--shadow-label);
+    backdrop-filter: blur(6px);
+  }
+  .btn-picture:hover {
+    background: rgb(60 45 47 / 0.7);
+  }
+  .btn-sm {
+    min-height: 40px;
+    padding: 8px 16px;
+    font-size: 0.875rem;
+  }
+
+  /* Label/badge (wit, afgerond, zachte schaduw) */
+  .label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 14px;
+    background: #fff;
+    color: var(--color-ink-80);
+    font-size: 0.75rem;
+    line-height: 1;
+    min-height: 24px;
+    box-shadow: var(--shadow-label);
+  }
+
+  /* Invoervelden */
+  .field {
+    width: 100%;
+    min-height: 48px;
+    border-radius: var(--radius-field);
+    border: 1px solid var(--color-line-strong);
+    background: var(--color-mist);
+    padding: 10px 14px;
+    font-size: 0.875rem;
+    color: var(--color-ink);
+  }
+  .field::placeholder {
+    color: var(--color-ink-60);
+  }
+  .field:focus {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 1px;
+  }
+
+  /* Verborgen scrollbar voor carrousels (scrollen blijft werken) */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  /* Leesbare lopende tekst (artikels, infopagina's) */
+  .prose-brunic p {
+    margin-block: 0 1rem;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-ink-80);
+  }
+  .prose-brunic h2 {
+    font-family: var(--font-display);
+    font-variation-settings:
+      "SOFT" 100,
+      "WONK" 0;
+    font-size: 1.75rem;
+    margin: 2rem 0 0.75rem;
+  }
+}
+
+@layer utilities {
+  .on-dark {
+    --focus-ring: #fff;
+  }
+  /* Overlay-verloop onderaan fototegels (leesbaarheid witte tekst) */
+  .tile-shade {
+    background: linear-gradient(180deg, rgb(19 12 12 / 0) 45%, rgb(19 12 12 / 0.55) 100%);
+  }
+  .hero-shade {
+    background: linear-gradient(90deg, rgb(19 12 12 / 0.45) 0%, rgb(19 12 12 / 0.15) 50%, rgb(19 12 12 / 0) 75%);
+  }
+  .ticket {
+    /* Ticketvorm met halfronde inkepingen links en rechts (zoals de couponlabel in de hero) */
+    --notch: 6px;
+    mask:
+      radial-gradient(circle at 0 50%, #0000 var(--notch), #000 calc(var(--notch) + 0.5px)) left / 51% 100% no-repeat,
+      radial-gradient(circle at 100% 50%, #0000 var(--notch), #000 calc(var(--notch) + 0.5px)) right / 51% 100% no-repeat;
+  }
+}
+
+/* PDP op mobiel: ruimte voor de kleverige bestelbalk onderaan */
+@media (max-width: 1023px) {
+  body.has-sticky-buybar {
+    padding-bottom: 76px;
+  }
+}
+
+/* Print: de verlanglijst als meeneemlijst voor een winkelbezoek */
+@media print {
+  header,
+  footer,
+  nav,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    font-size: 12px;
+  }
+}

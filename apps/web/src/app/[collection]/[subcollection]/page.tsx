@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CollectionView } from "@/components/collection-view";
-import { getCollection } from "@/lib/shopify/collection";
-import { facetProductFilters, heeftFacets, type SearchParams, selectedFacets } from "@/lib/shopify/facets";
+import { getCollection, laadPlp } from "@/lib/shopify/collection";
+import { heeftFacets, heeftPagina, paginaUit, type SearchParams, selectedFacets } from "@/lib/shopify/facets";
 import { subBySlug, TAXONOMIE } from "@/lib/shopify/taxonomie";
 
 // Subcategorieën zijn een collectie-niveau, geen productniveau: het product blijft op het
@@ -41,15 +41,16 @@ export async function generateMetadata({
   const collection = await getCollection(sub.handle);
   if (!collection) return {};
 
-  const gefilterd = heeftFacets(selectedFacets(await searchParams));
+  const sp = await searchParams;
+  const gefilterd = heeftFacets(selectedFacets(sp)) || heeftPagina(paginaUit(sp));
   const leeg = collection.products.nodes.length === 0;
 
   return {
     title: collection.title,
     description: collection.description || undefined,
     alternates: { canonical: `/${ouder}/${sub.slug}` },
-    // Nog lege subcategorie of een actieve facet-combinatie: niet indexeren. Anders vult
-    // de sitemap zich met dunne pagina's (docs/architectuur.md §Migratie).
+    // Nog lege subcategorie, een actieve facet-combinatie of een vervolgpagina: niet indexeren.
+    // Anders vult de sitemap zich met dunne pagina's (docs/architectuur.md §Migratie).
     robots: leeg || gefilterd ? { index: false, follow: true } : undefined,
   };
 }
@@ -65,14 +66,8 @@ export default async function SubcollectionPage({
   const sub = subBySlug(ouder, slug);
   if (!sub) notFound();
 
-  const collection = await getCollection(sub.handle);
-  if (!collection) notFound();
+  const plp = await laadPlp(sub.handle, await searchParams);
+  if (!plp) notFound();
 
-  // Facetlijst uit de ONgefilterde fetch (opties verdwijnen niet), producten uit de gefilterde.
-  const selected = selectedFacets(await searchParams);
-  const filters = facetProductFilters(selected);
-  const gefilterd = filters.length > 0 ? await getCollection(sub.handle, filters) : null;
-  const producten = gefilterd?.products.nodes ?? collection.products.nodes;
-
-  return <CollectionView collection={collection} producten={producten} selected={selected} />;
+  return <CollectionView {...plp} />;
 }

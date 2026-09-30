@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { MaatKiezer } from "@/components/maat-kiezer";
-import { beeldloosWoord } from "@/lib/format";
+import { ProductDetail } from "@/components/product-detail";
 import { storefront } from "@/lib/shopify/client";
 import { isSysteemCollectie } from "@/lib/shopify/collection";
 import { PRODUCT_QUERY, TOP_PRODUCT_HANDLES_QUERY } from "@/lib/shopify/queries";
@@ -41,28 +39,30 @@ export async function generateMetadata({
   return {
     title: product.title,
     description: product.descriptionHtml.replace(/<[^>]+>/g, "").slice(0, 155),
+    // ?variant= is een weergavekeuze op dezelfde pagina
+    alternates: { canonical: `/product/${handle}` },
   };
 }
 
-export default async function ProductPage({ params }: { params: Promise<Params> }) {
+export default async function ProductPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<Params>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
   const { handle } = await params;
   const product = await fetchProduct(handle);
   if (!product) notFound();
 
   const etalage = isEtalage(product);
-  const beelden = product.images.nodes;
+  const v = (await searchParams).variant;
+  const startVariantId = Array.isArray(v) ? v[0] : v;
   // Het kruimelpad volgt de échte collecties van het product: zit het in een subcategorie,
   // dan wordt het Home › Behang › Effen › product.
   const kruimels = categoriePad(
     product.collections.nodes.filter((c) => !isSysteemCollectie(c.handle)),
   );
-
-  const specs = [
-    ["Materiaal", product.materiaal?.value],
-    ["Kleurfamilie", product.kleurfamilie?.value],
-    ["Poolklasse", product.poolklasse?.value],
-    ["Collectie", product.erpFamilie?.value],
-  ].filter(([, v]) => Boolean(v)) as [string, string][];
 
   return (
     <div className="mx-auto max-w-(--container-brunic) px-6 py-10">
@@ -82,94 +82,15 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         <span aria-current="page">{product.title}</span>
       </nav>
 
-      <div className="grid gap-10 lg:grid-cols-2">
-        {/* Beeld — of de ontworpen beeldloze staat */}
-        <div>
-          {beelden.length > 0 ? (
-            <div className="grid gap-3">
-              <div className="relative aspect-[4/3.4] overflow-hidden rounded-m border border-line bg-ivory-2">
-                <Image
-                  src={beelden[0].url}
-                  alt={beelden[0].altText ?? product.title}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-              {beelden.length > 1 ? (
-                <ul className="grid grid-cols-4 gap-3">
-                  {beelden.slice(1, 5).map((b) => (
-                    <li
-                      key={b.url}
-                      className="relative aspect-square overflow-hidden rounded-s border border-line bg-ivory-2"
-                    >
-                      <Image
-                        src={b.url}
-                        alt={b.altText ?? ""}
-                        fill
-                        sizes="15vw"
-                        className="object-cover"
-                      />
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-            </div>
-          ) : (
-            <div className="stripes-red flex aspect-[4/3.4] flex-col justify-between rounded-m border border-line bg-ivory-2 p-8">
-              <span className="font-display text-5xl font-semibold italic text-brand">
-                {beeldloosWoord(product.title)}
-              </span>
-              <span className="self-start border-t-2 border-brand pt-2 text-xs font-bold uppercase tracking-[0.08em] text-ink-soft">
-                Fotoreportage volgt — dit stuk staat in de winkel
-              </span>
-            </div>
-          )}
-        </div>
+      <ProductDetail product={product} etalage={etalage} startVariantId={startVariantId} />
 
-        {/* Koopblok */}
-        <div>
-          {etalage ? (
-            <p className="mb-2 inline-block rounded-[4px] bg-geel px-2 py-1 text-xs font-extrabold uppercase tracking-[0.09em] text-ink">
-              Uit de winkelcollectie
-            </p>
-          ) : null}
-
-          <h1 className="text-4xl">{product.title}</h1>
-
-          {specs.length > 0 ? (
-            <dl className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm text-ink-soft">
-              {specs.map(([k, v]) => (
-                <div key={k} className="flex gap-1">
-                  <dt>{k}:</dt>
-                  <dd className="font-bold text-ink">{v}</dd>
-                </div>
-              ))}
-            </dl>
-          ) : null}
-
-          <div
-            className="mt-5 max-w-[62ch] text-ink-soft [&_p]:mb-3"
-            dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-          />
-
-          <MaatKiezer
-            variants={product.variants.nodes}
-            etalage={etalage}
-            handle={product.handle}
-            titel={product.title}
-          />
-
-          <p className="mt-8 border-t border-line pt-4 text-sm text-ink-soft">
-            Twijfelt u over de maat? Onze mensen meten bij u thuis op —{" "}
-            <Link href="/opmeting" className="font-bold text-brand-text hover:underline">
-              plan een opmeting
-            </Link>
-            .
-          </p>
-        </div>
-      </div>
+      <p className="mt-8 border-t border-line pt-4 text-sm text-ink-soft">
+        Twijfelt u over de maat? Onze mensen meten bij u thuis op —{" "}
+        <Link href="/opmeting" className="font-bold text-brand-text hover:underline">
+          plan een opmeting
+        </Link>
+        .
+      </p>
     </div>
   );
 }

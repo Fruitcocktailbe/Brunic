@@ -1,13 +1,16 @@
 import Link from "next/link";
-import { beschikbareFacets, toggleFacetHref } from "@/lib/shopify/facets";
+import { beschikbareFacets, facetLabel, facetWaarde, toggleFacetHref } from "@/lib/shopify/facets";
 import type { StorefrontFilter } from "@/lib/shopify/types";
 
 /**
- * Generieke facet-filters (kleur, materiaal, poolklasse…). Puur links op query-params,
- * geen client-JS — deelbaar en werkt zonder JavaScript, net als de maat-filter. Rendert
- * enkel de facets die in déze collectie waarden hebben (behang: kleur; tapijt: + materiaal
- * + poolklasse). Nieuwe facets verschijnen vanzelf zodra ze in Search & Discovery bestaan
- * en in FACET_DEFS staan.
+ * Generieke facet-filters (merk, kleur, materiaal…). Puur links op query-params, geen
+ * client-JS — deelbaar en werkt zonder JavaScript, net als de maat-filter. Rendert enkel de
+ * facets die in déze collectie waarden hebben (behang: kleur, type, patroon; stoffen:
+ * transparantie, brandvertragend; tapijt: materiaal, poolklasse…). Nieuwe facets verschijnen
+ * vanzelf zodra ze in Search & Discovery aanstaan en in FACET_DEFS staan.
+ *
+ * Aantallen komen van Shopify: bij variantfilters (kleur) tellen ze producten met minstens één
+ * passende uitvoering.
  */
 export function FacetFilters({
   filters,
@@ -33,11 +36,12 @@ export function FacetFilters({
             </h2>
             <ul className="mt-2 flex flex-wrap gap-2 lg:flex-col">
               {filter.values.map((v) => {
-                const actief = gekozen.includes(v.label);
+                const waarde = facetWaarde(v);
+                const actief = gekozen.includes(waarde);
                 return (
                   <li key={v.id}>
                     <Link
-                      href={toggleFacetHref(basePath, selected, def.param, v.label)}
+                      href={toggleFacetHref(basePath, selected, def.param, waarde)}
                       aria-pressed={actief}
                       scroll={false}
                       className={`inline-flex items-center gap-2 rounded-s border px-3 py-2 text-sm transition ${
@@ -58,7 +62,7 @@ export function FacetFilters({
                           </svg>
                         ) : null}
                       </span>
-                      {v.label}
+                      {facetLabel(v)}
                       <span className={actief ? "text-white/80" : "text-ink-soft"}>({v.count})</span>
                     </Link>
                   </li>

@@ -4,6 +4,7 @@ const PRODUCT_CARD = /* GraphQL */ `
     handle
     title
     productType
+    vendor
     etalage: metafield(namespace: "brunic", key: "etalage") {
       value
     }
@@ -22,15 +23,26 @@ const PRODUCT_CARD = /* GraphQL */ `
   }
 `;
 
+/**
+ * Eén pagina producten van een collectie. Vooruit bladeren = first + after, terug = last +
+ * before (cursor-paginering van de Storefront API; er bestaat geen paginanummer).
+ */
 export const COLLECTION_QUERY = /* GraphQL */ `
   ${PRODUCT_CARD}
-  query Collection($handle: String!, $first: Int!, $filters: [ProductFilter!]) {
+  query Collection(
+    $handle: String!
+    $first: Int
+    $last: Int
+    $after: String
+    $before: String
+    $filters: [ProductFilter!]
+  ) {
     collection(handle: $handle) {
       id
       handle
       title
       description
-      products(first: $first, filters: $filters) {
+      products(first: $first, last: $last, after: $after, before: $before, filters: $filters) {
         filters {
           id
           label
@@ -47,11 +59,20 @@ export const COLLECTION_QUERY = /* GraphQL */ `
         }
         pageInfo {
           hasNextPage
+          hasPreviousPage
+          startCursor
           endCursor
         }
       }
     }
   }
+`;
+
+const IMAGE = /* GraphQL */ `
+  url
+  altText
+  width
+  height
 `;
 
 export const PRODUCT_QUERY = /* GraphQL */ `
@@ -69,6 +90,12 @@ export const PRODUCT_QUERY = /* GraphQL */ `
         }
       }
       descriptionHtml
+      options {
+        name
+        optionValues {
+          name
+        }
+      }
       etalage: metafield(namespace: "brunic", key: "etalage") {
         value
       }
@@ -84,18 +111,21 @@ export const PRODUCT_QUERY = /* GraphQL */ `
       erpFamilie: metafield(namespace: "brunic", key: "erp_familie") {
         value
       }
-      featuredImage {
-        url
-        altText
-        width
-        height
+      collectie: metafield(namespace: "brunic", key: "collectie") {
+        value
       }
-      images(first: 6) {
+      verkoopEenheid: metafield(namespace: "brunic", key: "verkoop_eenheid") {
+        value
+      }
+      specificaties: metafield(namespace: "brunic", key: "specificaties") {
+        value
+      }
+      featuredImage {
+        ${IMAGE}
+      }
+      images(first: 60) {
         nodes {
-          url
-          altText
-          width
-          height
+          ${IMAGE}
         }
       }
       priceRange {
@@ -104,7 +134,7 @@ export const PRODUCT_QUERY = /* GraphQL */ `
           currencyCode
         }
       }
-      variants(first: 50) {
+      variants(first: 100) {
         nodes {
           id
           title
@@ -118,11 +148,34 @@ export const PRODUCT_QUERY = /* GraphQL */ `
             name
             value
           }
+          image {
+            ${IMAGE}
+          }
           breedte: metafield(namespace: "brunic", key: "breedte_cm") {
             value
           }
           lengte: metafield(namespace: "brunic", key: "lengte_cm") {
             value
+          }
+          kleurnaam: metafield(namespace: "brunic", key: "kleurnaam") {
+            value
+          }
+          beschrijving: metafield(namespace: "brunic", key: "beschrijving") {
+            value
+          }
+          specificaties: metafield(namespace: "brunic", key: "specificaties") {
+            value
+          }
+          afbeeldingen: metafield(namespace: "brunic", key: "afbeeldingen") {
+            references(first: 12) {
+              nodes {
+                ... on MediaImage {
+                  image {
+                    ${IMAGE}
+                  }
+                }
+              }
+            }
           }
         }
       }

@@ -40,6 +40,10 @@ export function ProductCard({ product }: { product: ProductCardData }) {
         </div>
 
         <div className="flex flex-1 flex-col gap-1 p-4">
+          {/* merk boven de titel: leveranciersnamen zijn vaak kort of een code ("Acer", "Loft79 6908") */}
+          {product.vendor && product.vendor !== "Brunic" ? (
+            <p className="text-xs font-bold uppercase tracking-[0.06em] text-ink-soft">{product.vendor}</p>
+          ) : null}
           <h3 className="font-display text-lg leading-tight">{product.title}</h3>
 
           <p className="mt-auto pt-2">

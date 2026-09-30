@@ -1,0 +1,5 @@
+.next/
+next-env.d.ts
+*.tsbuildinfo
+# Momentopname van de Shopify-catalogus (klantdata) — nooit committen
+.data/

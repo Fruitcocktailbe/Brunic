@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CollectionView } from "@/components/collection-view";
-import { getCollection, isSysteemCollectie } from "@/lib/shopify/collection";
+import { getCollection, isSysteemCollectie, laadPlp } from "@/lib/shopify/collection";
 import { storefront } from "@/lib/shopify/client";
-import { facetProductFilters, heeftFacets, type SearchParams, selectedFacets } from "@/lib/shopify/facets";
+import { heeftFacets, heeftPagina, paginaUit, type SearchParams, selectedFacets } from "@/lib/shopify/facets";
 import { COLLECTION_HANDLES_QUERY } from "@/lib/shopify/queries";
 import { isSubcollectie } from "@/lib/shopify/taxonomie";
 
 // De basispagina is statisch + ISR. De maat-filter leeft in /[collection]/maat/[bucket].
-// De generieke facets (kleur…) leven in de query-string en maken die render dynamisch —
-// gefilterde combinaties zijn noindex (canonical → basispad). Zie decisions/log.md.
+// De generieke facets (kleur…) en de paginering (?na=/?voor=) leven in de query-string en
+// maken die render dynamisch — zulke pagina's zijn noindex (canonical → basispad).
 export const revalidate = 3600;
 export const dynamicParams = true;
 
@@ -38,11 +38,12 @@ export async function generateMetadata({
   const collection = await getCollection(handle);
   if (!collection) return {};
 
-  const gefilterd = heeftFacets(selectedFacets(await searchParams));
+  const sp = await searchParams;
+  const gefilterd = heeftFacets(selectedFacets(sp)) || heeftPagina(paginaUit(sp));
   return {
     title: collection.title,
     description: collection.description || undefined,
-    // Gefilterde facet-combinaties canonicaliseren naar het basispad en gaan niet in de index.
+    // Gefilterde facet-combinaties en vervolgpagina's canonicaliseren naar het basispad en gaan niet in de index.
     alternates: { canonical: `/${handle}` },
     robots: gefilterd ? { index: false, follow: true } : undefined,
   };
@@ -60,15 +61,8 @@ export default async function CollectionPage({
   // tweede URL voor dezelfde producten worden (duplicate content).
   if (isSysteemCollectie(handle) || isSubcollectie(handle)) notFound();
 
-  const collection = await getCollection(handle);
-  if (!collection) notFound();
+  const plp = await laadPlp(handle, await searchParams);
+  if (!plp) notFound();
 
-  // De facetlijst voor de zijbalk komt uit de ONgefilterde fetch (opties verdwijnen niet);
-  // de producten uit een tweede, gefilterde fetch.
-  const selected = selectedFacets(await searchParams);
-  const filters = facetProductFilters(selected);
-  const gefilterd = filters.length > 0 ? await getCollection(handle, filters) : null;
-  const producten = gefilterd?.products.nodes ?? collection.products.nodes;
-
-  return <CollectionView collection={collection} producten={producten} selected={selected} />;
+  return <CollectionView {...plp} />;
 }
