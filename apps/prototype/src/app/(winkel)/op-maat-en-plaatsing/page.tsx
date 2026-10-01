@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SERVICES } from "@/data/content";
+import { SERVICES, WERKWIJZE } from "@/data/content";
 import { routes } from "@/lib/routes";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { CategoryHeader } from "@/components/catalog/category-header";
@@ -51,8 +51,9 @@ export default function ServicesPage() {
         <h2 id="werkwijze" className="section-title">
           Zo werken we
         </h2>
+        <p className="mt-3 text-center text-base text-ink-80">Voor gordijnen, raamdecoratie en vasttapijt — van eerste advies tot plaatsing.</p>
         <ol className="mt-8 grid gap-4 md:grid-cols-4">
-          {first.steps.map((st, i) => (
+          {WERKWIJZE.map((st, i) => (
             <li key={st.title} className="rounded-[var(--radius-tile)] bg-white p-5">
               <span className="flex size-10 items-center justify-center rounded-full bg-ink text-sm font-semibold text-white">{i + 1}</span>
               <p className="mt-4 text-lg font-medium">{st.title}</p>

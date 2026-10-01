@@ -27,6 +27,29 @@ export type Service = {
   relatedCategoryIds: CategoryId[];
 };
 
+/**
+ * Algemene werkwijze voor al het maatwerk (overzichtspagina Op maat & plaatsing):
+ * gordijnen, raamdecoratie en vasttapijt. De stappen per dienst staan bij die dienst.
+ */
+export const WERKWIJZE: { title: string; text: string }[] = [
+  {
+    title: "Advies",
+    text: "In de winkel ziet en voelt u gordijnstoffen, raamdecoratie en vasttapijt in het echt. Wij helpen u kiezen op basis van licht, gebruik en sfeer.",
+  },
+  {
+    title: "Gratis opmeting",
+    text: "Wij komen bij u thuis opmeten: de ramen voor gordijnen en raamdecoratie, de ruimtes voor vasttapijt. Zo vertrekt uw offerte van de juiste maten.",
+  },
+  {
+    title: "Op maat gemaakt",
+    text: "Onze eigen stiksters maken uw gordijnen in ons atelier; raamdecoratie en vasttapijt voorzien we op uw exacte maten.",
+  },
+  {
+    title: "Plaatsing",
+    text: "Onze eigen mensen hangen gordijnen en raamdecoratie op en leggen het vasttapijt, netjes afgewerkt.",
+  },
+];
+
 export const SERVICES: Service[] = [
   {
     slug: "gordijnen-op-maat",
