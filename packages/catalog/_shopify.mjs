@@ -1,5 +1,7 @@
 // _shopify.mjs — gedeelde env-loader + Admin-GraphQL-helper voor de catalog-scripts.
 // Leest SHOPIFY_STORE_DOMAIN, SHOPIFY_ADMIN_API_TOKEN, SHOPIFY_API_VERSION uit repo-root .env.
+// Geen SHOPIFY_ADMIN_API_TOKEN? Dan via de Dev Dashboard-app (SHOPIFY_CLIENT_ID +
+// SHOPIFY_CLIENT_SECRET, client credentials) — net als apps/prototype/src/lib/shopify/admin.ts.
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
@@ -21,13 +23,26 @@ laadEnv();
 
 export const ROOT_DIR = ROOT;
 const DOMAIN = process.env.SHOPIFY_STORE_DOMAIN;
-const TOKEN = process.env.SHOPIFY_ADMIN_API_TOKEN;
 const VERSION = process.env.SHOPIFY_API_VERSION ?? "2025-10";
+const { SHOPIFY_CLIENT_ID: CLIENT_ID, SHOPIFY_CLIENT_SECRET: CLIENT_SECRET } = process.env;
 
-if (!DOMAIN || !TOKEN) {
-  console.error("SHOPIFY_STORE_DOMAIN of SHOPIFY_ADMIN_API_TOKEN ontbreekt (.env).");
+if (!DOMAIN || !(process.env.SHOPIFY_ADMIN_API_TOKEN || (CLIENT_ID && CLIENT_SECRET))) {
+  console.error("SHOPIFY_STORE_DOMAIN en SHOPIFY_ADMIN_API_TOKEN (of SHOPIFY_CLIENT_ID + SHOPIFY_CLIENT_SECRET) ontbreken (.env).");
   process.exit(1);
 }
+
+async function clientToken() {
+  const res = await fetch(`https://${DOMAIN}/admin/oauth/access_token`, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ grant_type: "client_credentials", client_id: CLIENT_ID, client_secret: CLIENT_SECRET }),
+  });
+  const json = await res.json().catch(() => ({}));
+  if (!json.access_token) throw new Error(`Aanmelden bij Shopify mislukt (HTTP ${res.status})`);
+  return json.access_token;
+}
+// Token van de client-credentials leeft 24 u — ruim genoeg voor één scriptrun.
+const TOKEN = process.env.SHOPIFY_ADMIN_API_TOKEN || (await clientToken());
 
 export async function admin(query, variables = {}) {
   const res = await fetch(`https://${DOMAIN}/admin/api/${VERSION}/graphql.json`, {

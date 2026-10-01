@@ -93,6 +93,8 @@ const QTY: Record<SalesUnit, QuantityRule> = {
 };
 
 const IS_SFEER = / – sfeerfoto/;
+/** Foto van de opgerolde rol (Boråstapeter) — gelabeld door packages/catalog/borastapeter-rolfoto-achteraan.mjs. */
+const IS_ROL = / – rolfoto/;
 
 /** HTML-beschrijving → platte alinea's (geen HTML van buitenaf in de pagina). */
 function htmlNaarTekst(html: string): string {
@@ -203,6 +205,8 @@ function mapProduct(p: RawProduct, collectieNaarCategorie: Map<string, CategoryI
   for (const [w, url] of beeldBijWaarde) {
     if (!images.some((i) => zonderQuery(i.src) === zonderQuery(url))) images.push({ src: url, alt: `${p.title} — ${w}`, optionValue: w });
   }
+  // De rolfoto nooit vooraan: niet als kaartbeeld, niet als eerste beeld van een kleur, niet als staal.
+  images.sort((a, b) => Number(IS_ROL.test(a.alt)) - Number(IS_ROL.test(b.alt)));
 
   const options: ProductOption[] = opties.map((o) => ({
     name: o.name,
