@@ -1,23 +1,9 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
-import type { ListingItem } from "@/lib/catalog/view";
-import {
-  activeFilterCount,
-  applyFilters,
-  facetGroups,
-  labelFor,
-  PAGE_SIZE,
-  parseListState,
-  serializeListState,
-  sortItems,
-  SORTS,
-  type FacetGroup,
-  type FacetLabelMap,
-  type ListState,
-  type SortKey,
-} from "@/lib/catalog/filters";
+import { usePathname, useRouter } from "next/navigation";
+import { useCallback, useEffect, useId, useOptimistic, useRef, useState, useTransition, type ReactNode } from "react";
+import type { ListingData } from "@/lib/catalog/listing";
+import { activeFilterCount, labelFor, PAGE_SIZE, serializeListState, SORTS, type FacetGroup, type FacetLabelMap, type ListState, type SortKey } from "@/lib/catalog/filters";
 import { Drawer } from "@/components/ui/drawer";
 import { Icon } from "@/components/ui/icon";
 import { ProductCard } from "./product-card";
@@ -26,16 +12,19 @@ const NO_LABELS: FacetLabelMap = {};
 
 /**
  * Productlijst met filters, sortering en "meer laden". De toestand leeft in de URL
- * (deelbaar, terugknop werkt); filteren gebeurt client-side op de meegegeven items.
+ * (deelbaar, terugknop werkt). Filteren, tellen en pagineren gebeurt op de server
+ * (lib/catalog/listing.ts, B11): deze component krijgt enkel de getoonde producten en de
+ * filtergroepen, en vraagt bij elke keuze een nieuwe serverrender via router.replace.
+ * Keuzes verschijnen meteen (optimistisch); het raster dimt tot de nieuwe lijst er is.
  */
 export function ProductListing({
-  items,
+  data,
   promo,
   emptyState,
   showOffersToggle = true,
   facetLabels = NO_LABELS,
 }: {
-  items: ListingItem[];
+  data: ListingData;
   /** Labels voor filterwaarden die slugs zijn (bv. hoofdcategorie). */
   facetLabels?: FacetLabelMap;
   /** Brede campagnetegel die na de 8e kaart in het raster verschijnt (referentie). */
@@ -45,16 +34,23 @@ export function ProductListing({
 }) {
   const router = useRouter();
   const pathname = usePathname();
-  const params = useSearchParams();
-  const state = useMemo(() => parseListState(new URLSearchParams(params.toString())), [params]);
+  const [state, setOptimisticState] = useOptimistic(data.state);
+  // Blijft true tot de serverrender van de nieuwe URL binnen is (router.replace in een transition).
+  const [pending, startTransition] = useTransition();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const update = useCallback(
     (next: Partial<ListState>, resetPage = true) => {
       const merged: ListState = { ...state, ...next, page: resetPage ? 1 : (next.page ?? state.page) };
-      router.replace(`${pathname}${serializeListState(merged, new URLSearchParams(params.toString()))}`, { scroll: false });
+      // Andere parameters (?q=, ?weergave=) blijven staan. Gelezen bij de klik en niet via
+      // useSearchParams: zo blijft de lijst in de server-HTML (geen client-side bailout).
+      const url = `${pathname}${serializeListState(merged, new URLSearchParams(window.location.search))}`;
+      startTransition(() => {
+        setOptimisticState(merged);
+        router.replace(url, { scroll: false });
+      });
     },
-    [state, router, pathname, params],
+    [state, router, pathname, setOptimisticState],
   );
 
   const toggleValue = (key: string, value: string) => {
@@ -65,11 +61,30 @@ export function ProductListing({
   const clearKey = (key: string) => update({ selection: { ...state.selection, [key]: [] } });
   const clearAll = () => update({ selection: {}, offersOnly: false });
 
-  const filtered = useMemo(() => sortItems(applyFilters(items, state.selection, state.offersOnly), state.sort), [items, state]);
-  const groups = useMemo(() => facetGroups(items, state.selection, state.offersOnly, facetLabels), [items, state, facetLabels]);
-  const shown = filtered.slice(0, state.page * PAGE_SIZE);
+  const { items: shown, total, groups, hasOffers } = data;
   const activeCount = activeFilterCount(state);
-  const hasOffers = items.some((i) => i.badges.includes("aanbieding"));
+
+  // Kleeft de filterbalk (desktop)? Dan schuift hij mee omhoog wanneer de header inklapt
+  // (transform, geen top-wijziging: dat zou als layoutverschuiving tellen — B10).
+  const meetpunt = useRef<HTMLDivElement>(null);
+  const [vast, setVast] = useState(false);
+  useEffect(() => {
+    const el = meetpunt.current;
+    if (!el) return;
+    let io: IntersectionObserver | undefined;
+    const start = () => {
+      io?.disconnect();
+      const h = Number.parseInt(getComputedStyle(document.documentElement).getPropertyValue("--header-h"), 10) || 106;
+      io = new IntersectionObserver(([e]) => setVast(!e.isIntersecting && e.boundingClientRect.top < h + 1), { rootMargin: `-${h + 1}px 0px 0px 0px` });
+      io.observe(el);
+    };
+    start();
+    window.addEventListener("resize", start);
+    return () => {
+      io?.disconnect();
+      window.removeEventListener("resize", start);
+    };
+  }, []);
 
   // Na "meer tonen": focus naar het eerste nieuwe product (toetsenbordgebruikers).
   const firstNewRef = useRef<HTMLLIElement>(null);
@@ -83,8 +98,13 @@ export function ProductListing({
 
   return (
     <div>
+      <div ref={meetpunt} aria-hidden="true" />
       {/* Filterbalk */}
-      <div className="z-30 bg-white py-3 transition-[top] duration-200 lg:sticky lg:top-[var(--header-h,106px)]">
+      <div
+        className={`z-30 bg-white py-3 transition-transform duration-200 motion-reduce:transition-none lg:sticky lg:top-[var(--header-h,106px)] ${
+          vast ? "lg:-translate-y-[var(--header-inklap,0px)]" : ""
+        }`}
+      >
         <div className="flex flex-wrap items-center gap-2">
           <div className="hidden flex-wrap items-center gap-2 lg:flex">
             {groups.slice(0, 6).map((g) => (
@@ -104,7 +124,7 @@ export function ProductListing({
 
         <div className="mt-3 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
           <p className="text-[14px] text-ink-80" role="status" aria-live="polite">
-            {filtered.length} {filtered.length === 1 ? "product" : "producten"}
+            {pending ? "Bezig met filteren…" : `${total} ${total === 1 ? "product" : "producten"}`}
           </p>
           {showOffersToggle && hasOffers && (
             <label className="flex cursor-pointer items-center gap-3 text-[14px] font-medium">
@@ -157,50 +177,54 @@ export function ProductListing({
       </div>
 
       {/* Raster */}
-      {filtered.length === 0 ? (
-        (emptyState ?? (
-          <div className="my-10 rounded-[var(--radius-tile)] bg-cloud px-6 py-14 text-center">
-            <Icon name="search" size={36} className="mx-auto text-ink-60" />
-            <p className="mt-4 text-lg font-medium">Geen producten gevonden</p>
-            <p className="mt-1 text-ink-80">{activeCount > 0 ? "Met deze filtercombinatie vinden we niets. Probeer minder filters." : "Hier staan nog geen producten."}</p>
-            {activeCount > 0 && (
-              <button type="button" onClick={clearAll} className="btn btn-primary mt-6">
-                Alle filters wissen
-              </button>
-            )}
-          </div>
-        ))
-      ) : (
-        <ul role="list" className="mt-4 grid grid-cols-1 gap-x-3 gap-y-4 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 xl:gap-x-5">
-          {shown.map((p, i) => (
-            <FragmentWithPromo key={p.id} index={i} promo={promo && activeCount === 0 && i === 8 ? promo : null}>
-              <li ref={i === (state.page - 1) * PAGE_SIZE && state.page > 1 ? firstNewRef : undefined}>
-                <ProductCard product={p} priority={i < 4} tone={i} />
-              </li>
-            </FragmentWithPromo>
-          ))}
-        </ul>
-      )}
+      <div aria-busy={pending} className={`transition-opacity duration-150 ${pending ? "opacity-50" : ""}`}>
+        {total === 0 ? (
+          (emptyState ?? (
+            <div className="my-10 rounded-[var(--radius-tile)] bg-cloud px-6 py-14 text-center">
+              <Icon name="search" size={36} className="mx-auto text-ink-60" />
+              <p className="mt-4 text-lg font-medium">Geen producten gevonden</p>
+              <p className="mt-1 text-ink-80">{activeCount > 0 ? "Met deze filtercombinatie vinden we niets. Probeer minder filters." : "Hier staan nog geen producten."}</p>
+              {activeCount > 0 && (
+                <button type="button" onClick={clearAll} className="btn btn-primary mt-6">
+                  Alle filters wissen
+                </button>
+              )}
+            </div>
+          ))
+        ) : (
+          // Op mobiel twee kolommen (B22): één kaart per rij gaf ±440 px per product.
+          <ul role="list" className="mt-4 grid grid-cols-2 gap-x-2 gap-y-4 sm:gap-x-3 md:grid-cols-3 xl:grid-cols-4 xl:gap-x-5">
+            {shown.map((p, i) => (
+              <FragmentWithPromo key={p.id} index={i} promo={promo && activeCount === 0 && i === 8 ? promo : null}>
+                <li ref={i === (data.state.page - 1) * PAGE_SIZE && data.state.page > 1 ? firstNewRef : undefined}>
+                  <ProductCard product={p} priority={i < 4} tone={i} />
+                </li>
+              </FragmentWithPromo>
+            ))}
+          </ul>
+        )}
+      </div>
 
       {/* Meer laden (referentie: "Vous avez vu 49 produits sur 49") */}
-      {filtered.length > 0 && (
+      {total > 0 && (
         <div className="mx-auto mt-10 flex max-w-sm flex-col items-center gap-3 text-center">
           <p className="text-[14px] text-ink-80">
-            U hebt {shown.length} van {filtered.length} producten bekeken
+            U hebt {shown.length} van {total} producten bekeken
           </p>
           <div className="h-1 w-full overflow-hidden rounded-full bg-mist" aria-hidden="true">
-            <div className="h-full rounded-full bg-ink" style={{ width: `${(shown.length / filtered.length) * 100}%` }} />
+            <div className="h-full rounded-full bg-ink" style={{ width: `${(shown.length / total) * 100}%` }} />
           </div>
-          {shown.length < filtered.length && (
+          {shown.length < total && (
             <button
               type="button"
+              disabled={pending}
               onClick={() => {
                 update({ page: state.page + 1 }, false);
                 setFocusNew(true);
               }}
               className="btn btn-outline mt-2"
             >
-              {Math.min(PAGE_SIZE, filtered.length - shown.length)} meer tonen
+              {pending ? "Bezig met laden…" : `${Math.min(PAGE_SIZE, total - shown.length)} meer tonen`}
             </button>
           )}
         </div>
@@ -216,7 +240,7 @@ export function ProductListing({
               Alles wissen
             </button>
             <button type="button" onClick={() => setDrawerOpen(false)} className="btn btn-primary flex-[1.4]">
-              Toon {filtered.length} {filtered.length === 1 ? "product" : "producten"}
+              {pending ? "Bezig…" : `Toon ${total} ${total === 1 ? "product" : "producten"}`}
             </button>
           </div>
         }

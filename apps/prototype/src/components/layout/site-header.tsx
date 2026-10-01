@@ -25,6 +25,7 @@ export function SiteHeader({ menu, nav }: { menu: MenuNode[]; nav: NavItem[] }) 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+  const rij1Ref = useRef<HTMLDivElement>(null);
   const catalogBtn = useRef<HTMLButtonElement>(null);
 
   // Menu's sluiten bij navigatie.
@@ -33,9 +34,8 @@ export function SiteHeader({ menu, nav }: { menu: MenuNode[]; nav: NavItem[] }) 
     setMobileOpen(false);
   }, [pathname]);
 
-  // Navigatierij in-/uitklappen op scrollrichting. Hysterese (48 px in dezelfde richting)
-  // + korte vergrendeling na elke wissel: de hoogtewijziging van de header verschuift
-  // zelf de scrollpositie en mag niet als "omhoog scrollen" gelezen worden (flikkeren).
+  // In-/uitklappen op scrollrichting. Hysterese (48 px in dezelfde richting) + korte
+  // vergrendeling na elke wissel, zodat de header niet flikkert bij kleine bewegingen.
   useEffect(() => {
     let last = window.scrollY;
     let travel = 0;
@@ -62,12 +62,25 @@ export function SiteHeader({ menu, nav }: { menu: MenuNode[]; nav: NavItem[] }) 
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Actuele headerhoogte als CSS-variabele: kleverige filterbalken lijnen erop uit.
+  // Hoogtes als CSS-variabelen (B10/B21):
+  // --header-h            volle hoogte; verandert nooit bij scrollen, dus kleverige elementen
+  //                       (filterbalk, productkolom) en de inhoud verspringen niet;
+  // --header-inklap-max   wat er bij inklappen visueel wegschuift (servicebalk + zoek-/navrij);
+  // --header-inklap       0 of --header-inklap-max: kleverige elementen schuiven mee via transform.
   useEffect(() => {
-    const el = headerRef.current;
-    if (!el) return;
-    const ro = new ResizeObserver(() => document.documentElement.style.setProperty("--header-h", `${Math.round(el.getBoundingClientRect().height)}px`));
-    ro.observe(el);
+    const header = headerRef.current;
+    const rij1 = rij1Ref.current;
+    if (!header || !rij1) return;
+    const meet = () => {
+      const vol = Math.round(header.getBoundingClientRect().height);
+      const rest = Math.round(rij1.getBoundingClientRect().height);
+      document.documentElement.style.setProperty("--header-h", `${vol}px`);
+      document.documentElement.style.setProperty("--header-inklap-max", `${Math.max(0, vol - rest)}px`);
+    };
+    const ro = new ResizeObserver(meet);
+    ro.observe(header);
+    ro.observe(rij1);
+    meet();
     return () => ro.disconnect();
   }, []);
 
@@ -94,51 +107,69 @@ export function SiteHeader({ menu, nav }: { menu: MenuNode[]; nav: NavItem[] }) 
   const isActive = (href: string) =>
     href === routes.catalog() ? pathname.startsWith("/catalogus") || pathname.startsWith("/product") : pathname.startsWith(href);
 
-  const hideNav = collapsed && !megaOpen;
+  // Ingeklapt = enkel de logorij zichtbaar. Met het megamenu open blijft alles staan.
+  const ingeklapt = collapsed && !megaOpen;
+  useEffect(() => {
+    document.documentElement.style.setProperty("--header-inklap", ingeklapt ? "var(--header-inklap-max, 0px)" : "0px");
+  }, [ingeklapt]);
 
+  // De header neemt altijd zijn volle hoogte in (niets eronder verspringt). Bij inklappen
+  // schuiven servicebalk en zoek-/navigatierij met een transform weg achter de logorij;
+  // het lege stuk eronder laat klikken door (pointer-events-none) naar de pagina.
+  const verborgen = ingeklapt ? "invisible -translate-y-full" : "pointer-events-auto";
   return (
-    <header ref={headerRef} className="sticky top-0 z-50 bg-white">
-      <a href="#inhoud" className="sr-only-focusable absolute left-4 top-2 z-[60] rounded-full bg-ink px-4 py-2 text-white">
+    <header ref={headerRef} className="pointer-events-none sticky top-0 z-50">
+      <a href="#inhoud" className="sr-only-focusable pointer-events-auto absolute left-4 top-2 z-[60] rounded-full bg-ink px-4 py-2 text-white">
         Naar de inhoud
       </a>
-      <ServiceBar />
+      <div className={`transition-transform duration-200 motion-reduce:transition-none ${ingeklapt ? "-translate-y-[30px]" : ""}`}>
+        <div className="pointer-events-auto">
+          <ServiceBar />
+        </div>
 
-      <div className="shell">
-        {/* Rij 1: logo · zoeken · iconen */}
-        <div className="flex h-[64px] items-center gap-2 lg:h-[76px] lg:gap-6">
-          <button
-            type="button"
-            onClick={() => setMobileOpen(true)}
-            className="-ml-1 flex min-h-11 min-w-11 flex-col items-center justify-center rounded-lg text-[11px] leading-none lg:hidden"
-            aria-label="Menu openen"
-            aria-expanded={mobileOpen}
-          >
-            <Icon name="menu" size={24} />
-            <span aria-hidden="true" className="mt-0.5">
-              Menu
-            </span>
-          </button>
-          <Logo />
-          <Suspense fallback={<div className="hidden h-[46px] flex-1 lg:block" />}>
-            <SearchBox className="hidden max-w-[660px] flex-1 lg:block" />
-          </Suspense>
-          <div className="ml-auto">
-            <HeaderActions />
+        {/* Rij 1: logo · zoeken · iconen — blijft altijd zichtbaar */}
+        <div ref={rij1Ref} className={`pointer-events-auto relative z-20 bg-white ${ingeklapt ? "shadow-[0_1px_0_var(--color-line)]" : ""}`}>
+          <div className="shell flex h-[64px] items-center gap-2 lg:h-[76px] lg:gap-6">
+            <button
+              type="button"
+              onClick={() => setMobileOpen(true)}
+              className="-ml-1 flex min-h-11 min-w-11 flex-col items-center justify-center rounded-lg text-[11px] leading-none lg:hidden"
+              aria-label="Menu openen"
+              aria-expanded={mobileOpen}
+            >
+              <Icon name="menu" size={24} />
+              <span aria-hidden="true" className="mt-0.5">
+                Menu
+              </span>
+            </button>
+            <Logo />
+            <Suspense fallback={<div className="hidden h-[46px] flex-1 lg:block" />}>
+              <SearchBox className="hidden max-w-[660px] flex-1 lg:block" />
+            </Suspense>
+            <div className="ml-auto">
+              <HeaderActions />
+            </div>
           </div>
         </div>
 
         {/* Rij 2 (mobiel/tablet): zoekveld */}
-        <div className={`grid transition-[grid-template-rows] duration-200 lg:hidden ${collapsed ? "grid-rows-[0fr]" : "grid-rows-[1fr]"}`}>
-          <div className={collapsed ? "overflow-hidden" : ""}>
-            <Suspense fallback={<div className="h-[46px]" />}>
+        <div
+          className={`relative z-10 bg-white transition-[transform,visibility] duration-200 motion-reduce:transition-none lg:hidden ${verborgen}`}
+          inert={ingeklapt || undefined}
+        >
+          <div className="shell">
+            <Suspense fallback={<div className="h-[58px]" />}>
               <SearchBox className="pb-3" />
             </Suspense>
           </div>
         </div>
 
         {/* Rij 3 (desktop): hoofdnavigatie */}
-        <div className={`hidden transition-[grid-template-rows] duration-200 lg:grid ${hideNav ? "grid-rows-[0fr]" : "grid-rows-[1fr]"}`}>
-          <nav aria-label="Hoofdnavigatie" className={hideNav ? "overflow-hidden" : ""}>
+        <div
+          className={`relative z-10 hidden bg-white transition-[transform,visibility] duration-200 motion-reduce:transition-none lg:block ${verborgen}`}
+          inert={ingeklapt || undefined}
+        >
+          <nav aria-label="Hoofdnavigatie" className="shell">
             <div className="flex h-[64px] items-center justify-between gap-4">
               <ul className="flex items-center gap-1" role="list">
                 {nav.map((item) =>
@@ -159,7 +190,7 @@ export function SiteHeader({ menu, nav }: { menu: MenuNode[]; nav: NavItem[] }) 
                       </button>
                       <span aria-hidden="true" className="ml-3 mr-2 h-8 w-px bg-line-strong/30" />
                       {/* In de DOM direct na de knop: Tab gaat meteen het menu in. */}
-                      {megaOpen && <MegaMenu menu={menu} onNavigate={() => setMegaOpen(false)} />}
+                      {megaOpen && <MegaMenu menu={menu} onNavigate={() => setMegaOpen(false)} metAanbiedingen={nav.some((n) => n.key === "aanbiedingen")} />}
                     </li>
                   ) : (
                     <li key={item.key}>
@@ -187,10 +218,12 @@ export function SiteHeader({ menu, nav }: { menu: MenuNode[]; nav: NavItem[] }) 
             </div>
           </nav>
         </div>
+        <div className={`border-b border-line ${ingeklapt ? "invisible" : ""}`} />
       </div>
-      <div className="border-b border-line" />
 
-      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} menu={menu} nav={nav} />
+      <div className="pointer-events-auto">
+        <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} menu={menu} nav={nav} />
+      </div>
     </header>
   );
 }

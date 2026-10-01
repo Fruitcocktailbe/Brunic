@@ -164,13 +164,13 @@ export function ProductView({
         </div>
 
         <aside className="[grid-area:buy]" aria-label="Bestellen">
-          <div className="lg:sticky lg:top-[calc(var(--header-h,106px)+16px)]">
-            <p className="font-display text-[28px] leading-tight">{product.line ?? product.brand ?? "Brunic"}</p>
-            <h1 className="mt-2 text-[15px] leading-snug">
-              {product.facets.type?.[0] && `${product.facets.type[0]} `}
-              {product.title}
-              {product.brand && <span className="text-ink-60"> — {product.brand}</span>}
-            </h1>
+          <div className="transition-transform duration-200 motion-reduce:transition-none lg:sticky lg:top-[calc(var(--header-h,106px)+16px)] lg:-translate-y-[var(--header-inklap,0px)]">
+            {/* Bovenregel: merk · type · collectie; de productnaam is de hoofdtitel (B15). */}
+            <p className="text-[13px] font-medium uppercase tracking-wide text-ink-60">
+              {[product.brand ?? "Brunic", product.facets.type?.[0]].filter(Boolean).join(" · ")}
+            </p>
+            <h1 className="mt-1.5 font-display text-[30px] leading-tight lg:text-[36px]">{product.title}</h1>
+            {product.line && product.line !== product.title && <p className="mt-1 text-[15px] text-ink-80">Collectie {product.line}</p>}
 
             <Price price={variant.price} pricing={product.pricing} size="lg" className="mt-3" />
             {product.pricing === "fixed" && unit !== "stuk" && variant.price && (

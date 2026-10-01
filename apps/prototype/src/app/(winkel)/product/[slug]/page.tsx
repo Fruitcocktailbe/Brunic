@@ -7,7 +7,7 @@ import { visibleChildren } from "@/lib/catalog/tree";
 import { toCard } from "@/lib/catalog/view";
 import { routes } from "@/lib/routes";
 import { isIndexable } from "@/lib/catalog/product";
-import { brandSlug } from "@/lib/catalog/brands";
+import { brandSlug, merkVan } from "@/lib/catalog/brands";
 import { breadcrumbJsonLd, categoryCrumbs, productJsonLd } from "@/lib/site/seo";
 import { JsonLd } from "@/components/seo/json-ld";
 import { maatwerkVoor } from "@/lib/site/maatwerk";
@@ -66,7 +66,7 @@ export default async function ProductPage({ params }: Props) {
   const discover = [
     ...trail.map((t) => ({ label: t.name, href: routes.category(t) })),
     ...(parent ? visibleChildren(parent).filter((c) => c.id !== primary.id).map((c) => ({ label: c.name, href: routes.category(c) })) : []),
-    ...(product.brand ? [{ label: `Meer van ${product.brand}`, href: routes.brand(brandSlug(product.brand)) }] : []),
+    ...(product.brand ? [{ label: `Meer van ${merkVan(product.brand)}`, href: routes.brand(brandSlug(merkVan(product.brand))) }] : []),
     { label: `Nieuw in ${trail[0].name.toLowerCase()}`, href: routes.newArrivals(trail[0].slug) },
   ];
 

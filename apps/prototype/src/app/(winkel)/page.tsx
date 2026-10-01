@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { catalog } from "@/lib/catalog/repository";
 import { toCard } from "@/lib/catalog/view";
@@ -18,6 +19,9 @@ import { ProductCard } from "@/components/catalog/product-card";
 import { Carousel } from "@/components/ui/carousel";
 import { Icon } from "@/components/ui/icon";
 import { JsonLd } from "@/components/seo/json-ld";
+
+// Canonical enkel hier: in de root-layout zou elke pagina zonder eigen canonical "/" erven (B26).
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 /** Tegels waarvan het doel (categorie, product, artikel) bestaat, met hun URL. */
 async function metHref<T extends { doel: Parameters<typeof resolveDoel>[0] }>(items: T[]) {

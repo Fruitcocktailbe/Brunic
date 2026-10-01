@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   title: { default: "Brunic Ninove — gordijnen op maat, behang, vasttapijt & tapijten", template: "%s · Brunic Ninove" },
   description: SITE.description,
   applicationName: SITE.name,
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "nl_BE",

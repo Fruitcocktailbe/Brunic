@@ -1,7 +1,7 @@
 /**
  * Filters en sortering voor productlijsten. Puur (geen React). De server berekent per
- * product alle filterwaarden (`derivedFacetValues`); de productlijst past de selectie
- * client-side toe.
+ * product alle filterwaarden (`derivedFacetValues`) en past de selectie toe in
+ * lib/catalog/listing.ts; de browser krijgt enkel het resultaat.
  *
  * Een filter toevoegen = één regel in FACETS + de waarde in `product.facets[key]`.
  * Staat in de URL als querystring (?kleur=Grijs,Wit&prijs=25-50&sorteer=prijs-op)

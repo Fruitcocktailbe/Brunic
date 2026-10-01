@@ -8,7 +8,7 @@ import path from "node:path";
 import { CATEGORIES } from "@/data/categories";
 import { CATEGORIE_TEKST } from "@/data/categorie-teksten";
 import { SUBCATEGORIE_BEELD } from "@/data/beelden";
-import { NIEUW_AANTAL, SHOPIFY_HOOFDCOLLECTIE, SHOPIFY_NEGEER, SHOPIFY_NIEUW_COLLECTIE, SHOPIFY_SUB_EXTRA, SHOPIFY_SUB_VOORVOEGSEL } from "@/data/shopify-bron";
+import { SHOPIFY_HOOFDCOLLECTIE, SHOPIFY_NEGEER, SHOPIFY_NIEUW_COLLECTIE, SHOPIFY_SUB_EXTRA, SHOPIFY_SUB_VOORVOEGSEL } from "@/data/shopify-bron";
 import type { Category, CategoryId, Price, Product, ProductImage, ProductOption, QuantityRule, SalesUnit, Spec, Variant } from "./types";
 
 export const SNAPSHOT_PAD = path.join(process.cwd(), ".data", "shopify-catalogus.json");
@@ -281,14 +281,17 @@ export function laadShopifyCatalogus(): { categories: Category[]; products: Prod
 
   const { categories, collectieNaarCategorie } = bouwCategorieen(snapshot, telling);
   const bekend = new Set(categories.map((c) => c.id));
-  // "Nieuw": de door Brunic samengestelde collectie, anders de laatst aangemaakte producten.
+  // "Nieuw": de door Brunic samengestelde collectie `nieuw-binnen`. Bestaat die niet, dan
+  // één product per merk: het laatst aangemaakte, bij voorkeur met een sfeerfoto. (Alle
+  // producten werden in één import aangemaakt; "de laatste 48" zou één importbatch zijn.)
   const gekozen = snapshot.products.filter((p) => p.collections.includes(SHOPIFY_NIEUW_COLLECTIE));
-  const nieuw = new Set(
-    (gekozen.length
-      ? gekozen
-      : [...snapshot.products].sort((a, b) => b.createdAt.localeCompare(a.createdAt) || b.updatedAt.localeCompare(a.updatedAt)).slice(0, NIEUW_AANTAL)
-    ).map((p) => p.id),
-  );
+  const perMerk = new Map<string, RawProduct>();
+  const score = (p: RawProduct) => `${p.images.some((i) => IS_SFEER.test(i.altText ?? "")) ? 1 : 0}|${p.createdAt}|${p.updatedAt}`;
+  for (const p of snapshot.products) {
+    const huidig = perMerk.get(p.vendor);
+    if (!huidig || score(p) > score(huidig)) perMerk.set(p.vendor, p);
+  }
+  const nieuw = new Set((gekozen.length ? gekozen : [...perMerk.values()]).map((p) => p.id));
   const products: Product[] = [];
   let zonderCategorie = 0;
   for (const raw of snapshot.products) {

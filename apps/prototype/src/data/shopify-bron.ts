@@ -38,12 +38,10 @@ export const SHOPIFY_SUB_EXTRA: Record<string, CategoryId> = {
 
 /**
  * Collectie waarmee Brunic zelf bepaalt wat "Nieuw binnen" is (in de Shopify-admin).
- * Leeg of onbestaand → de NIEUW_AANTAL laatst aangemaakte producten.
+ * Leeg of onbestaand → één product per merk (zie shopify-adapter.ts).
  */
 export const SHOPIFY_NIEUW_COLLECTIE = "nieuw-binnen";
 
 /** Technische collecties die geen categorie zijn. */
 export const SHOPIFY_NEGEER = new Set(["frontpage", "in-de-kijker", SHOPIFY_NIEUW_COLLECTIE]);
 
-/** Hoeveel recentste producten het label "Nieuw" krijgen (als er geen nieuw-binnen-collectie is). */
-export const NIEUW_AANTAL = 48;

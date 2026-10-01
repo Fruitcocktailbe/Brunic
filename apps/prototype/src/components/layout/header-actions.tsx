@@ -11,14 +11,12 @@ function Action({
   label,
   count,
   showLabel,
-  alwaysShowCount = false,
 }: {
   href: string;
   icon: IconName;
   label: string;
   count?: number;
   showLabel: boolean;
-  alwaysShowCount?: boolean;
 }) {
   return (
     <Link
@@ -29,7 +27,7 @@ function Action({
       {showLabel && <span className="hidden xl:inline">{label}</span>}
       <span className="relative">
         <Icon name={icon} size={26} />
-        {count !== undefined && (count > 0 || alwaysShowCount) && (
+        {count !== undefined && count > 0 && (
           <span className="absolute -right-2 -top-1.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-brand px-1 text-[11px] font-semibold leading-none text-white ring-2 ring-white">
             {count > 99 ? "99+" : count}
           </span>
@@ -47,7 +45,7 @@ export function HeaderActions({ compact = false }: { compact?: boolean }) {
     <div className="flex items-center gap-0.5 xl:gap-1">
       {!compact && <Action href={routes.store("hulp")} icon="help" label="Hulp & contact" showLabel />}
       <Action href={routes.wishlist()} icon="heart" label="Verlanglijst" count={wish.hydrated ? wish.count : undefined} showLabel={!compact} />
-      <Action href={routes.cart()} icon="bag" label="Winkelmand" count={cart.hydrated ? cart.count : 0} showLabel={!compact} alwaysShowCount />
+      <Action href={routes.cart()} icon="bag" label="Winkelmand" count={cart.hydrated ? cart.count : undefined} showLabel={!compact} />
     </div>
   );
 }

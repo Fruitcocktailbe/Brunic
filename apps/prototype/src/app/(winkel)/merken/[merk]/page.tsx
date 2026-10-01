@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { getBrand, getBrands } from "@/lib/catalog/brands";
 import { catalog } from "@/lib/catalog/repository";
 import { facetLabelsFor, toListingItem } from "@/lib/catalog/view";
+import { buildListing } from "@/lib/catalog/listing";
 import { productCount } from "@/lib/catalog/product";
 import { routes } from "@/lib/routes";
 import { breadcrumbJsonLd } from "@/lib/site/seo";
@@ -34,7 +35,7 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
 }
 
 /** Alle producten van één merk, met dezelfde filters als een categoriepagina. */
-export default async function BrandPage({ params }: Props) {
+export default async function BrandPage({ params, searchParams }: Props) {
   const brand = await getBrand((await params).merk);
   if (!brand) notFound();
   const tree = await catalog.getTree();
@@ -59,7 +60,7 @@ export default async function BrandPage({ params }: Props) {
       </div>
       <section aria-label={`Producten van ${brand.name}`} className="mt-8">
         <Suspense>
-          <ProductListing items={items} promo={<PromoBanner soort={maatwerkVoor(afdeling)} />} facetLabels={facetLabelsFor(tree)} />
+          <ProductListing data={buildListing(items, await searchParams, facetLabelsFor(tree))} promo={<PromoBanner soort={maatwerkVoor(afdeling)} />} facetLabels={facetLabelsFor(tree)} />
         </Suspense>
       </section>
     </div>

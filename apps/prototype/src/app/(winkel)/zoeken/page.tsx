@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { catalog } from "@/lib/catalog/repository";
 import { searchCategories } from "@/lib/catalog/search";
 import { facetLabelsFor, toListingItem } from "@/lib/catalog/view";
+import { buildListing, type SearchParamsRecord } from "@/lib/catalog/listing";
 import { ancestry } from "@/lib/catalog/tree";
 import { routes } from "@/lib/routes";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
@@ -12,10 +13,10 @@ import { ProductListing } from "@/components/catalog/product-listing";
 import { CategoryTile } from "@/components/catalog/category-tile";
 import { categoryImage } from "@/lib/catalog/imagery";
 
-type Props = { searchParams: Promise<{ q?: string }> };
+type Props = { searchParams: Promise<SearchParamsRecord> };
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
-  const q = (await searchParams).q?.trim();
+  const q = String((await searchParams).q ?? "").trim();
   // Zoekresultaten horen niet in de index (dunne, eindeloos variërende pagina's).
   return { title: q ? `Zoeken: ${q}` : "Zoeken", robots: { index: false, follow: true } };
 }
@@ -23,7 +24,8 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 const SUGGESTIES = ["verduisterend", "linnen", "fotobehang", "bloemen", "vasttapijt", "vloerkleed", "brandvrij"];
 
 export default async function SearchPage({ searchParams }: Props) {
-  const q = (await searchParams).q?.trim() ?? "";
+  const sp = await searchParams;
+  const q = String(sp.q ?? "").trim();
   const tree = await catalog.getTree();
   const results = q ? await catalog.search(q) : [];
   const items = results.map((p) => toListingItem(p, tree));
@@ -67,7 +69,7 @@ export default async function SearchPage({ searchParams }: Props) {
       {q && results.length > 0 && (
         <div className="mt-6">
           <Suspense>
-            <ProductListing items={items} facetLabels={facetLabelsFor(tree)} />
+            <ProductListing data={buildListing(items, sp, facetLabelsFor(tree))} facetLabels={facetLabelsFor(tree)} />
           </Suspense>
         </div>
       )}

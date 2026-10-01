@@ -56,6 +56,9 @@ export function CartView({ departments }: { departments: ReactNode }) {
     return { line, p, v };
   });
   const valid = rows.filter((r) => r.p && r.v?.price);
+  // Producten op aanvraag (geen prijs) of uitverkocht kunnen niet naar de kassa (B25).
+  const opAanvraag = (r: (typeof rows)[number]) => Boolean(r.p && r.v && (r.p.pricing === "on-request" || !r.v.price));
+  const geblokkeerd = rows.filter((r) => opAanvraag(r) || r.v?.availability === "uitverkocht");
   // Elke regel eerst afronden op de cent, dan optellen (in centen, zonder zwevendekommafouten).
   const subtotal = valid.reduce((cents, r) => cents + Math.round(lineTotal(r.v!.price!.amount.amount, r.line.quantity) * 100), 0) / 100;
   const savings =
@@ -121,6 +124,7 @@ export function CartView({ departments }: { departments: ReactNode }) {
             }
             const unit = v.price?.unit ?? p.unit;
             const total = lineTotal(v.price?.amount.amount ?? 0, line.quantity);
+            const aanvraag = opAanvraag({ line, p, v });
             return (
               <li key={line.variantId} className="grid grid-cols-[88px_1fr] gap-4 py-5 sm:grid-cols-[120px_1fr]">
                 <Link href={routes.product(p.card.slug, v.id)} tabIndex={-1} aria-label={p.card.title}>
@@ -136,10 +140,22 @@ export function CartView({ departments }: { departments: ReactNode }) {
                       {p.variants.length > 1 && <p className="text-[13px] text-ink-60">{v.label}</p>}
                       <p className="text-[12px] text-ink-60">Art.nr. {v.sku}</p>
                     </div>
-                    <p className="text-right font-semibold" aria-label={`Regeltotaal ${formatMoney(total)}`}>
-                      {formatMoney(total)}
-                    </p>
+                    {aanvraag ? (
+                      <p className="text-right text-[14px] font-medium text-ink-80">Prijs op aanvraag</p>
+                    ) : (
+                      <p className="text-right font-semibold" aria-label={`Regeltotaal ${formatMoney(total)}`}>
+                        {formatMoney(total)}
+                      </p>
+                    )}
                   </div>
+                  {aanvraag ? (
+                    <p className="mt-1 text-[13px] text-ink-80">
+                      Niet online te koop.{" "}
+                      <Link href={routes.quote({ product: p.card.slug, variant: v.id })} className="font-medium underline underline-offset-2">
+                        Vraag een offerte aan
+                      </Link>
+                    </p>
+                  ) : (
                   <p className="mt-1 text-[13px] text-ink-80">
                     {v.price && (
                       <>
@@ -151,12 +167,17 @@ export function CartView({ departments }: { departments: ReactNode }) {
                       {AVAILABILITY_LABEL[v.availability]}
                     </span>
                   </p>
+                  )}
                   {v.availability === "uitverkocht" && <p className="mt-1 text-[13px] text-brand-dark">Deze uitvoering is intussen uitverkocht — kies een andere of verwijder ze.</p>}
                   <div className="mt-3 flex flex-wrap items-center gap-3">
-                    <QuantityInput unit={unit} rule={p.quantity} value={line.quantity} onChange={(q) => cart.setQuantity(line.variantId, q)} compact />
-                    <span className="text-[13px] text-ink-60">
-                      {formatQuantity(line.quantity)} {line.quantity === 1 ? UNIT_NAME[unit].one : UNIT_NAME[unit].many}
-                    </span>
+                    {!aanvraag && (
+                      <>
+                        <QuantityInput unit={unit} rule={p.quantity} value={line.quantity} onChange={(q) => cart.setQuantity(line.variantId, q)} compact />
+                        <span className="text-[13px] text-ink-60">
+                          {formatQuantity(line.quantity)} {line.quantity === 1 ? UNIT_NAME[unit].one : UNIT_NAME[unit].many}
+                        </span>
+                      </>
+                    )}
                     <div className="ml-auto flex gap-1">
                       {!wish.has(p.card.id) && (
                         <button
@@ -188,7 +209,7 @@ export function CartView({ departments }: { departments: ReactNode }) {
           <dl className="mt-4 space-y-2 text-[14px]">
             <div className="flex justify-between">
               <dt>Subtotaal ({cart.lines.length} {cart.lines.length === 1 ? "artikel" : "artikels"})</dt>
-              <dd>{formatMoney(subtotal)}</dd>
+              <dd>{valid.length ? formatMoney(subtotal) : "Op aanvraag"}</dd>
             </div>
             {savings > 0.001 && (
               <div className="flex justify-between text-attention">
@@ -202,10 +223,30 @@ export function CartView({ departments }: { departments: ReactNode }) {
             </div>
             <div className="flex justify-between border-t border-line pt-3 text-base font-semibold">
               <dt>Subtotaal (incl. btw)</dt>
-              <dd>{formatMoney(subtotal)}</dd>
+              <dd>{valid.length ? formatMoney(subtotal) : "Op aanvraag"}</dd>
             </div>
           </dl>
-          <button type="button" onClick={afrekenen} disabled={bezig} className="btn btn-primary mt-5 w-full">
+          {geblokkeerd.length > 0 && (
+            <div role="note" className="mt-5 rounded-[var(--radius-field)] bg-mist p-4 text-[13px] text-ink-80">
+              <p>
+                {geblokkeerd.length === 1 ? "Eén product in uw winkelmand is" : `${geblokkeerd.length} producten in uw winkelmand zijn`} niet online te koop
+                (prijs op aanvraag of uitverkocht). Zet {geblokkeerd.length === 1 ? "het" : "ze"} op uw verlanglijst en vraag er een offerte voor aan.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  for (const r of geblokkeerd) {
+                    if (r.p && !wish.has(r.p.card.id)) wish.toggle(r.p.card.id, r.v?.id);
+                    cart.remove(r.line.variantId);
+                  }
+                }}
+                className="btn btn-outline btn-sm mt-3"
+              >
+                Naar mijn verlanglijst
+              </button>
+            </div>
+          )}
+          <button type="button" onClick={afrekenen} disabled={bezig || geblokkeerd.length > 0} className="btn btn-primary mt-5 w-full">
             {bezig ? "Even geduld…" : "Veilig afrekenen"}
           </button>
           {kassaFout && (

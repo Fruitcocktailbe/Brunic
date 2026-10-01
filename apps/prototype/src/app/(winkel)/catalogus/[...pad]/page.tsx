@@ -5,6 +5,7 @@ import { catalog } from "@/lib/catalog/repository";
 import { allPaths, resolveDisplay, visibleChildren } from "@/lib/catalog/tree";
 import { categoryImage, sfeerfotos } from "@/lib/catalog/imagery";
 import { toListingItem } from "@/lib/catalog/view";
+import { buildListing } from "@/lib/catalog/listing";
 import type { CategoryNode } from "@/lib/catalog/types";
 import { routes } from "@/lib/routes";
 import { breadcrumbJsonLd, categoryCrumbs } from "@/lib/site/seo";
@@ -63,7 +64,8 @@ async function stripData(nodes: CategoryNode[]) {
  */
 export default async function CategoryPage({ params, searchParams }: Props) {
   const { pad } = await params;
-  const { weergave } = await searchParams;
+  const sp = await searchParams;
+  const { weergave } = sp;
   const node = await catalog.getCategoryByPath(pad);
   if (!node) notFound();
 
@@ -106,7 +108,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
           subCards={subCards}
           listing={
             <Suspense>
-              <ProductListing items={inCategory.map((p) => toListingItem(p))} promo={promo} />
+              <ProductListing data={buildListing(inCategory.map((p) => toListingItem(p)), sp)} promo={promo} />
             </Suspense>
           }
           total={inCategory.length}
@@ -130,7 +132,6 @@ export default async function CategoryPage({ params, searchParams }: Props) {
     );
   }
 
-  const products = inCategory.map((p) => toListingItem(p));
   const listCrumbs = weergave === "producten" ? [...crumbs, { label: "Alle producten" }] : crumbs;
 
   return (
@@ -153,7 +154,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
 
       <section aria-label={`Producten in ${node.name}`} className="mt-6">
         <Suspense>
-          <ProductListing items={products} promo={promo} />
+          <ProductListing data={buildListing(inCategory.map((p) => toListingItem(p)), sp)} promo={promo} />
         </Suspense>
       </section>
     </div>

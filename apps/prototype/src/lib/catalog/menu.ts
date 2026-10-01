@@ -10,6 +10,12 @@ export type MenuNode = {
   href: string;
   image?: ImageRef;
   children: MenuNode[];
+  /** Aantal producten (megamenu). */
+  count?: number;
+  /** Merken met producten in deze afdeling (enkel hoofdcategorieën, megamenu). */
+  merken?: { name: string; href: string; logo?: string }[];
+  /** Dienstkaart die bij deze afdeling past (enkel hoofdcategorieën, megamenu). */
+  dienst?: { titel: string; tekst: string; href: string; icon: "ruler" | "home" | "grid" };
 };
 
 function toNode(c: CategoryNode): MenuNode {

@@ -13,7 +13,29 @@ try {
   /* geen .env — Vercel of CI */
 }
 
+/**
+ * Content-Security-Policy (B27). Enkel eigen scripts en stijlen; beelden van het Shopify-CDN.
+ * 'unsafe-inline' voor scripts is nodig zolang de pagina's statisch/ISR gerenderd worden: Next
+ * zet zijn RSC-gegevens in inline scripts, en nonces vereisen volledig dynamische rendering.
+ * De kassa is een gewone navigatie naar Shopify en valt niet onder deze policy.
+ */
+const dev = process.env.NODE_ENV !== "production";
+const csp = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline'${dev ? " 'unsafe-eval'" : ""}`,
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob: https://cdn.shopify.com",
+  "font-src 'self' data:",
+  `connect-src 'self'${dev ? " ws: wss:" : ""}`,
+  "frame-src 'none'",
+  "frame-ancestors 'self'",
+  "form-action 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+].join("; ");
+
 const securityHeaders = [
+  { key: "Content-Security-Policy", value: csp },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
@@ -40,6 +62,8 @@ const nextConfig: NextConfig = {
       // Geen klantaccounts: offertes en de verlanglijst werken zonder login.
       { source: "/account", destination: "/verlanglijst", permanent: true },
       { source: "/info/over-dit-prototype", destination: "/info/over-ons", permanent: true },
+      // Desso is een merk van Tarkett en heeft geen eigen merkpagina (src/data/merken.ts → MERK_ONDER).
+      { source: "/merken/desso", destination: "/merken/tarkett", permanent: true },
     ];
   },
 };

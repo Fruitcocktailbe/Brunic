@@ -4,7 +4,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { SERVICE_BAR } from "@/lib/site/config";
 
-/** Zwarte servicebalk bovenaan (roterende boodschap; stopt bij hover/focus en bij reduced motion). */
+/**
+ * Zwarte servicebalk bovenaan (roterende boodschap; stopt bij hover/focus en bij reduced motion).
+ * Vaste hoogte van één regel (B10): een langere boodschap krijgt een beletselteken in plaats
+ * van een tweede regel, zodat de header niet om de 6 s van hoogte wisselt.
+ */
 export function ServiceBar() {
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -24,8 +28,8 @@ export function ServiceBar() {
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
-      <div className="shell flex min-h-[30px] items-center justify-center py-1 text-center text-[13px] leading-tight sm:text-[14px]">
-        <Link href={m.href} className="hover:underline">
+      <div className="shell flex h-[30px] items-center justify-center text-center text-[13px] sm:text-[14px]">
+        <Link href={m.href} className="block w-full min-w-0 truncate leading-[30px] hover:underline" title={`${m.text} ${m.strong}`}>
           {m.text} <strong className="font-semibold">{m.strong}</strong>
         </Link>
       </div>

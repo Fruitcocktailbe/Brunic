@@ -70,7 +70,7 @@ export async function verstuurAanvraag(_vorige: FormState, fd: FormData): Promis
   if (!email) velden.email = "Vul uw e-mailadres in.";
   else if (!geldigEmail(email)) velden.email = "Dit e-mailadres lijkt niet te kloppen.";
   if (telefoonVerplicht && telefoonRuw.length < 6) velden.telefoon = "Vul een telefoonnummer in waarop we u kunnen bereiken.";
-  if (postcode && !/^\d{4}$/.test(postcode)) velden.postcode = "Een Belgische postcode heeft 4 cijfers.";
+  if (postcode && !/^(\d{4}(\s?[A-Za-z]{2})?|\d{5})$/.test(postcode)) velden.postcode = "Vul een geldige postcode in (bv. 9400).";
   if (soort === "contact" && bericht.length < 5) velden.bericht = "Schrijf kort uw vraag.";
   if (fd.get("consent") !== "on") velden.consent = "We hebben uw akkoord nodig om u te mogen contacteren.";
   if (Object.keys(velden).length > 0) return { status: "fout", message: "Kijk de aangeduide velden even na.", velden };

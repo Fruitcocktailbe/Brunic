@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Suspense, type ReactNode } from "react";
-import type { ListingItem } from "@/lib/catalog/view";
+import type { ListingData } from "@/lib/catalog/listing";
 import type { ImageRef } from "@/lib/catalog/types";
 import type { FacetLabelMap } from "@/lib/catalog/filters";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
@@ -11,14 +11,15 @@ import { CategoryHeader } from "./category-header";
 import { ProductListing } from "./product-listing";
 
 /**
- * Gedeelde template voor samengestelde lijsten (Aanbiedingen, Nieuw binnen):
+ * Gedeelde template voor samengestelde lijsten (Aanbiedingen, Nieuw binnen) — de lijst
+ * wordt op de server gefilterd en gepagineerd (lib/catalog/listing.ts):
  * titel, strook met categoriekaartjes als snelle filter, productlijst (referentie:
  * "Promotions").
  */
 export function CollectionPage({
   title,
   intro,
-  items,
+  listing,
   categoryChips,
   promo,
   emptyState,
@@ -26,7 +27,7 @@ export function CollectionPage({
 }: {
   title: string;
   intro: string;
-  items: ListingItem[];
+  listing: ListingData;
   categoryChips: { name: string; href: string; image?: ImageRef; count: number }[];
   promo?: ReactNode;
   emptyState?: ReactNode;
@@ -58,7 +59,7 @@ export function CollectionPage({
       )}
       <div className="mt-6">
         <Suspense>
-          <ProductListing items={items} promo={promo} emptyState={emptyState} showOffersToggle={false} facetLabels={facetLabels} />
+          <ProductListing data={listing} promo={promo} emptyState={emptyState} showOffersToggle={false} facetLabels={facetLabels} />
         </Suspense>
       </div>
     </div>

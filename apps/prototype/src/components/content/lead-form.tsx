@@ -25,6 +25,8 @@ export type FormField = {
 };
 
 const MAX_FOTOS = 5;
+/** BE/LU (4 cijfers), NL (4 cijfers + 2 letters) of FR/DE (5 cijfers). */
+const POSTCODE = /^(\d{4}(\s?[A-Za-z]{2})?|\d{5})$/;
 
 /** Foto verkleinen in de browser (max. 1600 px, JPEG): houdt de verzending onder de limiet van de server. */
 async function verklein(file: File): Promise<File> {
@@ -83,6 +85,9 @@ export function LeadForm({
   const producten = useProductContext(productContext);
   // Met producten erbij is het een offerteaanvraag (ook op de opmetingspagina).
   const effectief: LeadSoort = producten.length > 0 ? "offerte" : soort;
+  // Bij een productofferte (B24): geen keuze "Waarvoor?" (het product zegt het al) en de
+  // postcode is optioneel — die is enkel nodig om een opmeting aan huis te plannen.
+  const velden = producten.length > 0 ? fields.filter((f) => f.name !== "onderwerp").map((f) => (f.name === "postcode" ? { ...f, required: false } : f)) : fields;
 
   useEffect(() => {
     if (state.status === "ok") statusRef.current?.focus();
@@ -90,12 +95,12 @@ export function LeadForm({
 
   const validate = (data: FormData) => {
     const e: Record<string, string> = {};
-    for (const f of fields) {
+    for (const f of velden) {
       const v = String(data.get(f.name) ?? "").trim();
       if (f.required && !v) e[f.name] = `${f.label} is verplicht.`;
       else if (v && f.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) e[f.name] = "Vul een geldig e-mailadres in.";
       else if (v && f.type === "tel" && !/^[+0-9 ()/.-]{8,}$/.test(v)) e[f.name] = "Vul een geldig telefoonnummer in.";
-      else if (v && f.type === "postcode" && !/^\d{4}$/.test(v)) e[f.name] = "Een Belgische postcode heeft 4 cijfers.";
+      else if (v && f.type === "postcode" && !POSTCODE.test(v)) e[f.name] = "Vul een geldige postcode in (bv. 9400).";
     }
     if (data.get("consent") !== "on") e.consent = "We hebben uw akkoord nodig om u te mogen contacteren.";
     return e;
@@ -173,7 +178,8 @@ export function LeadForm({
         <input type="hidden" name="soort" value={effectief} />
         <input type="hidden" name="_bron" value={pathname} />
         <input type="hidden" name="_t" value={start} />
-        <input type="hidden" name="_telefoonVerplicht" value={fields.some((f) => f.name === "telefoon" && f.required) ? "1" : "0"} />
+        <input type="hidden" name="_telefoonVerplicht" value={velden.some((f) => f.name === "telefoon" && f.required) ? "1" : "0"} />
+        {producten.length > 0 && <input type="hidden" name="onderwerp" value="Offerte voor producten" />}
         {producten.map(({ p, variantId }) => (
           <input key={`${p.card.slug}|${variantId ?? ""}`} type="hidden" name="product" value={`${p.card.slug}|${variantId ?? ""}`} />
         ))}
@@ -185,7 +191,7 @@ export function LeadForm({
         </div>
 
         <div className="grid gap-x-4 gap-y-5 md:grid-cols-2">
-          {fields.map((f) => {
+          {velden.map((f) => {
             const fid = `${id}-${f.name}`;
             const err = errors[f.name];
             const common = {
@@ -221,8 +227,8 @@ export function LeadForm({
                   <input
                     {...common}
                     type={f.type === "postcode" ? "text" : (f.type ?? "text")}
-                    inputMode={f.type === "postcode" ? "numeric" : f.type === "tel" ? "tel" : undefined}
-                    maxLength={f.type === "postcode" ? 4 : 160}
+                    inputMode={f.type === "tel" ? "tel" : undefined}
+                    maxLength={f.type === "postcode" ? 8 : 160}
                     className="field"
                   />
                 )}
