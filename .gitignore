@@ -1,6 +1,8 @@
 # Ruwe klantdata — device-local, nooit committen (GDPR + 10MB+ exports)
 data/*
 !data/README.md
+# ERP-exports (leverancierslijsten e.d.) — repo is publiek
+excel/
 
 # Secrets
 .env
@@ -13,6 +15,8 @@ node_modules/
 .vercel/
 .turbo/
 dist/
+__pycache__/
+*.pyc
 
 # OS/editor
 .DS_Store
