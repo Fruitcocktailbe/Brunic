@@ -50,8 +50,10 @@ async function storefront(query, variables = {}) {
       body: JSON.stringify({ query, variables }),
     });
     const json = await res.json().catch(() => ({}));
-    const throttled = res.status === 429 || json.errors?.some?.((e) => e.extensions?.code === "THROTTLED");
-    if (throttled && poging < 8) {
+    // 429/430 = throttled; een 5xx geeft Shopify soms tijdelijk midden in de paginering (gezien op Vercel-builds).
+    const tijdelijk =
+      res.status === 429 || res.status === 430 || res.status >= 500 || json.errors?.some?.((e) => e.extensions?.code === "THROTTLED");
+    if (tijdelijk && poging < 8) {
       await new Promise((r) => setTimeout(r, 1000 * poging));
       continue;
     }
